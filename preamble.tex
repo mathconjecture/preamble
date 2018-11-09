@@ -1,15 +1,25 @@
 \documentclass[a4paper,10pt]{report}
-\usepackage{etex}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{etex} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Babel language package
 \usepackage[english,greek]{babel}
 % Inputenc font encoding
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% \usepackage{xltxtra} 
+% \usepackage{xgreek} 
+% \setmainfont[Mapping=tex-text]{GFS Didot} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{kmath,kerkis} % The order of the packages matters  
+%\usepackage[T1]{fontenc}
+
+
+\usepackage[shrink=10,stretch=10]{microtype} 
 \usepackage{extsizes}
 \usepackage{multicol}
-
+\usepackage{lmodern} 
 %%%%% math packages %%%%%%%%%%%%%%%%%%
 \usepackage[intlimits]{amsmath}
 \usepackage{amssymb}
@@ -19,8 +29,9 @@
 \usepackage{mathtools}
 
 \usepackage[italicdiff]{physics}
-\usepackage{siunitx}
+\usepackage[detect-all]{siunitx}
 \usepackage{xfrac}
+\usepackage[b]{esvect} 
 
 %%%%%%% symbols packages %%%%%%%%%%%%%%
 \usepackage{bm} %for use \bm instead \boldsymbol in math mode
@@ -32,6 +43,7 @@
 %%%%%% graphics %%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{graphicx}
 \usepackage{color}
+\usepackage{tikz} 
 %\usepackage{xypic}
 %\usepackage[all]{xy}
 %\usepackage{calc}
@@ -42,9 +54,12 @@
 \usepackage{multirow}
 \usepackage{makecell}
 \usepackage{minibox}
+\usepackage{systeme}
+\usepackage{cite} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage{enumerate}
+\usepackage{paralist}
 
 \usepackage{fancyhdr}
 %%%%% header and footer rule %%%%%%%%%
@@ -101,3 +116,62 @@ pdfpagelayout=OneColumn,
 \newtheorem{remark}{Παρατήρηση}[section]
 \newtheorem{remarks}[remark]{Παρατηρήσεις}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheoremstyle{break}
+{\topsep}{\topsep}%
+{\itshape}{}%
+{\bfseries}{}%
+{\newline}{}%
+
+\theoremstyle{break}
+\newtheorem{thmbreak}{Θεώρημα}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%defines \inlineequation[<label name>]{<equation>}
+%%%%% label inline equations and allow reference
+\makeatletter
+\newcommand*{\inlineequation}[2][]{%
+	\begingroup
+    % Put \refstepcounter at the beginning, because
+	% package `hyperref' sets the anchor here.
+	 \refstepcounter{equation}%
+	\ifx\\#1\\%
+\else
+	 \label{#1}%
+ \fi
+ % prevent line breaks inside equation
+ \relpenalty=10000 %
+ \binoppenalty=10000 %
+ \ensuremath{%
+	 % \displaystyle % larger fractions, ...
+	 #2%
+ }%
+ ~\@eqnnum
+ \endgroup
+}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%\mybrace{<first>}{<second>}[<Optional text>]
+%%% wrap with braces list environments
+\NewDocumentCommand\mybrace{mmo}{%
+\IfValueTF {#3}{%
+\begin{tikzpicture}[overlay, remember picture,decoration={brace,amplitude=1ex}]
+	ack] (#1.north east) -- (#2.south east) node[midway, right=0.1cm]
+	{$\Rightarrow$}node[midway, right=0.5cm,text=black,text width = 2in,] {{#3}};
+	\end{tikzpicture}%
+}%
+{%
+	\begin{tikzpicture}[overlay, remember
+		picture,decoration={brace,amplitude=1ex}]
+		ack] (#1.north east) -- (#2.south east);
+		\end{tikzpicture}%
+	}%
+}%a
+%%%%%%%How to use this %%%%%%%%%%%%%%%%%%%%%%%%%
+%use \tikzmark{a} and \tikzmark{b} at first and last \item where the brace is
+%wanted
+%use the following command after \end{enumerate}
+%\mybrace{a}{b}[Text comes here to describe these to items and justify for your
+%case]]

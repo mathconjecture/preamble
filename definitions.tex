@@ -1,12 +1,10 @@
 %%%%%%% nesting newcommands $$$$$$$$$$$$$$$$$$$
 \newcommand{\function}[1]{\newcommand{\nvec}[2]{#1(##1_1,\ldots, ##1_##2)}}
 
-\newcommand{\linode}[2]{#1_n(x)#2^{(n)}+#1_{n-1}(x)#2^{(n-1)}+\cdots +#1_0(x)#2=g(x)}
-
-\newcommand{\vecoffun}[3]{#1_0(#2),\ldots ,#1_#3(#2)}
+\newcommand{\linode}[2]{#1_n(x)#2^{(n)}+#1_{n-1}(x)#2^{(n-1)}+\cdots +#1_0(x)#2=g(x)} 
+\newcommand{\vecoffun}[3]{#1_0(#2),\ldots,#1_#3(#2)}
 
 \newcommand{\mysum}[1]{\sum_{n=#1}^{\infty}}
-
 
 
 \renewcommand{\vector}[1]{(x_1,x_2,\ldots,x_{#1})}
@@ -19,6 +17,52 @@
 \newcommand{\rss}[2]{\vb{r}(s)=#1\,\vb{i}+#2\,\vb{j}}
 \newcommand{\vect}[4]{\vb{#1}=#2\,\vb{i}+#3\,\vb{j}+#4\,\vb{k}}
 \newcommand{\vectt}[3]{\vb{#1}=#2\,\vb{i}+#3\,\vb{j}}
-
+\newcommand{\vectsur}[3]{\vb{r}(u,v)=#1\,\vb{i}+#2\,\vb{j}+#3\,\vb{k}}
 
 \DeclareMathOperator{\Arg}{Arg}
+
+% --- Macro \xvec
+\makeatletter
+\newlength\xvec@height%
+\newlength\xvec@depth%
+\newlength\xvec@width%
+\newcommand{\xvec}[2][]{%
+  \ifmmode%
+    \settoheight{\xvec@height}{$#2$}%
+    \settodepth{\xvec@depth}{$#2$}%
+    \settowidth{\xvec@width}{$#2$}%
+  \else%
+    \settoheight{\xvec@height}{#2}%
+    \settodepth{\xvec@depth}{#2}%
+    \settowidth{\xvec@width}{#2}%
+  \fi%
+  \def\xvec@arg{#1}%
+  \def\xvec@dd{:}%
+  \def\xvec@d{.}%
+  \raisebox{.2ex}{\raisebox{\xvec@height}{\rlap{%
+    \kern.05em%  (Because left edge of drawing is at .05em)
+    \begin{tikzpicture}[scale=1]
+    \pgfsetroundcap
+    \draw (.05em,0)--(\xvec@width-.05em,0);
+    \draw (\xvec@width-.05em,0)--(\xvec@width-.15em, .075em);
+    \draw (\xvec@width-.05em,0)--(\xvec@width-.15em,-.075em);
+    \ifx\xvec@arg\xvec@d%
+      \fill(\xvec@width*.45,.5ex) circle (.5pt);%
+    \else\ifx\xvec@arg\xvec@dd%
+      \fill(\xvec@width*.30,.5ex) circle (.5pt);%
+      \fill(\xvec@width*.65,.5ex) circle (.5pt);%
+    \fi\fi%
+    \end{tikzpicture}%
+  }}}%
+  #2%
+}
+\makeatother
+
+% --- Override \vec with an invocation of \xvec.
+\let\stdvec\vec
+\renewcommand{\vec}[1]{\xvec[]{#1}}
+% --- Define \dvec and \ddvec for dotted and double-dotted vectors.
+\newcommand{\dvec}[1]{\xvec[.]{#1}}
+\newcommand{\ddvec}[1]{\xvec[:]{#1}}
+
+
