@@ -129,6 +129,11 @@
  \newwatermark[allpages,color=blue!8,angle=45,scale=3,xpos=0,ypos=0]{ΠΡΟΣΗΜΟ}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+ %%%%%%%%%%%%%%%%%%% fancy enumitem cicled label %%%%%%%%%%%%%%%%%%
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=0.3pt] (char) {#1};}}
+% use it like \begin{enumerate}[label=\protect\circled{\Alph{enumi}}]
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%defines \inlineequation[<label name>]{<equation>}
 %%%%% label inline equations and allow reference

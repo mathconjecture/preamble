@@ -125,7 +125,7 @@
 %%%%%%%%%%%%Watermark%%%%%%%%%%%%%%%%%%
  \usepackage[printwatermark]{xwatermark} 
 
- \newwatermark[allpages,color=blue!8,angle=45,scale=3,xpos=0,ypos=0]{ΠΡΟΣΗΜΟ}
+ \newwatermark*[allpages,color=blue!8,angle=45,scale=3,xpos=0,ypos=0]{ΠΡΟΣΗΜΟ}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -188,14 +188,15 @@ myboxtitlethm/.style={rectangle, fill=magenta!55, text=white, font={\bfseries},r
 
  %chapter format
 \titleformat{\chapter}[display]%
-  {\bfseries\Huge}% format applied to label+text
+{\bfseries\Huge\color{blue!55}\itshape}% format applied to label+text
     {\begin{tikzpicture}
             \node[rectangle,fill=blue!55,text=white]{\fontsize{40}{50}\selectfont
             \thechapter} ;
 \end{tikzpicture}}%label
   {1.5\baselineskip}% horizontal separation between label and title body
   {}% before the title body
-  [{\color{blue!55}\titlerule[2pt]}]% after the title body
+  []% after the title body
+  %[{\color{blue!55}\titlerule[2pt]}]% after the title body
 
 % section format
   \titleformat{\section}%
