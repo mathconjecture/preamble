@@ -1,0 +1,265 @@
+\documentclass[a4paper,justified]{tufte-book}
+% Babel language package
+% \usepackage[english,greek]{babel}
+% \usepackage[utf8]{inputenc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \usepackage{xltxtra} 
+% \usepackage{xgreek} 
+% \setmainfont[Mapping=tex-text]{GFS Didot} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{kmath,kerkis} % The order of the packages matters  
+%\usepackage[T1]{fontenc}
+
+
+%%%%%%%%%%%%%%%%%%%%
+\usepackage{fontspec}
+\usepackage{libertine}
+%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{amssymb, amsbsy}
+\usepackage{amsmath, amsthm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{empheq}
+\usepackage{latexsym}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{paralist}[2013/06/09]
+\usepackage{fancyhdr}
+\usepackage{epic, eepic}
+\usepackage{geometry}
+% \geometry{top=1in, bottom=2.5cm,left=1.cm,right=7.6cm,marginparwidth=5.5cm}
+%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{multicol}
+%%%%% math packages %%%%%%%%%%%%%%%%%%
+\usepackage{proof}
+
+\usepackage[italicdiff]{physics}
+\usepackage[detect-all]{siunitx}
+\usepackage{xfrac}
+\usepackage[b]{esvect} 
+
+%%%%%%% symbols packages %%%%%%%%%%%%%%
+\usepackage{bm} %for use \bm instead \boldsymbol in math mode
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%% graphics %%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+\usepackage{xcolor}
+%\usepackage{xypic}
+%\usepackage[all]{xy}
+%\usepackage{calc}
+
+%%%%%% tables %%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{minibox}
+\usepackage{systeme}
+\usepackage{cite} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{enumerate}
+
+\usepackage{fancyhdr}
+%%%%% header and footer rule %%%%%%%%%
+\setlength{\headheight}{14pt}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancypagestyle{plain}{\fancyhf{}
+\fancyhead{}
+\lfoot{\small \hrule \vspace{5pt}\color{magenta} Βαγγέλης Σαπουνάκης}
+\cfoot{\small \hrule \vspace{5pt}\color{blue!75} Φοιτητικό Πρόσημο}
+\rfoot{\small \hrule \vspace{5pt} \thepage}}
+\fancypagestyle{vangelis}{\fancyhf{}
+\rhead{\small }
+\lhead{\small }
+\lfoot{\small \hrule \vspace{5pt}\color{magenta} Βαγγέλης Σαπουνάκης}
+\cfoot{\small \hrule \vspace{5pt}\color{blue!75} Φοιτητικό Πρόσημο}
+\rfoot{\small \hrule \vspace{5pt} \thepage}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\usepackage{hyperref}
+%\usepackage{url}
+%%%%%%%% hyperref settings %%%%%%%%%%%%
+%\hypersetup{pdfpagemode=UseOutlines,hidelinks,
+%bookmarksopen=true,
+%pdfdisplaydoctitle=true,
+%pdfstartview=Fit,
+%unicode=true,
+%pdfpagelayout=OneColumn,
+%}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% \usepackage{geometry}
+% \geometry{left=25.63mm,right=25.63mm,top=36.25mm,bottom=36.25mm,footskip=24.16mm,headsep=24.16mm}
+
+\usepackage{titlesec}
+%%%%%% titlesec settings %%%%%%%%%%%%%
+%\titleformat{\chapter}[block]{\LARGE\sc\bfseries}{\thechapter.}{1ex}{#1}
+%\titlespacing*{\chapter}{0cm}{0cm}{36pt}[0ex]
+%\titleformat{\section}[block]{\Large\bfseries}{\thesection.}{1ex}{#1}
+%\titlespacing*{\section}{0cm}{34.56pt}{17.28pt}[0ex]
+%\titleformat{\subsection}[block]{\large\bfseries{\thesubsection.}{1ex}{#1}
+%\titlespacing*{\subsection}{0pt}{28.80pt}{14.40pt}[0ex]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%% My Theorems %%%%%%%%%%%%%%%%%%
+\newtheorem{thm}{Θεώρημα}[]
+\newtheorem{cor}[thm]{Πόρισμα}
+\newtheorem{lem}[thm]{Λήμμα}
+\newtheorem{prop}[thm]{Πρόταση}
+\theoremstyle{definition}
+\newtheorem{dfn}{Ορισμός}[]
+\newtheorem{dfns}[dfn]{Ορισμοί}
+\newtheorem{exam}[thm]{Παράδειγμα}
+\newtheorem{exams}[thm]{Παραδείγματα}
+\theoremstyle{remark}
+\newtheorem{rem}{Παρατήρηση}[]
+\newtheorem{rems}[rem]{Παρατηρήσεις}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheoremstyle{break}
+{\topsep}{\topsep}%
+{\itshape}{}%
+{\bfseries}{}%
+{\newline}{}%
+
+\theoremstyle{break}
+\newtheorem{thmbreak}{Θεώρημα}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[printwatermark]{xwatermark} 
+
+\newwatermark[allpages,color=blue!3,angle=45,scale=3,xpos=0,ypos=0]{ΠΡΟΣΗΜΟ}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%defines \inlineequation[<label name>]{<equation>}
+%%%%% label inline equations and allow reference
+\makeatletter
+\newcommand*{\inlineequation}[2][]{%
+	\begingroup
+    % Put \refstepcounter at the beginning, because
+	% package `hyperref' sets the anchor here.
+	 \refstepcounter{equation}%
+	\ifx\\#1\\%
+\else
+	 \label{#1}%
+ \fi
+ % prevent line breaks inside equation
+ \relpenalty=10000 %
+ \binoppenalty=10000 %
+ \ensuremath{%
+	 % \displaystyle % larger fractions, ...
+	 #2%
+ }%
+ ~\@eqnnum
+ \endgroup
+}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%\mybrace{<first>}{<second>}[<Optional text>]
+%%% wrap with braces list environments
+\NewDocumentCommand\mybrace{mmo}{%
+\IfValueTF {#3}{%
+\begin{tikzpicture}[overlay, remember picture,decoration={brace,amplitude=1ex}]
+	ack] (#1.north east) -- (#2.south east) node[midway, right=0.1cm]
+	{$\Rightarrow$}node[midway, right=0.5cm,text=black,text width = 2in,] {{#3}};
+	\end{tikzpicture}%
+}%
+{%
+	\begin{tikzpicture}[overlay, remember
+		picture,decoration={brace,amplitude=1ex}]
+		ack] (#1.north east) -- (#2.south east);
+		\end{tikzpicture}%
+	}%
+}%a
+%%%%%%%How to use this %%%%%%%%%%%%%%%%%%%%%%%%%
+%use \tikzmark{a} and \tikzmark{b} at first and last \item where the brace is
+%wanted
+%use the following command after \end{enumerate}
+%\mybrace{a}{b}[Text comes here to describe these to items and justify for your
+%case]]
+
+
+% \def\chpcolor{blue!45}
+% \def\chpcolortxt{blue!60}
+% \def\sectionfont{\sffamily\LARGE}
+
+% \setcounter{secnumdepth}{2}
+
+
+%%%%%%%%%%%%%%%%% My Sections %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\makeatletter
+%%Section:
+%\def\@sectionstrut{\vrule\@width\z@\@height12.5\p@}
+%\def\@makesectionhead#1{%
+%    {\par\vspace{20pt}%
+%        \parindent 0pt\raggedleft\sectionfont
+%        \colorbox{\chpcolor}{%
+%            \parbox[t]{30pt}{\color{white}\@sectionstrut\@depth4.5\p@\hfill
+% \ifnum\c@secnumdepth>\z@\thesection\fi}%
+% }%
+% \begin{minipage}[t]{\dimexpr\textwidth-10pt-2\fboxsep\relax}
+%\color{\chpcolortxt}\@sectionstrut\hspace{5pt}#1
+% \end{minipage}\par
+%\vspace{10pt}%
+%}
+%}
+
+% \def\section{\@afterindentfalse\secdef\@section\@ssection}
+% \def\@section[#1]#2{%
+%     \ifnum\c@secnumdepth>\m@ne
+%         \refstepcounter{section}%
+%         \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}%
+%     \else
+%         \phantomsection
+%         \addcontentsline{toc}{section}{#1}%
+%     \fi
+%     \sectionmark{#1}%
+% \if@twocolumn
+%     \@topnewpage[\@makesectionhead{#2}]%
+%  \else
+%      \@makesectionhead{#2}\@afterheading
+%  \fi
+% }
+% \def\@ssection#1{%A
+% \if@twocolumn
+%     \@topnewpage[\@makesectionhead{#1}]%
+% \else
+%     \@makesectionhead{#1}\@afterheading
+% \fi
+% }
+% \makeatother
+
+\setcounter{secnumdepth}{2}
+
+ %chapter format
+\titleformat{\chapter}[display]{\bfseries\Huge}{%
+\begin{tikzpicture}
+    \node[draw,rectangle,fill=blue!55,text=white]{\fontsize{40}{50}\selectfont\thechapter} ;
+\end{tikzpicture}}
+{0.5\baselineskip}{}[{\color{blue!55}\titlerule[2pt]}]
+
+% section format
+\titleformat{\section}%
+  {\normalfont\LARGE\bfseries\itshape\color{blue!55}}% format applied to label+text
+  {\llap{\colorbox{blue!55}{\parbox{0.9cm}{\hfill\color{white}\thesection}}}}% label
+  {1em}% horizontal separation between label and title body
+  {}% before the title body
+  []% after the title body
+
+% subsection format
+\titleformat{\subsection}%
+  {\normalfont\Large\bfseries\itshape\color{blue!55}}% format applied to label+text
+  {\llap{\colorbox{blue!55}{\parbox{0.9cm}{\hfill\color{white}\thesubsection}}}}% label
+  {1em}% horizontal separation between label and title body
+  {}% before the title body
+  []% after the title body 
+

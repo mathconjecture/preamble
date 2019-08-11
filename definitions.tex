@@ -1,3 +1,6 @@
+\DeclareMathOperator{\Arg}{Arg}
+\DeclareMathOperator{\Span}{span}
+
 %%%%%%% nesting newcommands $$$$$$$$$$$$$$$$$$$
 \newcommand{\function}[1]{\newcommand{\nvec}[2]{#1(##1_1,\ldots, ##1_##2)}}
 
@@ -11,6 +14,8 @@
 \newcommand{\avector}[2]{(#1_1,#1_2,\ldots,#1_{#2})}
 \newcommand{\aDEFvector}[2][a]{(#1_1,#1_2,\ldots,#1_{#2})}
 
+
+
 \newcommand{\rt}[3]{\vb{r}(t)=#1\,\vb{i}+#2\,\vb{j}+#3\,\vb{k}}
 \newcommand{\rtt}[2]{\vb{r}(t)=#1\,\vb{i}+#2\,\vb{j}}
 \newcommand{\rs}[3]{\vb{r}(s)=#1\,\vb{i}+#2\,\vb{j}+#3\,\vb{k}}
@@ -19,7 +24,6 @@
 \newcommand{\vectt}[3]{\vb{#1}=#2\,\vb{i}+#3\,\vb{j}}
 \newcommand{\vectsur}[3]{\vb{r}(u,v)=#1\,\vb{i}+#2\,\vb{j}+#3\,\vb{k}}
 
-\DeclareMathOperator{\Arg}{Arg}
 
 % --- Macro \xvec
 \makeatletter

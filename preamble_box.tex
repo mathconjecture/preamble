@@ -1,42 +1,44 @@
-\documentclass[a4paper,10pt]{report}
-\usepackage{etex} %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper,justified]{report}
+% Babel language package
+% \usepackage[english,greek]{babel}
+% \usepackage[utf8]{inputenc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%% Babel language package
-%\usepackage[english,greek]{babel}
-%%% Inputenc font encoding
-%\usepackage[utf8]{inputenc}
-%% \usepackage[T1]{fontenc} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \usepackage{xltxtra} 
+% \usepackage{xgreek} 
+% \setmainfont[Mapping=tex-text]{GFS Didot} 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{kmath,kerkis} % The order of the packages matters  
+%\usepackage[T1]{fontenc}
+
+
+%%%%%%%%%%%%%%%%%%%%
 \usepackage{fontspec}
 \usepackage{libertine}
+%%%%%%%%%%%%%%%%%%%%
 
-\usepackage[shrink=10,stretch=10]{microtype} 
-\usepackage{multicol}
-%%%%% math packages %%%%%%%%%%%%%%%%%%
-\usepackage[intlimits]{amsmath}
-\usepackage{amssymb}
+\usepackage{amssymb, amsbsy}
+\usepackage{amsmath, amsthm}
 \usepackage{amsfonts}
-\usepackage{amsthm}
-\usepackage{proof}
 \usepackage{mathtools}
+\usepackage{bm}
+\usepackage{fancyhdr}
+\usepackage{epic, eepic}
+%%%%%%%%%%%%%%%%%%%%
+
+%%%%% math packages %%%%%%%%%%%%%%%%%%
+\usepackage{proof}
 
 \usepackage[italicdiff]{physics}
 \usepackage[detect-all]{siunitx}
-\usepackage{xfrac}
-\usepackage[b]{esvect} 
 
 %%%%%%% symbols packages %%%%%%%%%%%%%%
-\usepackage{bbm} %for use \bm instead \boldsymbol in math mode
-\usepackage{dsfont}
-\usepackage{stmaryrd}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %%%%%% graphics %%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{graphicx}
-\usepackage[dvipsnames]{xcolor}
-\usepackage{tikz} 
+\usepackage{xcolor}
 %\usepackage{xypic}
 %\usepackage[all]{xy}
 %\usepackage{calc}
@@ -49,30 +51,26 @@
 \usepackage{minibox}
 \usepackage{systeme}
 \usepackage{cite} 
-\usepackage{extarrows} 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage[shortlabels,inline]{enumitem} 
-% \usepackage{enumerate}
+\usepackage{enumerate}
 
 \usepackage{fancyhdr}
-
- %%%%% header and footer rule %%%%%%%%%
+%%%%% header and footer rule %%%%%%%%%
 \setlength{\headheight}{14pt}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 \fancypagestyle{plain}{\fancyhf{}
 \fancyhead{}
-\lfoot{\small \hrule \vspace{5pt}\textcolor{magenta}{Φοιτητικό Πρόσημο}}
-% \lfoot{\small \hrule \vspace{2pt} \includegraphics[scale=0.15]{foititikologo.jpg}}
-\rfoot{\small \vspace{5pt} \thepage}}
+\lfoot{\small \hrule \vspace{5pt}\color{magenta} Βαγγέλης Σαπουνάκης}
+\cfoot{\small \hrule \vspace{5pt}\color{blue!75} Φοιτητικό Πρόσημο}
+\rfoot{\small \hrule \vspace{5pt} \thepage}}
 \fancypagestyle{vangelis}{\fancyhf{}
 \rhead{\small }
 \lhead{\small }
-\lfoot{\small \hrule \vspace{5pt} \textcolor{magenta}{Φοιτητικό Πρόσημο}}
-% \lfoot{\small \hrule \vspace{2pt} \includegraphics[scale=0.15]{foititikologo.jpg}}
-\rfoot{\small \vspace{5pt} \thepage}}
+\lfoot{\small \hrule \vspace{5pt}\color{magenta} Βαγγέλης Σαπουνάκης}
+\cfoot{\small \hrule \vspace{5pt}\color{blue!75} Φοιτητικό Πρόσημο}
+\rfoot{\small \hrule \vspace{5pt} \thepage}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\usepackage{hyperref}
@@ -87,12 +85,11 @@
 %}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage[space]{grffile}
 
-\usepackage{geometry}
-\geometry{left=25.63mm,right=25.63mm,top=36.25mm,bottom=36.25mm,footskip=24.16mm,headsep=24.16mm}
+% \usepackage{geometry}
+% \geometry{left=25.63mm,right=25.63mm,top=36.25mm,bottom=36.25mm,footskip=24.16mm,headsep=24.16mm}
 
-%\usepackage[explicit]{titlesec}
+\usepackage{titlesec}
 %%%%%% titlesec settings %%%%%%%%%%%%%
 %\titleformat{\chapter}[block]{\LARGE\sc\bfseries}{\thechapter.}{1ex}{#1}
 %\titlespacing*{\chapter}{0cm}{0cm}{36pt}[0ex]
@@ -107,7 +104,6 @@
 \newtheorem{cor}[thm]{Πόρισμα}
 \newtheorem{lem}[thm]{Λήμμα}
 \newtheorem{prop}[thm]{Πρόταση}
-\newtheorem{isx}[thm]{Ισχυρισμός}
 \theoremstyle{definition}
 \newtheorem{dfn}{Ορισμός}[]
 \newtheorem{dfns}[dfn]{Ορισμοί}
@@ -127,6 +123,9 @@
 \newtheorem{thmbreak}{Θεώρημα}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\usepackage[printwatermark]{xwatermark} 
+
+\newwatermark[allpages,color=blue!3,angle=45,scale=3,xpos=0,ypos=0]{ΠΡΟΣΗΜΟ}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%defines \inlineequation[<label name>]{<equation>}
@@ -159,8 +158,9 @@
 \NewDocumentCommand\mybrace{mmo}{%
 \IfValueTF {#3}{%
 \begin{tikzpicture}[overlay, remember picture,decoration={brace,amplitude=1ex}]
-	ack] (#1.north east) -- (#2.south east) node[midway, right=0.1cm]
-	{$\Rightarrow$}node[midway, right=0.5cm,text=black,text width = 2in,] {{#3}};
+	ack] (#1.north east) -- (#2.south east) 
+    node[midway, right=0.1cm] {$\Rightarrow$}
+    node[midway, right=0.5cm,text=black,text width = 2in,] {{#3}};
 	\end{tikzpicture}%
 }%
 {%
@@ -169,11 +169,33 @@
 		ack] (#1.north east) -- (#2.south east);
 		\end{tikzpicture}%
 	}%
-}%a
-%%%%%%%How to use this %%%%%%%%%%%%%%%%%%%%%%%%%
-%use \tikzmark{a} and \tikzmark{b} at first and last \item where the brace is
-%wanted
-%use the following command after \end{enumerate}
-%\mybrace{a}{b}[Text comes here to describe these to items and justify for your
-%case]]
+}
+
+
+
+\setcounter{secnumdepth}{2}
+
+ %chapter format
+\titleformat{\chapter}[display]
+{\normalfont\Huge\bfseries\itshape}{%
+\begin{tikzpicture}
+    \node[draw,rectangle,fill=blue!55,text=white]{\fontsize{30}{40}\selectfont\thechapter} ;
+\end{tikzpicture}}
+{0.5\baselineskip}{}[{\color{blue!55}\titlerule[2pt]}]
+
+% section format
+\titleformat{\section}%
+  {\normalfont\Large\bfseries\itshape\color{blue!55}}% format applied to label+text
+  {\llap{\colorbox{blue!55}{\parbox{0.9cm}{\hfill\color{white}\thesection}}}}% label
+  {1em}% horizontal separation between label and title body
+  {}% before the title body
+  []% after the title body
+
+% subsection format
+\titleformat{\subsection}%
+  {\normalfont\large\bfseries\itshape\color{blue!55}}% format applied to label+text
+  {\llap{\colorbox{blue!55}{\parbox{0.9cm}{\hfill\color{white}\thesubsection}}}}% label
+  {1em}% horizontal separation between label and title body
+  {}% before the title body
+  []% after the title body 
 
