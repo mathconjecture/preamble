@@ -123,9 +123,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%Watermark%%%%%%%%%%%%%%%%%%
-% \usepackage[printwatermark]{xwatermark} 
+ \usepackage[printwatermark]{xwatermark} 
 
-% \newwatermark[allpages,color=blue!8,angle=45,scale=3,xpos=0,ypos=0]{ΠΡΟΣΗΜΟ}
+ \newwatermark[allpages,color=blue!8,angle=45,scale=3,xpos=0,ypos=0]{ΠΡΟΣΗΜΟ}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -178,6 +178,11 @@
 %case]]
 
 
+%%%%%%%%%%%%%%%%%%% My Box Styles %%%%%%%%%%%%%%%%%%%%%%%%%
+\tikzset{myboxdfn/.style = {draw=blue!55,rectangle, ultra thick, fill=blue!6, inner sep=10pt},
+myboxtitledfn/.style={rectangle, fill=blue!55, text=white, font={\bfseries},right=2\baselineskip},
+myboxthm/.style = {draw=magenta!55,rectangle, ultra thick, fill=magenta!6, inner sep=10pt},
+myboxtitlethm/.style={rectangle, fill=magenta!55, text=white, font={\bfseries},right=2\baselineskip}}
 
 \setcounter{secnumdepth}{2}
 
@@ -188,20 +193,20 @@
             \node[rectangle,fill=blue!55,text=white]{\fontsize{40}{50}\selectfont
             \thechapter} ;
 \end{tikzpicture}}%label
-  {0.5\baselineskip}% horizontal separation between label and title body
+  {1.5\baselineskip}% horizontal separation between label and title body
   {}% before the title body
   [{\color{blue!55}\titlerule[2pt]}]% after the title body
 
 % section format
   \titleformat{\section}%
-  {\normalfont\LARGE\bfseries\itshape\color{blue!55}}% format applied to label+text
+  {\normalfont\Large\bfseries\itshape\color{blue!55}}% format applied to label+text
   {\llap{\colorbox{blue!55}{\parbox{0.9cm}{\hfill\color{white}\thesection}}}}% label
   {1em}% horizontal separation between label and title body
   {}% before the title body
   [] % after the title body 
 % subsection format
 \titleformat{\subsection}%
-  {\normalfont\Large\bfseries\itshape\color{blue!55}}% format applied to label+text
+  {\normalfont\large\bfseries\itshape\color{blue!55}}% format applied to label+text
   {\llap{\colorbox{blue!55}{\parbox{0.9cm}{\hfill\color{white}\thesubsection}}}}% label
   {1em}% horizontal separation between label and title body
   {}% before the title body

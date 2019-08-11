@@ -1,4 +1,4 @@
-\documentclass[a4paper,10pt]{report}
+\documentclass[a4paper]{report}
 
 %%% Babel language package
 %\usepackage[english,greek]{babel}
@@ -25,8 +25,9 @@
 
 %%%%%%% symbols packages %%%%%%%%%%%%%%
 \usepackage{bbm} %for use \bm instead \boldsymbol in math mode
-\usepackage{dsfont}
-\usepackage{stmaryrd}
+% \usepackage{dsfont}
+% \usepackage{stmaryrd}
+\usepackage{anyfontsize}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -49,30 +50,27 @@
 \usepackage{cite} 
 \usepackage{extarrows} 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \usepackage{enumerate}
-\usepackage[shortlabels,inline]{enumitem} 
-% \usepackage{enumerate}
+\usepackage[shortlabels,inline]{enumitem}
 
 \usepackage{fancyhdr}
-
- %%%%% header and footer rule %%%%%%%%%
+%%%%% header and footer rule %%%%%%%%%
 \setlength{\headheight}{14pt}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 \fancypagestyle{plain}{\fancyhf{}
 \fancyhead{}
-\lfoot{\small \hrule \vspace{5pt}\textcolor{magenta}{Φοιτητικό Πρόσημο}}
-% \lfoot{\small \hrule \vspace{2pt} \includegraphics[scale=0.15]{foititikologo.jpg}}
-\rfoot{\small \vspace{5pt} \thepage}}
+\lfoot{\small \hrule \vspace{5pt}\color{magenta} Βαγγέλης Σαπουνάκης}
+\cfoot{\small \hrule \vspace{5pt}\color{blue!75} Φοιτητικό Πρόσημο}
+\rfoot{\small \hrule \vspace{5pt} \thepage}}
 \fancypagestyle{vangelis}{\fancyhf{}
 \rhead{\small }
 \lhead{\small }
-\lfoot{\small \hrule \vspace{5pt} \textcolor{magenta}{Φοιτητικό Πρόσημο}}
-% \lfoot{\small \hrule \vspace{2pt} \includegraphics[scale=0.15]{foititikologo.jpg}}
-\rfoot{\small \vspace{5pt} \thepage}}
+\lfoot{\small \hrule \vspace{5pt}\color{magenta} Βαγγέλης Σαπουνάκης}
+\cfoot{\small \hrule \vspace{5pt}\color{blue!75} Φοιτητικό Πρόσημο}
+\rfoot{\small \hrule \vspace{5pt} \thepage}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %\usepackage{hyperref}
 %\usepackage{url}
 %%%%%%%% hyperref settings %%%%%%%%%%%%
@@ -125,6 +123,11 @@
 \newtheorem{thmbreak}{Θεώρημα}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%Watermark%%%%%%%%%%%%%%%%%%
+ \usepackage[printwatermark]{xwatermark} 
+
+ \newwatermark[allpages,color=blue!8,angle=45,scale=3,xpos=0,ypos=0]{ΠΡΟΣΗΜΟ}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%defines \inlineequation[<label name>]{<equation>}
@@ -175,6 +178,12 @@
 %\mybrace{a}{b}[Text comes here to describe these to items and justify for your
 %case]]
 
+%%%%%%%%%%%%%%%%%%% My Box Styles %%%%%%%%%%%%%%%%%%%%%%%%%
+\tikzset{myboxdfn/.style = {draw=blue!55,rectangle, ultra thick, fill=blue!6, inner sep=10pt},
+myboxtitledfn/.style={rectangle, fill=blue!55, text=white, font={\bfseries},right=2\baselineskip},
+myboxthm/.style = {draw=magenta!55,rectangle, ultra thick, fill=magenta!6, inner sep=10pt},
+myboxtitlethm/.style={rectangle, fill=magenta!55, text=white, font={\bfseries},right=2\baselineskip}}
+
 \setcounter{secnumdepth}{2}
 
  %chapter format
@@ -184,22 +193,23 @@
             \node[rectangle,fill=blue!55,text=white]{\fontsize{40}{50}\selectfont
             \thechapter} ;
 \end{tikzpicture}}%label
-  {0.5\baselineskip}% horizontal separation between label and title body
+  {1.5\baselineskip}% horizontal separation between label and title body
   {}% before the title body
   [{\color{blue!55}\titlerule[2pt]}]% after the title body
 
 % section format
   \titleformat{\section}%
-  {\normalfont\LARGE\bfseries\itshape\color{blue!55}}% format applied to label+text
+  {\normalfont\Large\bfseries\itshape\color{blue!55}}% format applied to label+text
   {\llap{\colorbox{blue!55}{\parbox{0.9cm}{\hfill\color{white}\thesection}}}}% label
   {1em}% horizontal separation between label and title body
   {}% before the title body
   [] % after the title body 
 % subsection format
 \titleformat{\subsection}%
-  {\normalfont\Large\bfseries\itshape\color{blue!55}}% format applied to label+text
+  {\normalfont\large\bfseries\itshape\color{blue!55}}% format applied to label+text
   {\llap{\colorbox{blue!55}{\parbox{0.9cm}{\hfill\color{white}\thesubsection}}}}% label
   {1em}% horizontal separation between label and title body
   {}% before the title body
   []% after the title body 
+
 
