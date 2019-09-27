@@ -1,10 +1,9 @@
 \documentclass[a4paper]{report}
-
+% \usepackage{etex}
 %%% Babel language package
 %\usepackage[english,greek]{babel}
 %%% Inputenc font encoding
 %\usepackage[utf8]{inputenc}
-
 
 \usepackage{fontspec}
 \usepackage{libertine}
@@ -17,6 +16,7 @@
 \usepackage{amsthm}
 \usepackage{proof}
 \usepackage{mathtools}
+\usepackage{xspace}
 
 \usepackage[italicdiff]{physics}
 \usepackage[detect-all]{siunitx}
@@ -36,6 +36,7 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{multicol}
 \usepackage{tikz} 
+\usetikzlibrary{angles}
 %\usepackage{xypic}
 %\usepackage[all]{xy}
 %\usepackage{calc}
@@ -51,7 +52,6 @@
 \usepackage{extarrows} 
 
 
-\usepackage{enumerate}
 \usepackage[shortlabels,inline]{enumitem}
 
 \usepackage{fancyhdr}
@@ -123,11 +123,10 @@
 \newtheorem{thmbreak}{Θεώρημα}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%Watermark%%%%%%%%%%%%%%%%%%
- \usepackage[printwatermark]{xwatermark} 
-
- \newwatermark[allpages,color=blue!8,angle=45,scale=3,xpos=0,ypos=0]{ΠΡΟΣΗΜΟ}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%Watermark%%%%%%%%%%%%%%%%%%
+% \usepackage[printwatermark]{xwatermark} 
+% \newwatermark[allpages,color=blue!8,angle=45,scale=3,xpos=0,ypos=0]{ΠΡΟΣΗΜΟ}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
  %%%%%%%%%%%%%%%%%%% fancy enumitem cicled label %%%%%%%%%%%%%%%%%%
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
@@ -183,9 +182,15 @@
 %\mybrace{a}{b}[Text comes here to describe these to items and justify for your
 %case]]
 
+\definecolor{cerulean}{rgb}{0.0, 0.48, 0.65}
+\definecolor{coolgrey}{rgb}{0.55, 0.57, 0.67}
+\definecolor{darkcyan}{rgb}{0.0, 0.55, 0.55}
+\definecolor{darklavender}{rgb}{0.45, 0.31, 0.59}
+\definecolor{darkpastelblue}{rgb}{0.47, 0.62, 0.8}
+\definecolor{lavenderblue}{rgb}{0.8, 0.8, 1.0}
 %%%%%%%%%%%%%%%%%%% My Box Styles %%%%%%%%%%%%%%%%%%%%%%%%%
-\tikzset{myboxdfn/.style = {draw=blue!55,rectangle, ultra thick, fill=blue!6, inner sep=10pt},
-myboxtitledfn/.style={rectangle, fill=blue!55, text=white, font={\bfseries},right=2\baselineskip},
+\tikzset{myboxdfn/.style = {draw=lavenderblue!55,rectangle, ultra thick, fill=lavenderblue!6, inner sep=10pt},
+myboxtitledfn/.style={rectangle, fill=lavenderblue!55, text=white, font={\bfseries},right=2\baselineskip},
 myboxthm/.style = {draw=magenta!55,rectangle, ultra thick, fill=magenta!6, inner sep=10pt},
 myboxtitlethm/.style={rectangle, fill=magenta!55, text=white, font={\bfseries},right=2\baselineskip}}
 
@@ -193,14 +198,14 @@ myboxtitlethm/.style={rectangle, fill=magenta!55, text=white, font={\bfseries},r
 
  %chapter format
 \titleformat{\chapter}[display]%
-  {\bfseries\Huge}% format applied to label+text
+{\bfseries\itshape\Huge\color{blue!55}}% format applied to label+text
     {\begin{tikzpicture}
-            \node[rectangle,fill=blue!55,text=white]{\fontsize{40}{50}\selectfont
+            \node[rectangle,fill=blue!55,text=white]{\itshape\fontsize{40}{50}\selectfont
             \thechapter} ;
 \end{tikzpicture}}%label
   {1.5\baselineskip}% horizontal separation between label and title body
   {}% before the title body
-  [{\color{blue!55}\titlerule[2pt]}]% after the title body
+  []% after the title body
 
 % section format
   \titleformat{\section}%
