@@ -1,29 +1,6 @@
 \DeclareMathOperator{\Arg}{Arg}
 \DeclareMathOperator{\Span}{span}
 
-%%%%%%% nesting newcommands $$$$$$$$$$$$$$$$$$$
-\newcommand{\function}[1]{\newcommand{\nvec}[2]{#1(##1_1,\ldots, ##1_##2)}}
-
-\newcommand{\linode}[2]{#1_n(x)#2^{(n)}+#1_{n-1}(x)#2^{(n-1)}+\cdots +#1_0(x)#2=g(x)} 
-\newcommand{\vecoffun}[3]{#1_0(#2),\ldots,#1_#3(#2)}
-
-\newcommand{\mysum}[1]{\sum_{n=#1}^{\infty}}
-
-
-\renewcommand{\vector}[1]{(x_1,x_2,\ldots,x_{#1})}
-\newcommand{\avector}[2]{(#1_1,#1_2,\ldots,#1_{#2})}
-\newcommand{\aDEFvector}[2][a]{(#1_1,#1_2,\ldots,#1_{#2})}
-
-
-
-\newcommand{\rt}[3]{\vb{r}(t)=#1\,\vb{i}+#2\,\vb{j}+#3\,\vb{k}}
-\newcommand{\rtt}[2]{\vb{r}(t)=#1\,\vb{i}+#2\,\vb{j}}
-\newcommand{\rs}[3]{\vb{r}(s)=#1\,\vb{i}+#2\,\vb{j}+#3\,\vb{k}}
-\newcommand{\rss}[2]{\vb{r}(s)=#1\,\vb{i}+#2\,\vb{j}}
-\newcommand{\vect}[4]{\vb{#1}=#2\,\vb{i}+#3\,\vb{j}+#4\,\vb{k}}
-\newcommand{\vectt}[3]{\vb{#1}=#2\,\vb{i}+#3\,\vb{j}}
-\newcommand{\vectsur}[3]{\vb{r}(u,v)=#1\,\vb{i}+#2\,\vb{j}+#3\,\vb{k}}
-
 
 % --- Macro \xvec
 \makeatletter
@@ -69,4 +46,161 @@
 \newcommand{\dvec}[1]{\xvec[.]{#1}}
 \newcommand{\ddvec}[1]{\xvec[:]{#1}}
 
+
+%%%%%%%%%%%%%%%%%% fancy headings %%%%%%%%%%%%%%%%%%
+\setcounter{secnumdepth}{2}
+
+ %chapter format
+\titleformat{\chapter}[display]%
+{\bfseries\Huge\color{Col\thechapter}}% format applied to label+text
+    {\begin{tikzpicture}
+            \node[rectangle,fill=Col\thechapter,text=white]{\itshape\fontsize{40}{50}\selectfont
+            \thechapter} ;
+\end{tikzpicture}}%label
+  {1.5\baselineskip}% horizontal separation between label and title body
+  {}% before the title body
+  []% after the title body
+
+% section format
+  \titleformat{\section}%
+  {\normalfont\Large\bfseries\itshape\color{Col\thechapter!85}}% format applied to label+text
+  {\llap{\colorbox{Col\thechapter!85}{\parbox{0.95cm}{\hfill\color{white}\thesection}}}}% label
+  {1em}% horizontal separation between label and title body
+  {}% before the title body
+  [] % after the title body 
+% subsection format
+\titleformat{\subsection}%
+  {\normalfont\large\bfseries\itshape\color{Col\thechapter!65}}% format applied to label+text
+  {\llap{\colorbox{Col\thechapter!65}{\parbox{1.1cm}{\hfill\color{white}\thesubsection}}}}% label
+  {1em}% horizontal separation between label and title body
+  {}% before the title body
+  []% after the title body 
+
+
+%%%%%%%%%%%%%%%% Fancy Tables %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{calc}
+\usepackage{array}
+\definecolor{TabLine}{RGB}{254,254,254}
+\newcommand{\TabRowHead}{\rowcolor{TabHeadRow}}
+\newcommand{\TabRowHeadCor}{\cellcolor{white}}
+\newcommand{\TabRowHCol}{\color{white}\bfseries\boldmath}
+\newcommand{\TabCellHead}{\cellcolor{TabHeadRow}\TabRowHCol}
+\newenvironment{Mytable}%
+    {\begingroup\setlength{\arrayrulewidth}{2pt}\arrayrulecolor{TabLine}
+    \colorlet{TabHeadRow}{Col\thechapter}
+    \colorlet{TabRowOdd}{Col\thechapter!50!white}
+    \colorlet{TabRowEven}{Col\thechapter!25!white}
+    \rowcolors{1}{TabRowOdd}{TabRowEven}
+    }%
+    {\endgroup
+
+}
+
+
+%%%%%%%%%%%%%%%%%%%%% 2 columns $$$$$$$$$$$$$$$$$$$$$$
+\newcommand{\twocolumnside}[2]{\begin{minipage}[t]{0.45\linewidth}\raggedright
+#1
+\end{minipage}\hfill{\color{Col\thechapter}{\vrule width 1pt}}\hfill\begin{minipage}[t]{0.45\linewidth}\raggedright
+#2
+\end{minipage}
+}
+
+\newcommand{\twocolumnsides}[2]{\begin{minipage}[t]{0.45\linewidth}\raggedright
+#1
+\end{minipage}\hfill\begin{minipage}[t]{0.45\linewidth}\raggedright
+#2
+\end{minipage}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%% my boxes %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\mythm}[1]{
+\begin{tikzpicture}
+    \node[myboxdfn] (box1) 
+        {
+        \begin{minipage}{0.75\textwidth}
+#1
+    \end{minipage}
+} ;
+
+\node[myboxtitledfn] at (box1.north
+    west) {Ορισμός} ;
+\end{tikzpicture}
+}
+
+\newcommand{\mydfn}[1]{
+\begin{tikzpicture}
+    \node[myboxdfn] (box1) 
+        {
+        \begin{minipage}{0.75\textwidth}
+#1
+    \end{minipage}
+} ;
+
+\node[myboxtitledfn] at (box1.north
+    west) {Ορισμός} ;
+\end{tikzpicture}
+}
+
+
+
+%%%\mybrace{<first>}{<second>}[<Optional text>]
+\newcommand{\tikzmark}[1]{\tikz[baseline={(#1.base)},overlay,remember picture] \node[outer sep=0pt, inner sep=0pt] (#1) {\phantom{A}};}
+%% syntax
+\NewDocumentCommand\mybrace{mmo}{%
+\IfValueTF {#3}{%
+\begin{tikzpicture}[overlay, remember picture,decoration={brace,amplitude=1ex}]
+  \draw[decorate,thick] (#1.north east) -- (#2.south east) node[midway, right=0.1cm] 
+  {$\Rightarrow$}node[midway, right=0.5cm,text=black,text width = 2in,] {{#3}};
+\end{tikzpicture}%
+}%
+{%
+\begin{tikzpicture}[overlay, remember picture,decoration={brace,amplitude=1ex}]
+  \draw[decorate,thick] (#1.north east) -- (#2.south east);
+\end{tikzpicture}%
+}%
+}%
+
+%%%%%%%How to use this %%%%%%%%%%%%%%%%%%%%%%%%%
+%use \tikzmark{a} and \tikzmark{b} at first and last \item where the brace is
+%wanted
+%use the following command after \end{enumerate}
+%\mybrace{a}{b}[Text comes here to describe these to items and justify for your
+%case]]
+
+
+
+%%%%% label inline equations and don't allow reference
+\newcommand\inlineeqno{\stepcounter{equation}\quad (\theequation)}
+
+%%%%%defines \inlineequation[<label name>]{<equation>}
+%%%%%%%%format use \inlineequation[<label name>]{<equation>}%%%%%%%
+\makeatletter
+\newcommand*{\inlineequation}[2][]{%
+  \begingroup
+    % Put \refstepcounter at the beginning, because
+    % package `hyperref' sets the anchor here.
+    \refstepcounter{equation}%
+    \ifx\\#1\\%
+    \else
+       \label{#1}%
+    \fi
+    % prevent line breaks inside equation
+    \relpenalty=10000 %
+    \binoppenalty=10000 %
+    \ensuremath{%
+      % \displaystyle % larger fractions, ...
+      #2%
+    }%
+    \quad ~\@eqnnum
+  \endgroup
+}
+\makeatother
+
+
+%%%%%%%%%%%%%%%%%% fancy enumitem cicled label %%%%%%%%%%%%%%%%%%
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=0.3pt] (char) {#1};}}
+% use it like \begin{enumerate}[label=\protect\circled{\Alph{enumi}}]
+%%%\mybrace{<first>}{<second>}[<Optional text>]
+%%% wrap with braces list environments
 

@@ -1,5 +1,6 @@
-\documentclass[a4paper]{report}
-% \usepackage{etex}
+\documentclass[a4paper,table]{report}
+\usepackage{etex}
+
 %%% Babel language package
 %\usepackage[english,greek]{babel}
 %%% Inputenc font encoding
@@ -20,6 +21,7 @@
 \usepackage{proof}
 \usepackage{mathtools}
 \usepackage{xspace}
+\usepackage{subfiles}
 
 \usepackage[italicdiff]{physics}
 \usepackage[detect-all]{siunitx}
@@ -32,7 +34,7 @@
 % \usepackage{stmaryrd}
 \usepackage{anyfontsize}
 
-\newlength{\FONTmain}\setlength{\FONTmain}{12pt}
+\newlength{\FONTmain}\setlength{\FONTmain}{10pt}
 \newlength{\FONTmainbl}\setlength{\FONTmainbl}{1.2\FONTmain}
 \renewcommand{\tiny}        {\fontsize{0.6\FONTmain}{0.6\FONTmainbl}\selectfont}
 \renewcommand{\scriptsize}  {\fontsize{0.7\FONTmain}{0.7\FONTmainbl}\selectfont}
@@ -49,26 +51,13 @@
 
 %%%%%%%%%%%% graphics %%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{graphicx}
-\usepackage[most]{tcolorbox}
 \usepackage{multicol}
 
-\usepackage[dvipsnames,table,RGB]{xcolor}
+\usepackage[RGB]{xcolor}
 \definecolor{Col1}{rgb}{0.74, 0.2, 0.64}
 \definecolor{Col2}{rgb}{0.0, 0.55, 0.55}
-\definecolor{Col3}{rgb}{0.74, 0.2, 0.64}
-\definecolor{Col4}{rgb}{0.0, 0.55, 0.55}
-\definecolor{Col5}{rgb}{0.74, 0.2, 0.64}
-\definecolor{Col6}{rgb}{0.0, 0.55, 0.55}
-\definecolor{Col7}{rgb}{0.74, 0.2, 0.64}
-\definecolor{Col8}{rgb}{0.0, 0.55, 0.55}
 
-\definecolor{cerulean}{rgb}{0.0, 0.48, 0.65}
-\definecolor{coolgrey}{rgb}{0.55, 0.57, 0.67}
-\definecolor{darkcyan}{rgb}{0.0, 0.55, 0.55}
-\definecolor{darklavender}{rgb}{0.45, 0.31, 0.59}
-\definecolor{darkpastelblue}{rgb}{0.47, 0.62, 0.8}
-\definecolor{lavenderblue}{rgb}{0.8, 0.8, 1.0}
-
+\usepackage[most]{tcolorbox}
 %%%%%%%%%%%%% TIKZ $$$$$$$$$$$$$$$$$
 \usepackage{tikz}
 \usetikzlibrary{shapes,angles,calc,arrows,arrows.meta,quotes,intersections}
@@ -80,13 +69,13 @@
 \pgfplotsset{compat=1.10}
 \usepgfplotslibrary{fillbetween}
 
-\tikzset{dot/.style={ draw, fill, circle, inner sep=1pt, minimum size=3pt }}
+\tikzset{dot/.style={draw, fill, circle, inner sep=1pt, minimum size=3pt}}
 
 %%%%%%%%%%%%%%%%%%% My Box Styles %%%%%%%%%%%%%%%%%%%%%%%%%
-\tikzset{myboxdfn/.style = {draw=lavenderblue!55,rectangle, ultra thick, fill=lavenderblue!6, inner sep=10pt},
-myboxtitledfn/.style={rectangle, fill=lavenderblue!55, text=white, font={\bfseries},right=2\baselineskip},
-myboxthm/.style = {draw=magenta!55,rectangle, ultra thick, fill=magenta!6, inner sep=10pt},
-myboxtitlethm/.style={rectangle, fill=magenta!55, text=white, font={\bfseries},right=2\baselineskip}}
+\tikzset{myboxdfn/.style = {draw=Col1!75,rectangle, ultra thick, fill=Col1!6, inner sep=10pt},
+myboxtitledfn/.style={rectangle, fill=Col1!75, text=white, font={\bfseries},right=2\baselineskip},
+myboxthm/.style = {draw=Col2!75,rectangle, ultra thick, fill=Col2!6, inner sep=10pt},
+myboxtitlethm/.style={rectangle, fill=Col2!75, text=white, font={\bfseries},right=2\baselineskip}}
 
 
 
@@ -115,15 +104,14 @@ myboxtitlethm/.style={rectangle, fill=magenta!55, text=white, font={\bfseries},r
 \renewcommand{\footrulewidth}{0pt}
 \fancypagestyle{plain}{\fancyhf{}
 \fancyhead{}
-\lfoot{\small \hrule \vspace{5pt}\color{magenta} Βαγγέλης Σαπουνάκης}
-\cfoot{\small \hrule \vspace{5pt}\color{blue!75} Φοιτητικό Πρόσημο}
+\lfoot{\small \hrule \vspace{5pt}\color{Col1} Βαγγέλης Σαπουνάκης}
+\cfoot{\small \hrule \vspace{5pt}\color{Col2!75} Φοιτητικό Πρόσημο}
 \rfoot{\small \hrule \vspace{5pt} \thepage}}
 \fancypagestyle{vangelis}{\fancyhf{}
-\rhead{\small }
-\lhead{\small }
-\lfoot{\small \hrule \vspace{5pt}\color{magenta} Βαγγέλης Σαπουνάκης}
-\cfoot{\small \hrule \vspace{5pt}\color{blue!75} Φοιτητικό Πρόσημο}
+\lfoot{\small \hrule \vspace{5pt}\color{Col1} Βαγγέλης Σαπουνάκης}
+\cfoot{\small \hrule \vspace{5pt}\color{Col2!75} Φοιτητικό Πρόσημο}
 \rfoot{\small \hrule \vspace{5pt} \thepage}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\usepackage{hyperref}
 %\usepackage{url}
@@ -161,8 +149,8 @@ myboxtitlethm/.style={rectangle, fill=magenta!55, text=white, font={\bfseries},r
 \theoremstyle{definition}
 \newtheorem{dfn}{Ορισμός}[]
 \newtheorem{dfns}[dfn]{Ορισμοί}
-\newtheorem{exam}[thm]{Παράδειγμα}
-\newtheorem{exams}[thm]{Παραδείγματα}
+\newtheorem{example}[thm]{Παράδειγμα}
+\newtheorem{examples}[thm]{Παραδείγματα}
 \theoremstyle{remark}
 \newtheorem{rem}{Παρατήρηση}[]
 \newtheorem{rems}[rem]{Παρατηρήσεις}
@@ -181,121 +169,4 @@ myboxtitlethm/.style={rectangle, fill=magenta!55, text=white, font={\bfseries},r
 % \usepackage[printwatermark]{xwatermark} 
 % \newwatermark[allpages,color=blue!8,angle=45,scale=3,xpos=0,ypos=0]{ΠΡΟΣΗΜΟ}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
- %%%%%%%%%%%%%%%%%%% fancy enumitem cicled label %%%%%%%%%%%%%%%%%%
-\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
-            \node[shape=circle,draw,inner sep=0.3pt] (char) {#1};}}
-% use it like \begin{enumerate}[label=\protect\circled{\Alph{enumi}}]
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%defines \inlineequation[<label name>]{<equation>}
-%%%%% label inline equations and allow reference
-\makeatletter
-\newcommand*{\inlineequation}[2][]{%
-	\begingroup
-    % Put \refstepcounter at the beginning, because
-	% package `hyperref' sets the anchor here.
-	 \refstepcounter{equation}%
-	\ifx\\#1\\%
-\else
-	 \label{#1}%
- \fi
- % prevent line breaks inside equation
- \relpenalty=10000 %
- \binoppenalty=10000 %
- \ensuremath{%
-	 % \displaystyle % larger fractions, ...
-	 #2%
- }%
- ~\@eqnnum
- \endgroup
-}
-\makeatother
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%\mybrace{<first>}{<second>}[<Optional text>]
-%%% wrap with braces list environments
-\NewDocumentCommand\mybrace{mmo}{%
-\IfValueTF {#3}{%
-\begin{tikzpicture}[overlay, remember picture,decoration={brace,amplitude=1ex}]
-	ack] (#1.north east) -- (#2.south east) node[midway, right=0.1cm]
-	{$\Rightarrow$}node[midway, right=0.5cm,text=black,text width = 2in,] {{#3}};
-	\end{tikzpicture}%
-}%
-{%
-	\begin{tikzpicture}[overlay, remember
-		picture,decoration={brace,amplitude=1ex}]
-		ack] (#1.north east) -- (#2.south east);
-		\end{tikzpicture}%
-	}%
-}%a
-%%%%%%%How to use this %%%%%%%%%%%%%%%%%%%%%%%%%
-%use \tikzmark{a} and \tikzmark{b} at first and last \item where the brace is
-%wanted
-%use the following command after \end{enumerate}
-%\mybrace{a}{b}[Text comes here to describe these to items and justify for your
-%case]]
-
-
-\setcounter{secnumdepth}{2}
-
- %chapter format
-\titleformat{\chapter}[display]%
-{\bfseries\itshape\Huge\color{blue!55}}% format applied to label+text
-    {\begin{tikzpicture}
-            \node[rectangle,fill=blue!55,text=white]{\itshape\fontsize{40}{50}\selectfont
-            \thechapter} ;
-\end{tikzpicture}}%label
-  {1.5\baselineskip}% horizontal separation between label and title body
-  {}% before the title body
-  []% after the title body
-
-% section format
-  \titleformat{\section}%
-  {\normalfont\Large\bfseries\itshape\color{blue!55}}% format applied to label+text
-  {\llap{\colorbox{blue!55}{\parbox{0.9cm}{\hfill\color{white}\thesection}}}}% label
-  {1em}% horizontal separation between label and title body
-  {}% before the title body
-  [] % after the title body 
-% subsection format
-\titleformat{\subsection}%
-  {\normalfont\large\bfseries\itshape\color{blue!55}}% format applied to label+text
-  {\llap{\colorbox{blue!55}{\parbox{0.9cm}{\hfill\color{white}\thesubsection}}}}% label
-  {1em}% horizontal separation between label and title body
-  {}% before the title body
-  []% after the title body 
-
-
-%%%%%%%%%%%%%%%% Fancy Tables %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{calc}
-\usepackage{array}
-\definecolor{TabLine}{RGB}{254,254,254}
-\newcommand{\TabRowHead}{\rowcolor{TabHeadRow}}
-\newcommand{\TabRowHeadCor}{\cellcolor{white}}
-\newcommand{\TabRowHCol}{\color{white}\bfseries\boldmath}
-\newcommand{\TabCellHead}{\cellcolor{TabHeadRow}\TabRowHCol}
-\newenvironment{Mytable}%
-    {\begingroup\setlength{\arrayrulewidth}{2pt}\arrayrulecolor{TabLine}
-    \colorlet{TabHeadRow}{Col\thechapter}
-    \colorlet{TabRowOdd}{Col\thechapter!50!white}
-    \colorlet{TabRowEven}{Col\thechapter!25!white}
-    \rowcolors{1}{TabRowOdd}{TabRowEven}
-    }%
-    {\endgroup
-
-}
-
-\newcommand{\twocolumnside}[2]{\begin{minipage}[t]{0.45\linewidth}\raggedright
-#1
-\end{minipage}\hfill{\color{Col\thechapter}{\vrule width 1pt}}\hfill\begin{minipage}[t]{0.45\linewidth}\raggedright
-#2
-\end{minipage}
-}
-
-\newcommand{\twocolumnsides}[2]{\begin{minipage}[t]{0.45\linewidth}\raggedright
-#1
-\end{minipage}\hfill\begin{minipage}[t]{0.45\linewidth}\raggedright
-#2
-\end{minipage}
-}
 
