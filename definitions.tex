@@ -142,6 +142,19 @@
 }
 
 
+\newcommand{\myexe}[1]{
+\begin{tikzpicture}
+    \node[myboxdfn] (box1) 
+        {
+        \begin{minipage}{0.75\textwidth}
+#1
+    \end{minipage}
+} ;
+
+\node[myboxtitledfn] at (box1.north
+    west) {Άσκηση \theenumi} ;
+\end{tikzpicture}
+}
 
 %%%\mybrace{<first>}{<second>}[<Optional text>]
 \newcommand{\tikzmark}[1]{\tikz[baseline={(#1.base)},overlay,remember picture] \node[outer sep=0pt, inner sep=0pt] (#1) {\phantom{A}};}
@@ -191,7 +204,7 @@
       % \displaystyle % larger fractions, ...
       #2%
     }%
-    \quad ~\@eqnnum
+    \, ~\@eqnnum
   \endgroup
 }
 \makeatother
