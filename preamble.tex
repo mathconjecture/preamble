@@ -57,7 +57,7 @@
 \definecolor{Col1}{rgb}{0.74, 0.2, 0.64}
 \definecolor{Col2}{rgb}{0.0, 0.55, 0.55}
 
-\usepackage[most]{tcolorbox}
+\usepackage[many]{tcolorbox}
 %%%%%%%%%%%%% TIKZ $$$$$$$$$$$$$$$$$
 \usepackage{tikz}
 \usetikzlibrary{shapes,angles,calc,arrows,arrows.meta,quotes,intersections}
@@ -75,11 +75,12 @@
 \tikzset{myboxdfn/.style = {draw=Col1!75,rectangle, ultra thick, fill=Col1!6, inner sep=10pt},
 myboxtitledfn/.style={rectangle, fill=Col1!75, text=white, font={\bfseries},right=2\baselineskip},
 myboxthm/.style = {draw=Col2!75,rectangle, ultra thick, fill=Col2!6, inner sep=10pt},
-myboxtitlethm/.style={rectangle, fill=Col2!75, text=white, font={\bfseries},right=2\baselineskip}}
+myboxtitlethm/.style={rectangle, fill=Col2!75, text=white, font={\bfseries},right=2\baselineskip},
+myboxprop/.style = {draw=Col2!35,rectangle, ultra thick, fill=Col2!2, inner sep=10pt},
+myboxtitleprop/.style={rectangle, fill=Col2!35, text=white, font={\bfseries},right=2\baselineskip}}
 
 
 
-\usepackage{fancyhdr}
 %\usepackage{xypic}
 %\usepackage[all]{xy}
 %\usepackage{calc}
@@ -112,18 +113,24 @@ myboxtitlethm/.style={rectangle, fill=Col2!75, text=white, font={\bfseries},righ
 \cfoot{\small \hrule \vspace{5pt}\color{Col2!75} Φοιτητικό Πρόσημο}
 \rfoot{\small \hrule \vspace{5pt} \thepage}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\usepackage{hyperref}
-%\usepackage{url}
-%%%%%%%% hyperref settings %%%%%%%%%%%%
-%\hypersetup{pdfpagemode=UseOutlines,hidelinks,
-%bookmarksopen=true,
-%pdfdisplaydoctitle=true,
-%pdfstartview=Fit,
-%unicode=true,
-%pdfpagelayout=OneColumn,
-%}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{hyperref}
+\usepackage{url}
+%%%%%%% hyperref settings %%%%%%%%%%%%
+\hypersetup{pdfpagemode=UseOutlines,hidelinks,
+colorlinks=true,
+% linkcolor=Col1,
+% anchorcolor= ,
+% citecolor= ,
+% urlcolor= ,
+allcolors=Col1,
+bookmarksopen=true,
+pdfdisplaydoctitle=true,
+pdfstartview=Fit,
+unicode=true,
+pdfpagelayout=OneColumn,
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage[space]{grffile}
 
@@ -149,11 +156,6 @@ myboxtitlethm/.style={rectangle, fill=Col2!75, text=white, font={\bfseries},righ
 \theoremstyle{definition}
 \newtheorem{dfn}{Ορισμός}[]
 \newtheorem{dfns}[dfn]{Ορισμοί}
-\newtheorem{example}[thm]{Παράδειγμα}
-\newtheorem{examples}[thm]{Παραδείγματα}
-\theoremstyle{remark}
-\newtheorem{rem}{Παρατήρηση}[]
-\newtheorem{rems}[rem]{Παρατηρήσεις}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newtheoremstyle{break}
 {\topsep}{\topsep}%
@@ -163,10 +165,30 @@ myboxtitlethm/.style={rectangle, fill=Col2!75, text=white, font={\bfseries},righ
 
 \theoremstyle{break}
 \newtheorem{thmbreak}{Θεώρημα}
+
+\newtheoremstyle{myrem}
+{\topsep}{\topsep}%
+{}{}%
+{\color{Col2}\bfseries}{}%
+{\newline}{}%
+
+\theoremstyle{myrem}
+\newtheorem{rem}{Παρατήρηση}[]
+\newtheorem{rems}{Παρατηρήσεις}
+
+\newtheoremstyle{myex}
+{\topsep}{\topsep}%
+{}{}%
+{\color{Col1}\bfseries}{}%
+{\newline}{}%
+
+\theoremstyle{myex}
+\newtheorem{example}{Παράδειγμα}
+\newtheorem{examples}{Παραδείγματα}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%Watermark%%%%%%%%%%%%%%%%%%
-% \usepackage[printwatermark]{xwatermark} 
-% \newwatermark[allpages,color=blue!8,angle=45,scale=3,xpos=0,ypos=0]{ΠΡΟΣΗΜΟ}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%Watermark%%%%%%%%%%%%%%%%%%
+ \usepackage[printwatermark]{xwatermark} 
+ \newwatermark[allpages,color=Col2!15,angle=45,scale=3,xpos=0,ypos=0]{ΠΡΟΣΗΜΟ}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
