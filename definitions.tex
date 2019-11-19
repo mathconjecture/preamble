@@ -127,6 +127,20 @@
     \end{tikzpicture}
 }
 
+\newcommand{\mythmm}[2]{
+    \begin{tikzpicture}
+        \node[myboxthm] (box1) 
+        {
+            \begin{minipage}{0.9\textwidth}
+                #2
+            \end{minipage}
+        } ;
+
+        \node[myboxtitlethm] at (box1.north
+        west) {Θεώρημα (#1)} ;
+    \end{tikzpicture}
+}
+
 \newcommand{\mydfn}[1]{
     \begin{tikzpicture}
         \node[myboxdfn] (box1) 
@@ -155,6 +169,22 @@
         west) {Πρόταση} ;
     \end{tikzpicture}
 }
+
+\newcommand{\mypropp}[2]{
+    \begin{tikzpicture}
+        \node[myboxprop] (box1) 
+        {
+            \begin{minipage}{0.9\textwidth}
+                #2
+            \end{minipage}
+        } ;
+
+        \node[myboxtitleprop] at (box1.north
+        west) {Πρόταση (#1)} ;
+    \end{tikzpicture}
+}
+
+
 
 %%%\mybrace{<first>}{<second>}[<Optional text>]
 \newcommand{\tikzmark}[1]{\tikz[baseline={(#1.base)},overlay,remember picture] \node[outer sep=0pt, inner sep=0pt] (#1) {\phantom{A}};}
