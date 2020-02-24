@@ -45,6 +45,7 @@
 \renewcommand{\Large}       {\fontsize{1.4\FONTmain}{1.4\FONTmainbl}\selectfont}
 \renewcommand{\LARGE}       {\fontsize{1.6\FONTmain}{1.6\FONTmainbl}\selectfont}
 \renewcommand{\huge}        {\fontsize{1.8\FONTmain}{1.8\FONTmainbl}\selectfont}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -113,29 +114,35 @@ myboxtitleprop/.style={rectangle, fill=Col2!35, text=white, font={\bfseries},rig
 \cfoot{\small \hrule \vspace{5pt}\color{Col2!75} Φοιτητικό Πρόσημο}
 \rfoot{\small \hrule \vspace{5pt} \thepage}}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\usepackage{hyperref}
+%\usepackage{url}
+%%%%%%%% hyperref settings %%%%%%%%%%%%
+%\hypersetup{pdfpagemode=UseOutlines,hidelinks,
+%colorlinks=true,
+%% linkcolor=Col1,
+%% anchorcolor= ,
+%% citecolor= ,
+%% urlcolor= ,
+%allcolors=Col1,
+%bookmarksopen=true,
+%pdfdisplaydoctitle=true,
+%pdfstartview=Fit,
+%unicode=true,
+%pdfpagelayout=OneColumn,
+%}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{hyperref}
-\usepackage{url}
-%%%%%%% hyperref settings %%%%%%%%%%%%
-\hypersetup{pdfpagemode=UseOutlines,hidelinks,
-colorlinks=true,
-% linkcolor=Col1,
-% anchorcolor= ,
-% citecolor= ,
-% urlcolor= ,
-allcolors=Col1,
-bookmarksopen=true,
-pdfdisplaydoctitle=true,
-pdfstartview=Fit,
-unicode=true,
-pdfpagelayout=OneColumn,
-}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \usepackage[space]{grffile}
 
+% \usepackage{geometry}
+% \geometry{left=25.63mm,right=25.63mm,top=36.25mm,bottom=36.25mm,footskip=24.16mm,headsep=24.16mm}
+
 \usepackage{geometry}
-\geometry{left=25.63mm,right=25.63mm,top=36.25mm,bottom=36.25mm,footskip=24.16mm,headsep=24.16mm}
+\geometry{left=10mm,right=10mm,top=30.25mm,bottom=36.25mm,footskip=24.16mm,headsep=24.16mm}
 
 \usepackage{titlesec}
 %%%%%% titlesec settings %%%%%%%%%%%%%
@@ -188,11 +195,14 @@ pdfpagelayout=OneColumn,
 \newtheorem{examples}{Παραδείγματα}
 \newtheorem{exercise}{Άσκηση}
 \newtheorem{exercises}{Ασκήσεις}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newenvironment{solution}[1][\bfseries Λύση]
+  {\begin{proof}[#1]}
+  {\end{proof}}
 
 %%%%%%%%%%%%Watermark%%%%%%%%%%%%%%%%%%
  \usepackage[printwatermark]{xwatermark} 
- \newwatermark[allpages,color=Col2!15,angle=45,scale=4,xpos=0,ypos=0]{ΠΡΟΣΗΜΟ}
+ \newwatermark[allpages,color=Col2!20,angle=45,scale=4,xpos=0,ypos=0]{ΠΡΟΣΗΜΟ}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+\setlength{\parindent}{0pt}
