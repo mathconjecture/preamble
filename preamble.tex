@@ -157,7 +157,7 @@ myboxtitleprop/.style={rectangle, fill=Col2!35, text=white, font={\bfseries},rig
 
 %%%%%%%%% My Theorems %%%%%%%%%%%%%%%%%%
 \theoremstyle{definition}
-\newtheorem{thm}{Θεώρημα}[]
+\newtheorem{thm}{Θεώρημα}[section]
 \newtheorem{cor}[thm]{Πόρισμα}
 \newtheorem{lem}[thm]{Λήμμα}
 \newtheorem{prop}[thm]{Πρόταση}
@@ -179,31 +179,31 @@ myboxtitleprop/.style={rectangle, fill=Col2!35, text=white, font={\bfseries},rig
 {\topsep}{\topsep}%
 {}{}%
 {\color{Col2}\bfseries}{}%
-{\newline}{}%
+{ }{}%
 
 \theoremstyle{myrem}
-\newtheorem{rem}{Παρατήρηση}[]
-\newtheorem{rems}{Παρατηρήσεις}
+\newtheorem{rem}[thm]{Παρατήρηση}
+\newtheorem{rems}[thm]{Παρατηρήσεις}
 
 \newtheoremstyle{myex}
 {\topsep}{\topsep}%
 {}{}%
 {\color{Col1}\bfseries}{}%
-{\newline}{}%
+{ }{}%
 
 \theoremstyle{myex}
-\newtheorem{example}{Παράδειγμα}
-\newtheorem{examples}{Παραδείγματα}
-\newtheorem{exercise}{Άσκηση}
-\newtheorem{exercises}{Ασκήσεις}
+\newtheorem{example}[thm]{Παράδειγμα}
+\newtheorem{examples}[thm]{Παραδείγματα}
+\newtheorem{exercise}[thm]{Άσκηση}
+\newtheorem{exercises}[thm]{Ασκήσεις}
 
 \newenvironment{solution}[1][\bfseries Λύση]
   {\begin{proof}[#1]}
   {\end{proof}}
 
-%%%%%%%%%%%%Watermark%%%%%%%%%%%%%%%%%%
- \usepackage[printwatermark]{xwatermark} 
- \newwatermark[allpages,color=Col2!20,angle=45,scale=4,xpos=0,ypos=0]{ΠΡΟΣΗΜΟ}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%Watermark%%%%%%%%%%%%%%%%%%
+% \usepackage[printwatermark]{xwatermark} 
+% \newwatermark[allpages,color=Col2!20,angle=45,scale=4,xpos=0,ypos=0]{ΠΡΟΣΗΜΟ}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \setlength{\parindent}{0pt}
