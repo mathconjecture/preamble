@@ -114,7 +114,10 @@ myboxtitleprop/.style={rectangle, fill=Col2!35, text=white, font={\bfseries},rig
 \lfoot{\small \hrule \vspace{5pt}\color{Col1} Βαγγέλης Σαπουνάκης}
 \cfoot{\small \hrule \vspace{5pt}\color{Col2!75} Φοιτητικό Πρόσημο}
 \rfoot{\small \hrule \vspace{5pt} \thepage}}
-
+\fancypagestyle{askhseis}{\fancyhf{}
+\lfoot{\small \hrule \vspace{5pt}\color{Col1} Φοιτητικό Πρόσημο}
+\cfoot{\small \hrule \vspace{5pt}\color{Col2!75} }
+\rfoot{\small \hrule \vspace{5pt} \thepage}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %\usepackage{hyperref}
@@ -143,7 +146,7 @@ myboxtitleprop/.style={rectangle, fill=Col2!35, text=white, font={\bfseries},rig
 % \geometry{left=25.63mm,right=25.63mm,top=36.25mm,bottom=36.25mm,footskip=24.16mm,headsep=24.16mm}
 
 \usepackage{geometry}
-\geometry{left=15mm,right=15mm,top=20mm,bottom=20mm,footskip=24.16mm,headsep=24.16mm}
+\geometry{left=15mm,right=15mm,top=30.00mm,bottom=36.00mm,footskip=24.00mm,headsep=24.00mm}
 
 \usepackage{titlesec}
 %%%%%% titlesec settings %%%%%%%%%%%%%
@@ -190,7 +193,7 @@ myboxtitleprop/.style={rectangle, fill=Col2!35, text=white, font={\bfseries},rig
 {\topsep}{\topsep}%
 {}{}%
 {\color{Col2}\bfseries}{}%
-{ }{}%
+{\baselineskip}{}%
 
 \theoremstyle{myrem}
 \newtheorem{rem}[thm]{Παρατήρηση}
@@ -200,7 +203,7 @@ myboxtitleprop/.style={rectangle, fill=Col2!35, text=white, font={\bfseries},rig
 {\topsep}{\topsep}%
 {}{}%
 {\color{Col1}\bfseries}{}%
-{ }{}%
+{\baselineskip}{}%
 
 \theoremstyle{myex}
 \newtheorem{example}[thm]{Παράδειγμα}
