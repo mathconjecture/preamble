@@ -1,4 +1,4 @@
-\documentclass[a4paper,table]{report}
+\documentclass[a4paper,table]{article}
 \usepackage{etex}
 
 %%% Babel language package
@@ -134,8 +134,11 @@ pdfpagelayout=OneColumn,
 
 \usepackage[space]{grffile}
 
+% \usepackage{geometry}
+% \geometry{left=15mm,right=15mm,top=25mm,bottom=25mm,footskip=24.16mm,headsep=24.16mm}
+
 \usepackage{geometry}
-\geometry{left=15mm,right=15mm,top=25mm,bottom=25mm,footskip=24.16mm,headsep=24.16mm}
+\geometry{left=25.63mm,right=25.63mm,top=36.25mm,bottom=36.25mm,footskip=24.16mm,headsep=24.16mm}
 
 \usepackage{titlesec}
 %%%%%% titlesec settings %%%%%%%%%%%%%
@@ -190,9 +193,24 @@ pdfpagelayout=OneColumn,
 \newtheorem{exercises}{Ασκήσεις}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%Watermark%%%%%%%%%%%%%%%%%%
- \usepackage[printwatermark]{xwatermark} 
- \newwatermark[allpages,color=Col2!15,angle=45,scale=4,xpos=0,ypos=0]{ΠΡΟΣΗΜΟ}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% WATERMARK above pictures with opacity %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \usepackage[printwatermark]{xwatermark}
+ \newsavebox\mybox
+ \savebox\mybox{\tikz[color=Col2,opacity=0.2]\node{ΠΡΟΣΗΜΟ};}
+ \newwatermark*[
+   allpages,
+   fontfamily=lmr,
+   fontseries=m,
+   angle=45,
+   scale=12,
+   xpos=-40,
+   ypos=40,
+ ]{\usebox\mybox} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%Watermark%%%%%%%%%%%%%%%%%%
+% \usepackage[printwatermark]{xwatermark} 
+% \newwatermark[allpages,color=Col2!15,angle=45,scale=4,xpos=0,ypos=0]{ΠΡΟΣΗΜΟ}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
