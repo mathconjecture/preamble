@@ -54,7 +54,7 @@
 \titleformat{\chapter}[display]%
 {\bfseries\Huge\color{Col1}}% format applied to label+text
 {\begin{tikzpicture}
-        \node[rectangle,fill=Col\thechapter,text=white]{\itshape\fontsize{40}{50}\selectfont
+        \node[rectangle,fill=Col1,text=white]{\itshape\fontsize{40}{50}\selectfont
         \thechapter} ;
 \end{tikzpicture}}%label
 {1.5\baselineskip}% horizontal separation between label and title body
@@ -64,14 +64,14 @@
 % section format
 \titleformat{\section}%
 {\normalfont\Large\bfseries\itshape\color{Col2!85}}% format applied to label+text
-{\llap{\colorbox{Col2!85}{\parbox{0.55cm}{\hfill\color{white}\thesection}}}}% label
+{\llap{\colorbox{Col2!85}{\parbox{0.65cm}{\hfill\color{white}\thesection}}}}% label
 {1em}% horizontal separation between label and title body
 {}% before the title body
 [] % after the title body 
 % subsection format
 \titleformat{\subsection}%
-{\normalfont\large\bfseries\itshape\color{Col2!65}}% format applied to label+text
-{\llap{\colorbox{Col2!65}{\parbox{1.1cm}{\hfill\color{white}\thesubsection}}}}% label
+{\normalfont\large\bfseries\itshape\color{Col2!50}}% format applied to label+text
+{\llap{\colorbox{Col2!50}{\parbox{0.55cm}{\hfill\color{white}\thesubsection}}}}% label
 {1em}% horizontal separation between label and title body
 {}% before the title body
 []% after the title body 
@@ -100,7 +100,7 @@
 %%%%%%%%%%%%%%%%%%%%% 2 columns $$$$$$$$$$$$$$$$$$$$$$
 \newcommand{\twocolumnside}[2]{\begin{minipage}[t]{0.45\linewidth}\raggedright
         #1
-        \end{minipage}\hfill{\color{Col\thechapter}{\vrule width 1pt}}\hfill\begin{minipage}[t]{0.45\linewidth}\raggedright
+        \end{minipage}\hfill{\color{Col1}{\vrule width 1pt}}\hfill\begin{minipage}[t]{0.45\linewidth}\raggedright
         #2
     \end{minipage}
 }
@@ -219,6 +219,6 @@
 
 
 \newlist{myitemize}{itemize}{3}
-\setlist[myitemize]{label=\textcolor{Col\thechapter}{\tiny$\blacksquare$}}
+\setlist[myitemize]{label=\textcolor{Col1}{\tiny$\blacksquare$}}
 
 

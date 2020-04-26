@@ -1,0 +1,125 @@
+\documentclass{beamer}
+\usetheme{CambridgeUS}
+
+\usepackage{etex}
+
+%%% Babel language package
+%\usepackage[english,greek]{babel}
+%%% Inputenc font encoding
+%\usepackage[utf8]{inputenc}
+
+\usepackage{times}
+\usepackage{fontspec}
+\usepackage{libertine}
+\usepackage{polyglossia}
+\setdefaultlanguage{greek}
+\setotherlanguage{english}
+
+\usepackage[shrink=10,stretch=10]{microtype} 
+%%%%% math packages %%%%%%%%%%%%%%%%%%
+% \usepackage[intlimits]{amsmath}
+% \usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{proof}
+\usepackage{mathtools}
+\usepackage{xspace}
+\usepackage{subfiles}
+
+\usepackage[italicdiff]{physics}
+\usepackage[detect-all]{siunitx}
+\usepackage{xfrac}
+\usepackage[b]{esvect} 
+
+%%%%%%% symbols packages %%%%%%%%%%%%%%
+\usepackage{bbm} %for use \bm instead \boldsymbol in math mode
+% \usepackage{dsfont}
+% \usepackage{stmaryrd}
+\usepackage{anyfontsize}
+
+\newlength{\FONTmain}\setlength{\FONTmain}{10pt}
+\newlength{\FONTmainbl}\setlength{\FONTmainbl}{1.2\FONTmain}
+\renewcommand{\tiny}        {\fontsize{0.6\FONTmain}{0.6\FONTmainbl}\selectfont}
+\renewcommand{\scriptsize}  {\fontsize{0.7\FONTmain}{0.7\FONTmainbl}\selectfont}
+\renewcommand{\footnotesize}{\fontsize{0.8\FONTmain}{0.8\FONTmainbl}\selectfont}
+\renewcommand{\small}       {\fontsize{0.9\FONTmain}{0.9\FONTmainbl}\selectfont}
+\renewcommand{\normalsize}  {\fontsize{1.0\FONTmain}{1.0\FONTmainbl}\selectfont}
+\renewcommand{\large}       {\fontsize{1.2\FONTmain}{1.2\FONTmainbl}\selectfont}
+\renewcommand{\Large}       {\fontsize{1.4\FONTmain}{1.4\FONTmainbl}\selectfont}
+\renewcommand{\LARGE}       {\fontsize{1.6\FONTmain}{1.6\FONTmainbl}\selectfont}
+\renewcommand{\huge}        {\fontsize{1.8\FONTmain}{1.8\FONTmainbl}\selectfont}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%% graphics %%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+\usepackage{multicol}
+
+% \usepackage[RGB]{xcolor}
+% \definecolor{Col1}{rgb}{0.74, 0.2, 0.64}
+% \definecolor{Col2}{rgb}{0.0, 0.55, 0.55}
+
+\usepackage[many]{tcolorbox}
+%%%%%%%%%%%%% TIKZ $$$$$$$$$$$$$$$$$
+\usepackage{tikz}
+\usetikzlibrary{shapes,angles,calc,arrows,arrows.meta,quotes,intersections}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{decorations.pathreplacing} 
+\usetikzlibrary{decorations.markings,patterns}
+\usepackage{pgfplots}
+
+\pgfplotsset{compat=1.10}
+\usepgfplotslibrary{fillbetween}
+
+\tikzset{dot/.style={draw, fill, circle, inner sep=1pt, minimum size=3pt}}
+
+%%%%%%%%%%%%%%%%%%% My Box Styles %%%%%%%%%%%%%%%%%%%%%%%%%
+\tikzset{myboxdfn/.style = {draw=Col1!75,rectangle, ultra thick, fill=Col1!6, inner sep=10pt},
+myboxtitledfn/.style={rectangle, fill=Col1!75, text=white, font={\bfseries},right=2\baselineskip},
+myboxthm/.style = {draw=Col2!75,rectangle, ultra thick, fill=Col2!6, inner sep=10pt},
+myboxtitlethm/.style={rectangle, fill=Col2!75, text=white, font={\bfseries},right=2\baselineskip},
+myboxprop/.style = {draw=Col2!35,rectangle, ultra thick, fill=Col2!2, inner sep=10pt},
+myboxtitleprop/.style={rectangle, fill=Col2!35, text=white, font={\bfseries},right=2\baselineskip}}
+
+
+
+%\usepackage{xypic}
+%\usepackage[all]{xy}
+%\usepackage{calc}
+
+%%%%%% tables %%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{minibox}
+\usepackage{systeme}
+\usepackage{cite} 
+\usepackage{extarrows} 
+
+
+
+
+%%%%%%%%%%%%%%%% WATERMARK above pictures with opacity %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \usepackage[printwatermark]{xwatermark}
+% \newsavebox\mybox
+% \savebox\mybox{\tikz[color=Col2,opacity=0.2]\node{ΠΡΟΣΗΜΟ};}
+% \newwatermark*[
+%   allpages,
+%   fontfamily=lmr,
+%   fontseries=m,
+%   angle=45,
+%   scale=12,
+%   xpos=-40,
+%   ypos=40,
+% ]{\usebox\mybox} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%Watermark%%%%%%%%%%%%%%%%%%
+% \usepackage[printwatermark]{xwatermark} 
+% \newwatermark[allpages,color=Col2!15,angle=45,scale=4,xpos=0,ypos=0]{ΠΡΟΣΗΜΟ}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
