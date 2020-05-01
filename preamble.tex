@@ -114,20 +114,29 @@ myboxtitleprop/.style={rectangle, fill=Col2!35, text=white, font={\bfseries},rig
 %%%%% header and footer rule %%%%%%%%%
 \setlength{\headheight}{14pt}
 \renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-\fancypagestyle{plain}{\fancyhf{}
-\fancyhead{}
-\lfoot{\small \hrule \vspace{5pt}\color{Col1} Βαγγέλης Σαπουνάκης}
-\cfoot{\small \hrule \vspace{5pt}\color{Col2!75} Φοιτητικό Πρόσημο}
-\rfoot{\small \hrule \vspace{5pt} \thepage}}
-\fancypagestyle{vangelis}{\fancyhf{}
-\lfoot{\small \hrule \vspace{5pt}\color{Col1} Βαγγέλης Σαπουνάκης}
-\cfoot{\small \hrule \vspace{5pt}\color{Col2!75} Φοιτητικό Πρόσημο}
-\rfoot{\small \hrule \vspace{5pt} \thepage}}
-\fancypagestyle{askhseis}{\fancyhf{}
-\lfoot{\small \hrule \vspace{5pt}\color{Col1} Φοιτητικό Πρόσημο}
-\cfoot{\small \hrule \vspace{5pt}\color{Col2!75} }
-\rfoot{\small \hrule \vspace{5pt} \thepage}}
+\renewcommand{\footrulewidth}{0.5pt}
+ \fancypagestyle{plain}
+{
+  \fancyhf{}
+  \fancyhead{}
+  \lfoot{\small \vspace{3pt}\color{Col1} Βαγγέλης Σαπουνάκης}
+  \cfoot{\small \vspace{3pt}\color{Col2!75} Φοιτητικό Πρόσημο}
+  \rfoot{\small \vspace{3pt} \thepage}
+}
+\fancypagestyle{vangelis}
+{
+  \fancyhf{}
+  \lfoot{\small \vspace{3pt}\color{Col1} Βαγγέλης Σαπουνάκης}
+  \cfoot{\small \vspace{3pt}\color{Col2!75} Φοιτητικό Πρόσημο}
+  \rfoot{\small \vspace{3pt} \thepage}
+}
+\fancypagestyle{askhseis}
+{
+  \fancyhf{}
+  \lfoot{\small \vspace{3pt}\color{Col1} Φοιτητικό Πρόσημο}
+  \cfoot{\small \vspace{3pt}\color{Col2!75} }
+  \rfoot{\small \vspace{3pt} \thepage}
+}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % \usepackage{hyperref}
@@ -152,11 +161,11 @@ myboxtitleprop/.style={rectangle, fill=Col2!35, text=white, font={\bfseries},rig
 
 \usepackage[space]{grffile}
 
-% \usepackage{geometry}
-% \geometry{left=25.63mm,right=25.63mm,top=36.25mm,bottom=36.25mm,footskip=24.16mm,headsep=24.16mm}
-
 \usepackage{geometry}
-\geometry{left=20mm,right=20mm,top=30.00mm,bottom=36.00mm,footskip=24.00mm,headsep=24.00mm}
+\geometry{left=25.63mm,right=25.63mm,top=36.25mm,bottom=36.25mm,footskip=24.16mm,headsep=24.16mm}
+
+% \usepackage{geometry}
+% \geometry{left=20mm,right=20mm,top=30.00mm,bottom=36.00mm,footskip=24.16mm,headsep=24.16mm}
 
 \usepackage{titlesec}
 %%%%%% titlesec settings %%%%%%%%%%%%%
@@ -231,7 +240,7 @@ myboxtitleprop/.style={rectangle, fill=Col2!35, text=white, font={\bfseries},rig
  allpages,
  fontfamily=lmr,
  fontseries=m,
- color=Col2!20,
+ color=Col2!30,
  angle=45,
  scale=4,
  xpos=0,
