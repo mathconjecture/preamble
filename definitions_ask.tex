@@ -222,3 +222,13 @@
 \setlist[myitemize]{label=\textcolor{Col1}{\tiny$\blacksquare$}}
 
 
+%%%%%%%%%%%%% puts brace under matrix
+\newcommand\undermat[2]{%
+  \makebox[0pt][l]{$\smash{\underbrace{\phantom{%
+\begin{matrix}#2\end{matrix}}}_{\text{$#1$}}}$}#2}
+
+
+%circle item inside array or matrix
+\newcommand\Circle[1]{%
+\tikz[baseline=(char.base)]\node[circle,draw,inner sep=2pt] (char) {#1};}
+

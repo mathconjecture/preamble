@@ -1,4 +1,4 @@
-\documentclass[a4paper,table]{article}
+\documentclass[a4paper,table]{report}
 \usepackage{etex}
 
 %%% Babel language package
@@ -113,6 +113,24 @@ myboxtitleprop/.style={rectangle, fill=Col2!35, text=white, font={\bfseries},rig
 \cfoot{\small \hrule \vspace{5pt}\color{Col2!75} Φοιτητικό Πρόσημο}
 \rfoot{\small \hrule \vspace{5pt} \thepage}}
 
+
+\usepackage{nameref}
+\usepackage[xr,hyperref,user]{zref}
+
+\zxrsetup{toltxlabel=true}
+
+{\catcode`\#=12 \gdef\hashchar{#1}}
+\makeatletter
+\newcommand\hzref[1]{\edef\next{%
+    \noexpand\href{%
+      \zref@extractdefault{#1}{url}{}%
+      \zref@ifrefcontainsprop{#1}{anchor}{%
+      \hashchar\zref@extract{#1}{anchor}}{}}%
+{\noexpand\zref{#1}}}\next}
+\makeatother
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{hyperref}
 \usepackage{url}
@@ -179,6 +197,7 @@ pdfpagelayout=OneColumn,
 \theoremstyle{myrem}
 \newtheorem{rem}{Παρατήρηση}[]
 \newtheorem{rems}{Παρατηρήσεις}
+\newtheorem{concl}{Συμπέρασμα}
 
 \newtheoremstyle{myex}
 {\topsep}{\topsep}%
@@ -193,24 +212,24 @@ pdfpagelayout=OneColumn,
 \newtheorem{exercises}{Ασκήσεις}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%% WATERMARK above pictures with opacity %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \usepackage[printwatermark]{xwatermark}
- \newsavebox\mybox
- \savebox\mybox{\tikz[color=Col2,opacity=0.2]\node{ΠΡΟΣΗΜΟ};}
- \newwatermark*[
-   allpages,
-   fontfamily=lmr,
-   fontseries=m,
-   angle=45,
-   scale=12,
-   xpos=-40,
-   ypos=40,
- ]{\usebox\mybox} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% WATERMARK above pictures with opacity %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \usepackage[printwatermark]{xwatermark}
+% \newsavebox\mybox
+% \savebox\mybox{\tikz[color=Col2,opacity=0.2]\node{ΠΡΟΣΗΜΟ};}
+% \newwatermark*[
+%   allpages,
+%   fontfamily=lmr,
+%   fontseries=m,
+%   angle=45,
+%   scale=12,
+%   xpos=-40,
+%   ypos=40,
+% ]{\usebox\mybox} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%Watermark%%%%%%%%%%%%%%%%%%
-% \usepackage[printwatermark]{xwatermark} 
-% \newwatermark[allpages,color=Col2!15,angle=45,scale=4,xpos=0,ypos=0]{ΠΡΟΣΗΜΟ}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%Watermark%%%%%%%%%%%%%%%%%%
+ \usepackage[printwatermark]{xwatermark} 
+ \newwatermark[allpages,fontfamily=lmr,fontseries=m,color=Col2!20,angle=45,scale=4]{ΠΡΟΣΗΜΟ}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+\setlength{\parindent}{0pt}
