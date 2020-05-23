@@ -109,7 +109,7 @@
         } ;
 
         \node[myboxtitlethm] at (box1.north
-        west) {Θεώρημα (#1)} ;
+        west) {Θεώρημα \; (#1)} ;
     \end{tikzpicture}
 }
 
@@ -185,7 +185,7 @@
 
 
 %%%%% label inline equations and don't allow reference
-\newcommand\inlineeqno{\stepcounter{equation}\quad (\theequation)}
+\newcommand\inlineeqno{\stepcounter{equation} (\theequation)}
 
 %%%%%defines \inlineequation[<label name>]{<equation>}
 %%%%%%%%format use \inlineequation[<label name>]{<equation>}%%%%%%%
@@ -206,7 +206,7 @@
     % \displaystyle % larger fractions, ...
     #2%
 }%
-\, ~\@eqnnum
+\quad ~\@eqnnum
 \endgroup
 }
 \makeatother
@@ -229,3 +229,10 @@
 \newcommand\Circle[1]{%
   \tikz[baseline=(char.base)]\node[circle,draw,inner sep=2pt] (char) {#1};}
 
+
+  %redeftine \eqref so that parenthesis () have the color the link
+\makeatletter
+\renewcommand*{\eqref}[1]{%
+  \hyperref[{#1}]{\textup{\tagform@{\ref*{#1}}}}%
+}
+\makeatother

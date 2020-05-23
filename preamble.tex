@@ -174,7 +174,7 @@ myboxtitleprop/.style={rectangle, fill=Col2!35, text=white, font={\bfseries},rig
 \hypersetup{pdfpagemode=UseOutlines,hidelinks,
 colorlinks=true,
 % linkcolor=Col1,
-% anchorcolor= ,
+% anchorcolor=Col1 ,
 % citecolor=Col1 ,
 % urlcolor= ,
 allcolors=Col1,
@@ -286,19 +286,19 @@ pdfpagelayout=OneColumn,
 % \backgroundsetup{angle=45,color=Col2!20,opacity=0.6,contents={\large{ΠΡΟΣΗΜΟ}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%% WATERMARK above pictures with opacity %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \usepackage[printwatermark]{xwatermark}
-% \newsavebox\mybox
-% \savebox\mybox{\tikz[color=Col2,opacity=0.2]\node{ΠΡΟΣΗΜΟ};}
-% \newwatermark*[
-%   allpages,
-%   fontfamily=lmr,
-%   fontseries=m,
-%   angle=45,
-%   scale=12,
-%   xpos=-40,
-%   ypos=40,
-% ]{\usebox\mybox} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%% WATERMARK above pictures with opacity %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \usepackage[printwatermark]{xwatermark}
+ \newsavebox\mybox
+ \savebox\mybox{\tikz[color=Col2,opacity=0.2]\node{ΠΡΟΣΗΜΟ};}
+ \newwatermark*[
+   allpages,
+   fontfamily=lmr,
+   fontseries=m,
+   angle=45,
+   scale=12,
+   xpos=-40,
+   ypos=40,
+ ]{\usebox\mybox} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \setlength{\parindent}{0pt}

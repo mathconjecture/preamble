@@ -112,6 +112,10 @@ myboxtitleprop/.style={rectangle, fill=Col2!35, text=white, font={\bfseries},rig
 \lfoot{\small \hrule \vspace{5pt}\color{Col1} Βαγγέλης Σαπουνάκης}
 \cfoot{\small \hrule \vspace{5pt}\color{Col2!75} Φοιτητικό Πρόσημο}
 \rfoot{\small \hrule \vspace{5pt} \thepage}}
+\fancypagestyle{askhseis}{\fancyhf{}
+\lfoot{\small \hrule \vspace{5pt}\color{Col1} Φοιτητικό Πρόσημο}
+\cfoot{\small \hrule \vspace{5pt}\color{Col2!75}}
+\rfoot{\small \hrule \vspace{5pt} \thepage}}
 
 
 \usepackage{nameref}
@@ -225,11 +229,11 @@ pdfpagelayout=OneColumn,
 %   xpos=-40,
 %   ypos=40,
 % ]{\usebox\mybox} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%Watermark%%%%%%%%%%%%%%%%%%
  \usepackage[printwatermark]{xwatermark} 
  \newwatermark[allpages,fontfamily=lmr,fontseries=m,color=Col2!20,angle=45,scale=4]{ΠΡΟΣΗΜΟ}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \setlength{\parindent}{0pt}
