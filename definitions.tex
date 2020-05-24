@@ -48,6 +48,13 @@
 {}% before the title body
 []% after the title body 
 
+\titleformat{\subsubsection}%
+{\normalfont\bfseries\itshape\color{Col\thechapter!65}}% format applied to label+text
+{}% label
+{1em}% horizontal separation between label and title body
+{}% before the title body
+[]% after the title body 
+
 
 %%%%%%%%%%%%%%%% Fancy Tables %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{calc}
@@ -84,6 +91,19 @@
     \end{minipage}
 }
 
+\newcommand{\twocolumnsidel}[2]{\begin{minipage}[t]{0.27\linewidth}\raggedright
+        #1
+        \end{minipage}\hfill{\color{Col\thechapter}{\vrule width 1pt}}\hfill\begin{minipage}[t]{0.68\linewidth}\raggedright
+        #2
+    \end{minipage}
+}
+
+\newcommand{\twocolumnsidesl}[2]{\begin{minipage}[t]{0.27\linewidth}\raggedright
+        #1
+        \end{minipage}\hfill\begin{minipage}[t]{0.68\linewidth}\raggedright
+        #2
+    \end{minipage}
+}
 %%%%%%%%%%%%%%%%%%%%%%% my boxes %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\mythm}[1]{
     \begin{tikzpicture}
@@ -165,7 +185,7 @@
     \IfValueTF {#3}{%
         \begin{tikzpicture}[overlay, remember picture,decoration={brace,amplitude=1ex}]
             \draw[decorate,thick] (#1.north east) -- (#2.south east) node[midway, right=0.1cm] 
-            {$\Rightarrow$}node[midway, right=0.5cm,text=black,text width = 2in,] {{#3}};
+            {$\Rightarrow$} node[midway, right=0.6cm,text=black,text width = 2in,] {{#3}};
         \end{tikzpicture}%
     }%
     {%
@@ -213,9 +233,9 @@
 
 
 %%%%%%%%%%%%%%%%%% fancy enumitem cicled label %%%%%%%%%%%%%%%%%%
-\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+\newcommand*\Circlem[1]{\tikz[baseline=(char.base)]{
 \node[shape=circle,draw,inner sep=0.3pt] (char) {#1};}}
-% use it like \begin{enumerate}[label=\protect\circled{\Alph{enumi}}]
+% use it like \begin{enumerate}[label=\protect\Circlem{\Alph{enumi}}]
 %%%\mybrace{<first>}{<second>}[<Optional text>]
 %%% wrap with braces list environments
 
