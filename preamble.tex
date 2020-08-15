@@ -22,7 +22,7 @@
 
 \usepackage[shrink=10,stretch=10]{microtype} 
 %%%%% math packages %%%%%%%%%%%%%%%%%%
-\usepackage[intlimits]{amsmath}
+\usepackage[]{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{amsthm}
@@ -35,8 +35,9 @@
 % \zexternaldocument[1-]{chapter1} %use \ref{1-labelname}
 \usepackage{mathrsfs} %for Laplace
 
+\usepackage{diffcoeff}
 \usepackage[italicdiff]{physics}
-\usepackage[detect-all]{siunitx}
+% \usepackage[detect-all]{siunitx}
 \usepackage{xfrac}
 \usepackage[b]{esvect} 
 \usepackage{relsize}
@@ -194,7 +195,7 @@ pdfpagelayout=OneColumn,
 % \geometry{left=25.63mm,right=25.63mm,top=36.25mm,bottom=36.25mm,footskip=24.16mm,headsep=24.16mm}
 
 \usepackage{geometry}
-\geometry{left=20mm,right=20mm,top=30.00mm,bottom=36.00mm,footskip=24.16mm,headsep=24.16mm}
+\geometry{left=18mm,right=18mm,top=30.00mm,bottom=36.00mm,footskip=24.16mm,headsep=24.16mm}
 
 \usepackage{titlesec}
 %%%%%% titlesec settings %%%%%%%%%%%%%
@@ -259,6 +260,8 @@ pdfpagelayout=OneColumn,
 \newtheorem{examples}[thm]{Παραδείγματα}
 \newtheorem{exercise}[thm]{Άσκηση}
 \newtheorem{exercises}[thm]{Ασκήσεις}
+\newtheorem{problem}[thm]{Πρόβλημα}
+\newtheorem{problems}[thm]{Προβλήματα}
 
 \newenvironment{solution}[1][\bfseries Λύση]
   {\begin{proof}[#1]}
@@ -302,7 +305,7 @@ pdfpagelayout=OneColumn,
 
 
 
-% \usepackage{xypic}
-\usepackage[all]{xy}
-\usepackage{calc}
+% % \usepackage{xypic}
+% \usepackage[all]{xy}
+% \usepackage{calc}
 

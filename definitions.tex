@@ -5,6 +5,9 @@
 \DeclareMathOperator{\R}{r}
 \DeclareMathOperator{\Null}{null}
 
+\renewcommand{\vec}{\mathbf}
+% \renewcommand{\qedsymbol}{$\blacksquare$}
+
 \newcommand{\comb}[2]{\lambda_{1}\vec{#1}_{1} + \cdots + \lambda_{#2}\vec{#1}_{#2}}
 \newcommand{\combc}[3]{#2_{1}\vec{#1}_{1} + \cdots + #2_{#3}\vec{#1}_{#3}}
 \newcommand{\combb}[2]{\lambda_{1}\vec{#1}_{1} + \lambda_{2}\vec{#1}_{2} + \cdots + 
@@ -13,8 +16,10 @@
 
 
 \newlist{myitemize}{itemize}{3}
-\setlist[myitemize]{label=\textcolor{Col\thechapter}{\tiny$\blacksquare$}}
+\setlist[myitemize]{label=\textcolor{Col\thechapter}{\tiny$\blacksquare$},leftmargin=*}
 
+\newlist{myitemize*}{itemize*}{3}
+\setlist[myitemize*]{itemjoin=\hspace{2\baselineskip},label=\textcolor{Col\thechapter}{\tiny$\blacksquare$}}
 
 
 
@@ -29,17 +34,27 @@
         \node[rectangle,fill=Col\thechapter,text=white]{\itshape\fontsize{40}{50}\selectfont
         \thechapter} ;
 \end{tikzpicture}}%label
-{1.5\baselineskip}% horizontal separation between label and title body
+{\baselineskip}% horizontal separation between label and title body
 {}% before the title body
 []% after the title body
+
+% % section format
+% \titleformat{\section}%
+% {\normalfont\large\bfseries\itshape\color{col\thechapter!85}}% format applied to label+text
+% {\llap{\colorbox{col\thechapter!85}{\parbox{0.95cm}{\hfill\color{white}\thesection}}}}% label
+% {1em}% horizontal separation between label and title body
+% {}% before the title body
+% [] % after the title body 
+
 
 % section format
 \titleformat{\section}%
 {\normalfont\Large\bfseries\itshape\color{Col\thechapter!85}}% format applied to label+text
-{\llap{\colorbox{Col\thechapter!85}{\parbox{0.95cm}{\hfill\color{white}\thesection}}}}% label
+{\llap{\colorbox{Col\thechapter!85}{\parbox{0.65cm}{\hfill\color{white}\thesection}}}}% label
 {1em}% horizontal separation between label and title body
 {}% before the title body
 [] % after the title body 
+
 % subsection format
 \titleformat{\subsection}%
 {\normalfont\large\bfseries\itshape\color{Col\thechapter!65}}% format applied to label+text
@@ -91,9 +106,9 @@
     \end{minipage}
 }
 
-\newcommand{\twocolumnsidel}[2]{\begin{minipage}[t]{0.27\linewidth}\raggedright
+\newcommand{\twocolumnsidel}[2]{\begin{minipage}[t]{0.25\linewidth}\raggedright
         #1
-        \end{minipage}\hfill{\color{Col\thechapter}{\vrule width 1pt}}\hfill\begin{minipage}[t]{0.68\linewidth}\raggedright
+        \end{minipage}\hfill{\color{Col\thechapter}{\vrule width 1pt}}\hfill\begin{minipage}[t]{0.70\linewidth}\raggedright
         #2
     \end{minipage}
 }
@@ -256,3 +271,4 @@
   \hyperref[{#1}]{\textup{\tagform@{\ref*{#1}}}}%
 }
 \makeatother
+

@@ -1,6 +1,7 @@
 \DeclareMathOperator{\Arg}{Arg}
 \DeclareMathOperator{\Span}{span}
 
+% \renewcommand{\qedsymbol}{$\blacksquare$}
 
 % --- Macro \xvec
 \makeatletter
@@ -219,7 +220,7 @@
 
 
 \newlist{myitemize}{itemize}{3}
-\setlist[myitemize]{label=\textcolor{Col1}{\tiny$\blacksquare$}}
+\setlist[myitemize]{label=\textcolor{Col1}{\tiny$\blacksquare$},leftmargin=*}
 
 
 %%%%%%%%%%%%% puts brace under matrix
@@ -239,3 +240,5 @@
   \hyperref[{#1}]{\textup{\tagform@{\ref*{#1}}}}%
 }
 \makeatother
+
+\renewcommand{\qedsymbol}{$\blacksquare$}

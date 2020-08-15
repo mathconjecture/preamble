@@ -14,11 +14,12 @@
 
 \usepackage[shrink=10,stretch=10]{microtype} 
 %%%%% math packages %%%%%%%%%%%%%%%%%%
-\usepackage[intlimits]{amsmath}
+\usepackage[]{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{amsthm}
 \usepackage{proof}
+\usepackage{cancel}
 \usepackage{mathtools}
 \usepackage{xspace}
 \usepackage{subfiles}
@@ -156,11 +157,8 @@ pdfpagelayout=OneColumn,
 
 \usepackage[space]{grffile}
 
-% \usepackage{geometry}
-% \geometry{left=15mm,right=15mm,top=25mm,bottom=25mm,footskip=24.16mm,headsep=24.16mm}
-
 \usepackage{geometry}
-\geometry{left=25.63mm,right=25.63mm,top=36.25mm,bottom=36.25mm,footskip=24.16mm,headsep=24.16mm}
+\geometry{left=15.63mm,right=15.63mm,top=36.25mm,bottom=36.25mm,footskip=24.16mm,headsep=24.16mm}
 
 \usepackage{titlesec}
 %%%%%% titlesec settings %%%%%%%%%%%%%
@@ -214,26 +212,34 @@ pdfpagelayout=OneColumn,
 \newtheorem{examples}{Παραδείγματα}
 \newtheorem{exercise}{Άσκηση}
 \newtheorem{exercises}{Ασκήσεις}
+\newtheorem{problem}[thm]{Πρόβλημα}
+\newtheorem{problems}[thm]{Προβλήματα}
+
+\newenvironment{solution}[1][\bfseries Λύση]
+  {\begin{proof}[#1]}
+  {\end{proof}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%% WATERMARK above pictures with opacity %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \usepackage[printwatermark]{xwatermark}
-% \newsavebox\mybox
-% \savebox\mybox{\tikz[color=Col2,opacity=0.2]\node{ΠΡΟΣΗΜΟ};}
-% \newwatermark*[
-%   allpages,
-%   fontfamily=lmr,
-%   fontseries=m,
-%   angle=45,
-%   scale=12,
-%   xpos=-40,
-%   ypos=40,
-% ]{\usebox\mybox} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% WATERMARK above pictures with opacity %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \usepackage[printwatermark]{xwatermark}
+ \newsavebox\mybox
+ \savebox\mybox{\tikz[color=Col2,opacity=0.2]\node{ΠΡΟΣΗΜΟ};}
+ \newwatermark*[
+   allpages,
+   fontfamily=lmr,
+   fontseries=m,
+   angle=45,
+   scale=12,
+   xpos=-40,
+   ypos=40,
+ ]{\usebox\mybox} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%Watermark%%%%%%%%%%%%%%%%%%
- \usepackage[printwatermark]{xwatermark} 
- \newwatermark[allpages,fontfamily=lmr,fontseries=m,color=Col2!20,angle=45,scale=4]{ΠΡΟΣΗΜΟ}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%Watermark%%%%%%%%%%%%%%%%%%
+% \usepackage[printwatermark]{xwatermark} 
+% \newwatermark[allpages,color=Col2!20,fontfamily=lmr,fontseries=m,angle=45,scale=4]
+% {ΠΡΟΣΗΜΟ}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \setlength{\parindent}{0pt}
