@@ -1,8 +1,6 @@
 \documentclass[a4paper,table]{report}
 \usepackage{etex}
 
-
-
 \usepackage{ifxetex}
 \ifxetex
   % IF XELATEX
@@ -18,10 +16,10 @@
   \usepackage[english,greek]{babel}
 \fi
 
-
 \usepackage[shrink=10,stretch=10]{microtype} 
+
 %%%%% math packages %%%%%%%%%%%%%%%%%%
-\usepackage[]{amsmath}
+ \usepackage[]{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{amsthm}
@@ -29,21 +27,21 @@
 \usepackage{mathtools}
 \usepackage[makeroom]{cancel}
 \usepackage{xspace}
-\usepackage{subfiles}
 % \usepackage{xr}
 % \zexternaldocument[1-]{chapter1} %use \ref{1-labelname}
-\usepackage{mathrsfs} %for Laplace
+\usepackage{mathrsfs} % script fonts (for Laplace symbol)
+
 
 \usepackage{diffcoeff}
 \usepackage[italicdiff]{physics}
-% \usepackage[detect-all]{siunitx}
+\usepackage[detect-all]{siunitx}
 \usepackage{xfrac}
-\usepackage[b]{esvect} 
+% \usepackage[b]{esvect} 
 \usepackage{relsize}
 %%%%%%% symbols packages %%%%%%%%%%%%%%
 \usepackage{bm} %for use \bm instead \boldsymbol in math mode
-% \usepackage{dsfont}
-% \usepackage{stmaryrd}
+% \usepackage{stmaryrd} %defines new operators, relations, arrows, delimiters, etc
+
 
 \usepackage{anyfontsize}
 \newlength{\FONTmain}\setlength{\FONTmain}{10pt}
@@ -60,57 +58,28 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-
 %%%%%%%%%%%% graphics %%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{graphicx}
-\usepackage{multicol}
+% \usepackage{multicol} 
 
 \usepackage[RGB]{xcolor}
 \definecolor{Col1}{rgb}{0.74, 0.2, 0.64}
 \definecolor{Col2}{rgb}{0.0, 0.55, 0.55}
-\definecolor{Col3}{rgb}{0.74, 0.2, 0.64}
-\definecolor{Col4}{rgb}{0.0, 0.55, 0.55}
-\definecolor{Col5}{rgb}{0.74, 0.2, 0.64}
-
+% \definecolor{Col3}{rgb}{0.74, 0.2, 0.64}
+% \definecolor{Col4}{rgb}{0.0, 0.55, 0.55}
+% \definecolor{Col5}{rgb}{0.74, 0.2, 0.64}
 
 \usepackage[many]{tcolorbox}
-%%%%%%%%%%%%% TIKZ $$$$$$$$$$$$$$$$$
-\usepackage{tikz}
-\usetikzlibrary{shapes,angles,calc,arrows,arrows.meta,quotes,intersections}
-\usetikzlibrary{decorations.pathmorphing}
-\usetikzlibrary{decorations.pathreplacing} 
-\usetikzlibrary{decorations.markings,patterns}
-\usetikzlibrary{positioning}
-\usetikzlibrary{calc}
-\usetikzlibrary{matrix}
-\usepackage{pgfplots}
-\usepgfplotslibrary{fillbetween}
-
-\pgfplotsset{compat=1.10}
-\usepgfplotslibrary{fillbetween}
-
-\tikzset{dot/.style={draw, fill, circle, inner sep=1pt, minimum size=3pt}}
-
-%%%%%%%%%%%%%%%%%%% My Box Styles %%%%%%%%%%%%%%%%%%%%%%%%%
-\tikzset{myboxdfn/.style = {draw=Col1!75,rectangle, ultra thick, fill=Col1!6, inner sep=10pt},
-myboxtitledfn/.style={rectangle, fill=Col1!75, text=white, font={\bfseries},right=2\baselineskip},
-myboxthm/.style = {draw=Col2!75,rectangle, ultra thick, fill=Col2!6, inner sep=10pt},
-myboxtitlethm/.style={rectangle, fill=Col2!75, text=white, font={\bfseries},right=2\baselineskip},
-myboxprop/.style = {draw=Col2!35,rectangle, ultra thick, fill=Col2!2, inner sep=10pt},
-myboxtitleprop/.style={rectangle, fill=Col2!35, text=white, font={\bfseries},right=2\baselineskip}}
-
-
 
 %%%%%% tables %%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{array}
 \usepackage{booktabs}
 \usepackage{multirow}
-\usepackage{makecell}
+% \usepackage{makecell}
 \usepackage{minibox}
 \usepackage{systeme}
 \usepackage{cite} 
-\usepackage{extarrows} 
-
+% \usepackage{extarrows} 
 
 \usepackage[shortlabels,inline]{enumitem}
 
@@ -119,7 +88,7 @@ myboxtitleprop/.style={rectangle, fill=Col2!35, text=white, font={\bfseries},rig
 \setlength{\headheight}{14pt}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0.5pt}
- \fancypagestyle{plain}
+\fancypagestyle{plain}
 {
   \fancyhf{}
   \fancyhead{}
@@ -142,11 +111,11 @@ myboxtitleprop/.style={rectangle, fill=Col2!35, text=white, font={\bfseries},rig
   \rfoot{\small \vspace{3pt} \thepage}
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%$%%%%%%%%%%%%%%%%%%%%%%%
+
 %%%%%%%%%%%%%%% handles hyperlinks between different files %%%%%%%%%%%%%%%%%%%%%
 %use \zexternaldocument{filename of file that contains the label} inside the file with 
 %the ref command
 %use \ref or \zhref for hyperlink
-
 \usepackage{nameref}
 \usepackage[xr,hyperref,user]{zref}
 
@@ -158,36 +127,31 @@ myboxtitleprop/.style={rectangle, fill=Col2!35, text=white, font={\bfseries},rig
     \noexpand\href{%
       \zref@extractdefault{#1}{url}{}%
       \zref@ifrefcontainsprop{#1}{anchor}{%
-      \hashchar\zref@extract{#1}{anchor}}{}}%
+    \hashchar\zref@extract{#1}{anchor}}{}}%
 {\noexpand\zref{#1}}}\next}
 \makeatother
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage{hyperref}
 \usepackage{url}
 %%%%%%% hyperref settings %%%%%%%%%%%%
 \hypersetup{pdfpagemode=UseOutlines,hidelinks,
-colorlinks=true,
-% linkcolor=Col1,
-% anchorcolor=Col1 ,
-% citecolor=Col1 ,
-% urlcolor= ,
-allcolors=Col1,
-bookmarksopen=true,
-pdfdisplaydoctitle=true,
-pdfstartview=Fit,
-unicode=true,
-pdfpagelayout=OneColumn,
+  colorlinks=true,
+  % linkcolor=Col1,
+  % anchorcolor=Col1 ,
+  % citecolor=Col1 ,
+  % urlcolor= ,
+  allcolors=Col1,
+  bookmarksopen=true,
+  pdfdisplaydoctitle=true,
+  pdfstartview=Fit,
+  unicode=true,
+  pdfpagelayout=OneColumn,
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
-
-
-\usepackage[space]{grffile}
+\usepackage[space]{grffile} %extends filename support for graphics 
 
 % \usepackage{geometry}
 % \geometry{left=25.63mm,right=25.63mm,top=36.25mm,bottom=36.25mm,footskip=24.16mm,headsep=24.16mm}
@@ -262,8 +226,8 @@ pdfpagelayout=OneColumn,
 \newtheorem{problems}[thm]{Προβλήματα}
 
 \newenvironment{solution}[1][\bfseries Λύση]
-  {\begin{proof}[#1]}
-  {\end{proof}}
+{\begin{proof}[#1]}
+{\end{proof}}
 
 %%%%%%%%%%%%%Watermark%%%%%%%%%%%%%%%%%%
 % \usepackage[printwatermark]{xwatermark} 
@@ -284,24 +248,22 @@ pdfpagelayout=OneColumn,
 % \backgroundsetup{angle=45,color=Col2!20,opacity=0.6,contents={\large{ΠΡΟΣΗΜΟ}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%% WATERMARK above pictures with opacity %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \usepackage[printwatermark]{xwatermark}
- \newsavebox\mybox
- \savebox\mybox{\tikz[color=Col2,opacity=0.2]\node{ΠΡΟΣΗΜΟ};}
- \newwatermark*[
-   allpages,
-   fontfamily=lmr,
-   fontseries=m,
-   angle=45,
-   scale=12,
-   xpos=-40,
-   ypos=40,
- ]{\usebox\mybox} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% WATERMARK above pictures with opacity %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[printwatermark]{xwatermark}
+\newsavebox\mybox
+\savebox\mybox{\tikz[color=Col2,opacity=0.2]\node{ΠΡΟΣΗΜΟ};}
+\newwatermark*[
+allpages,
+fontfamily=lmr,
+fontseries=m,
+angle=45,
+scale=12,
+xpos=-40,
+ypos=40,
+]{\usebox\mybox} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \setlength{\parindent}{0pt}
-
-
 
 % % \usepackage{xypic}
 % \usepackage[all]{xy}

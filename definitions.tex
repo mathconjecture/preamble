@@ -8,20 +8,18 @@
 \renewcommand{\vec}{\mathbf}
 % \renewcommand{\qedsymbol}{$\blacksquare$}
 
+
 \newcommand{\comb}[2]{\lambda_{1}\vec{#1}_{1} + \cdots + \lambda_{#2}\vec{#1}_{#2}}
 \newcommand{\combc}[3]{#2_{1}\vec{#1}_{1} + \cdots + #2_{#3}\vec{#1}_{#3}}
 \newcommand{\combb}[2]{\lambda_{1}\vec{#1}_{1} + \lambda_{2}\vec{#1}_{2} + \cdots + 
 \lambda_{#2}\vec{#1}_{#2}}
 \newcommand{\me}{\mathrm{e}}
 
-
 \newlist{myitemize}{itemize}{3}
 \setlist[myitemize]{label=\textcolor{Col\thechapter}{\tiny$\blacksquare$},leftmargin=*}
 
 \newlist{myitemize*}{itemize*}{3}
 \setlist[myitemize*]{itemjoin=\hspace{2\baselineskip},label=\textcolor{Col\thechapter}{\tiny$\blacksquare$}}
-
-
 
 
 %%%%%%%%%%%%%%%%%% fancy headings %%%%%%%%%%%%%%%%%%
@@ -31,8 +29,8 @@
 \titleformat{\chapter}[display]%
 {\bfseries\Huge\color{Col\thechapter}}% format applied to label+text
 {\begin{tikzpicture}
-        \node[rectangle,fill=Col\thechapter,text=white]{\itshape\fontsize{40}{50}\selectfont
-        \thechapter} ;
+        \node[rectangle,fill=Col\thechapter,text=white]
+        {\itshape\fontsize{40}{50}\selectfont \thechapter} ;
 \end{tikzpicture}}%label
 {\baselineskip}% horizontal separation between label and title body
 {}% before the title body
@@ -87,11 +85,10 @@
     \rowcolors{1}{TabRowOdd}{TabRowEven}
 }%
 {\endgroup
+}%
 
-}
 
-
-%%%%%%%%%%%%%%%%%%%%% 2 columns $$$$$$$$$$$$$$$$$$$$$$
+%%%%%%%%%%%%%%%%%%%%% 2 columns %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\twocolumnside}[2]{\begin{minipage}[t]{0.45\linewidth}\raggedright
         #1
         \end{minipage}\hfill{\color{Col\thechapter}{\vrule width 1pt}}\hfill\begin{minipage}[t]{0.45\linewidth}\raggedright
