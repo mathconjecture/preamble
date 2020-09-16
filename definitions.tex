@@ -15,11 +15,16 @@
 \lambda_{#2}\vec{#1}_{#2}}
 \newcommand{\me}{\mathrm{e}}
 
+
 \newlist{myitemize}{itemize}{3}
-\setlist[myitemize]{label=\textcolor{Col\thechapter}{\tiny$\blacksquare$},leftmargin=*}
+\setlist[myitemize]{label=\textcolor{Col1}{\tiny$\blacksquare$},leftmargin=*}
 
 \newlist{myitemize*}{itemize*}{3}
-\setlist[myitemize*]{itemjoin=\hspace{2\baselineskip},label=\textcolor{Col\thechapter}{\tiny$\blacksquare$}}
+\setlist[myitemize*]{itemjoin=\hspace{2\baselineskip},label=\textcolor{Col1}{\tiny$\blacksquare$}}
+
+% \setlist[enumerate,1]{label=\textcolor{Col1}{\theenumi.},leftmargin=*,itemindent=0pt}
+% \setlist[enumerate,2]{label=\textcolor{Col1}{\roman*)},align=left,leftmargin=*,itemindent=0pt}
+
 
 
 %%%%%%%%%%%%%%%%%% fancy headings %%%%%%%%%%%%%%%%%%
@@ -48,7 +53,7 @@
 % section format
 \titleformat{\section}%
 {\normalfont\Large\bfseries\itshape\color{Col\thechapter!85}}% format applied to label+text
-{\llap{\colorbox{Col\thechapter!85}{\parbox{0.65cm}{\hfill\color{white}\thesection}}}}% label
+{\llap{\colorbox{Col\thechapter!85}{\parbox{0.95cm}{\hfill\color{white}\thesection}}}}% label
 {1em}% horizontal separation between label and title body
 {}% before the title body
 [] % after the title body 

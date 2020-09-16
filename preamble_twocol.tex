@@ -22,6 +22,7 @@
 \usepackage{mathtools}
 \usepackage{xspace}
 \usepackage{subfiles}
+\usepackage{cancel}
 
 \usepackage[italicdiff]{physics}
 \usepackage[detect-all]{siunitx}
@@ -34,7 +35,7 @@
 % \usepackage{stmaryrd}
 \usepackage{anyfontsize}
 
-\newlength{\FONTmain}\setlength{\FONTmain}{9pt}
+\newlength{\FONTmain}\setlength{\FONTmain}{8pt}
 \newlength{\FONTmainbl}\setlength{\FONTmainbl}{1.2\FONTmain}
 \renewcommand{\tiny}        {\fontsize{0.6\FONTmain}{0.6\FONTmainbl}\selectfont}
 \renewcommand{\scriptsize}  {\fontsize{0.7\FONTmain}{0.7\FONTmainbl}\selectfont}
@@ -101,7 +102,7 @@ myboxtitlethm/.style={rectangle, fill=Col2!75, text=white, font={\bfseries},righ
 %%%%% header and footer rule %%%%%%%%%
 \setlength{\headheight}{14pt}
 \renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.5pt}
 \fancypagestyle{plain}{\fancyhf{}
 \fancyhead{}
 \lfoot{\small \vspace{5pt}\color{Col1} Βαγγέλης Σαπουνάκης}
@@ -128,7 +129,7 @@ pdfpagelayout=OneColumn,
 \usepackage[space]{grffile}
 
 \usepackage{geometry}
-\geometry{left=0.5cm,right=0.5cm,top=0.5cm,bottom=35mm,footskip=24.16mm}
+\geometry{left=0.3cm,right=0.3cm,top=0.5cm,bottom=1.8cm}
 
 \usepackage{titlesec}
 %%%%%% titlesec settings %%%%%%%%%%%%%
@@ -166,9 +167,19 @@ pdfpagelayout=OneColumn,
 \newtheorem{thmbreak}{Θεώρημα}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%Watermark%%%%%%%%%%%%%%%%%%
- \usepackage[printwatermark]{xwatermark} 
- \newwatermark[allpages,color=Col2!8,angle=45,scale=3,xpos=0,ypos=0]{ΠΡΟΣΗΜΟ}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% WATERMARK above pictures with opacity %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[printwatermark]{xwatermark}
+\newsavebox\mybox
+\savebox\mybox{\tikz[color=Col2,opacity=0.2]\node{ΠΡΟΣΗΜΟ};}
+\newwatermark*[
+allpages,
+fontfamily=lmr,
+fontseries=m,
+angle=45,
+scale=12,
+xpos=-40,
+ypos=40,
+]{\usebox\mybox} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
