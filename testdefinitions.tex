@@ -1,5 +1,5 @@
-\DeclareMathOperator{\Arg}{Arg}
-\DeclareMathOperator{\Span}{span}
+% \DeclareMathOperator{\Arg}{Arg}
+% \DeclareMathOperator{\Span}{span}
 
 % \renewcommand{\qedsymbol}{$\blacksquare$}
 
@@ -49,23 +49,53 @@
 
 
 %%%%%%%%%%%%%%%%%% fancy headings %%%%%%%%%%%%%%%%%%
-% \setcounter{secnumdepth}{2}
+\setcounter{secnumdepth}{2}
 
-% Chapter
-\titleformat{\chapter}[hang]
-{\large\bfseries\centering}
-{\begin{tcolorbox}[colback=Col\thechapter,left=1pt,right=1pt,top=1pt,bottom=1pt,sharp
-corners,boxrule=0pt]\centering\strut\textcolor{white}{#1}\end{tcolorbox}}
-{0ex}{}[]
-\titlespacing*{\chapter}{0cm}{0ex}{0ex}[0ex]
+%%%%%% titlesec settings %%%%%%%%%%%%%
+% \titleformat{ command }[ shape ]{ format }{ label }{ sep }{ before-code }[ after-code 
+% \titlespacing*{ command }{ left }{ before-sep }{ after-sep }[ right-sep ]
 
-% Section
-\titleformat{\section}[hang]
-{\bfseries\centering}
-{\begin{tcolorbox}[colback=Col\thechapter!75,left=1pt,right=1pt,top=1pt,bottom=1pt,sharp
-corners,boxrule=0pt]\centering\strut\textcolor{white}{#1}\end{tcolorbox}}
-{1em}{}[]
-\titlespacing*{\section}{0cm}{0ex}{0ex}[0ex]
+%chapter format
+\titleformat{\chapter}[display]%
+{\bfseries\Huge\color{Col\thechapter}}% format applied to label+text
+{\begin{tikzpicture}
+    \node[fill=Col\thechapter,text=white] {\fontsize{40}{50}\selectfont\thechapter};
+\end{tikzpicture}}%label
+{1em}% horizontal separation between label and title body
+{}% before the title body
+[]% after the title body
+
+% % section format
+% \titleformat{\section}%
+% {\bfseries\Large\itshape\color{Col\thechapter!85}}% format applied to label+text
+% {\colorbox{Col\thechapter!85}{\parbox{0.90cm}{\hfill\color{white}\thesection}}}% label
+% {1em}% horizontal separation between label and title body
+% {}% before the title body
+% [] % after the title body 
+
+% section format
+\titleformat{\section}%
+{\bfseries\Large\itshape\color{Col\thechapter!85}}% format applied to label+text
+{\colorbox{Col\thechapter!85}{\parbox{0.90cm}{\hfill\color{white}\thesection}}}% label
+{1em}% horizontal separation between label and title body
+{}% before the title body
+[] % after the title body 
+
+
+% % subsection format
+% \titleformat{\subsection}%
+% {\normalfont\large\bfseries\itshape\color{Col\thechapter!65}}% format applied to label+text
+% {\llap{\colorbox{Col\thechapter!65}{\parbox{1.1cm}{\hfill\color{white}\thesubsection}}}}% label
+% {1em}% horizontal separation between label and title body
+% {}% before the title body
+% []% after the title body 
+
+% \titleformat{\subsubsection}%
+% {\normalfont\bfseries\itshape\color{Col\thechapter!65}}% format applied to label+text
+% {}% label
+% {1em}% horizontal separation between label and title body
+% {}% before the title body
+% []% after the title body 
 
 %%%%%%%%%%%%%%%% Fancy Tables %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{calc}
@@ -102,49 +132,53 @@ corners,boxrule=0pt]\centering\strut\textcolor{white}{#1}\end{tcolorbox}}
     \end{minipage}
 }
 
-%%%%%%%%%%%%%%%%%%%%%%% my boxes %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\mythm}[1]{
-    \begin{tikzpicture}
-        \node[myboxthm] (box1) 
-        {
-            \begin{minipage}{0.9\textwidth}
-                #1
-            \end{minipage}
-        } ;
+% %%%%%%%%%%%%%%%%%%%%%%% my boxes %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newcommand{\mythm}[1]{
+%     \addtocounter{thm}{1}
+%     \begin{tikzpicture}
+%         \node[myboxthm] (box1) 
+%         {
+%             \begin{minipage}{0.9\textwidth}
+%               \vspace{1ex}
+%                 #1
+%             \end{minipage}
+%         } ;
 
-        \node[myboxtitlethm] at (box1.north
-        west) {Θεώρημα} ;
-    \end{tikzpicture}
-}
+%         \node[myboxtitlethm] at (box1.north west) {\strut Θεώρημα~\thethm} ;
+%     \end{tikzpicture}
+% }
 
 \newcommand{\mydfn}[1]{
+        \addtocounter{dfn}{1}
     \begin{tikzpicture}
         \node[myboxdfn] (box1) 
         {
-            \begin{minipage}{0.9\textwidth}
+            \begin{minipage}{\textwidth}
+              \vspace{1ex}
                 #1
             \end{minipage}
         } ;
 
-        \node[myboxtitledfn] at (box1.north
-        west) {Ορισμός} ;
+        \node[myboxtitledfn] at (box1.north west) {\strut Ορισμός~\thedfn} ;
     \end{tikzpicture}
 }
 
 
 \newcommand{\myprop}[1]{
+        \addtocounter{thm}{1}
     \begin{tikzpicture}
         \node[myboxprop] (box1) 
         {
-            \begin{minipage}{0.9\textwidth}
+            \begin{minipage}{\textwidth}
+              \vspace{1ex}
                 #1
             \end{minipage}
         } ;
 
-        \node[myboxtitleprop] at (box1.north
-        west) {Πρόταση} ;
+        \node[myboxtitleprop] at (box1.north west) {\strut Πρόταση~\theprop} ;
     \end{tikzpicture}
 }
+
 
 %%%\mybrace{<first>}{<second>}[<Optional text>]
 \newcommand{\tikzmark}[1]{\tikz[baseline={(#1.base)},overlay,remember picture] \node[outer sep=0pt, inner sep=0pt] (#1) {\phantom{A}};}
