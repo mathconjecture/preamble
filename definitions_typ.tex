@@ -1,4 +1,3 @@
-\renewcommand{\vec}{\mathbf}
 %%%%%%%%% mdframed theorem boxes, breakable and with ref support %%%%%%%%
 
 \usepackage[framemethod=TikZ]{mdframed}
@@ -145,68 +144,6 @@
 \setlist[description]{labelindent=1em,widest=Ιανουα0000,labelsep*=1em,itemindent=0pt,leftmargin=*}
 
 % %%%%%%%%%%%%%%%%%% fancy headings %%%%%%%%%%%%%%%%%%
-% \setcounter{secnumdepth}{2}
-
-%chapter format
-\titleformat{\chapter}[display]%
-{\bfseries\Huge\color{Col1}}% format applied to label+text
-{\begin{tikzpicture}
-        \node[rectangle,fill=Col1,text=white]{\itshape\fontsize{40}{50}\selectfont
-        \thechapter} ;
-\end{tikzpicture}}%label
-{1.5\baselineskip}% horizontal separation between label and title body
-{}% before the title body
-[]% after the title body
-
-% section format
-\titleformat{\section}%
-{\normalfont\Large\bfseries\itshape\color{Col2!85}}% format applied to label+text
-{\colorbox{Col2!85}{\parbox{0.95cm}{\hfill\color{white}\thesection}}}% label
-{1em}% horizontal separation between label and title body
-{}% before the title body
-[] % after the title body 
-% subsection format
-\titleformat{\subsection}%
-{\normalfont\large\bfseries\itshape\color{Col2!75}}% format applied to label+text
-{\colorbox{Col2!75}{\parbox{0.95cm}{\hfill\color{white}\thesubsection}}}% label
-{1em}% horizontal separation between label and title body
-{}% before the title body
-[]% after the title body 
-
-
-%%%%%%%%%%%%%%%% Fancy Tables %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{calc}
-\usepackage{array}
-\definecolor{TabLine}{RGB}{254,254,254}
-\newcommand{\TabRowHead}{\rowcolor{TabHeadRow}}
-\newcommand{\TabRowHeadCor}{\cellcolor{white}}
-\newcommand{\TabRowHCol}{\color{white}\bfseries\boldmath}
-\newcommand{\TabCellHead}{\cellcolor{TabHeadRow}\TabRowHCol}
-\newenvironment{Mytable}%
-{\begingroup\setlength{\arrayrulewidth}{2pt}\arrayrulecolor{TabLine}
-    \colorlet{TabHeadRow}{Col\thechapter}
-    \colorlet{TabRowOdd}{Col\thechapter!50!white}
-    \colorlet{TabRowEven}{Col\thechapter!25!white}
-    \rowcolors{1}{TabRowOdd}{TabRowEven}
-}%
-{\endgroup
-}%
-
-
-%%%%%%%%%%%%%%%%%%%%% 2 columns %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\twocolumnside}[2]{\begin{minipage}[t]{0.45\linewidth}\raggedright
-        #1
-        \end{minipage}\hfill{\color{Col1}{\vrule width 1pt}}\hfill\begin{minipage}[t]{0.45\linewidth}\raggedright
-        #2
-    \end{minipage}
-}
-
-\newcommand{\twocolumnsides}[2]{\begin{minipage}[t]{0.45\linewidth}\raggedright
-        #1
-        \end{minipage}\hfill\begin{minipage}[t]{0.45\linewidth}\raggedright
-        #2
-    \end{minipage}
-}
 
 % %%%%%%%%%%%%%%%%%%%%%%% my boxes %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \newcommand{\mythm}[1]{

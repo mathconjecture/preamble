@@ -1,0 +1,151 @@
+%%%%%%%%% mdframed theorem boxes, breakable and with ref support %%%%%%%%
+
+\usepackage[framemethod=TikZ]{mdframed}
+
+\mdfdefinestyle{mythmstyle}{innertopmargin=0pt,linecolor=Col2!75,linewidth=2pt,
+  backgroundcolor=Col2!15, %background color of the box
+  shadow=false,shadowcolor=Col2,shadowsize=5pt,% shadows
+  frametitleaboveskip=\dimexpr-1.3\ht\strutbox\relax, 
+  frametitlealignment={\hspace*{0.03\linewidth}},%
+}
+
+\mdfdefinestyle{mydfnstyle}{innertopmargin=0pt,linecolor=Col1!75,linewidth=2pt,
+  backgroundcolor=Col1!15, %background color of the box
+  shadow=false,shadowcolor=Col1,shadowsize=5pt,% shadows
+  frametitleaboveskip=\dimexpr-1.3\ht\strutbox\relax, 
+  frametitlealignment={\hspace*{0.03\linewidth}},%
+}
+
+\mdfdefinestyle{mypropstyle}{innertopmargin=0pt,linecolor=blue!75,linewidth=2pt,
+  backgroundcolor=blue!10, %background color of the box
+  shadow=false,shadowcolor=blue,shadowsize=5pt,% shadows
+  frametitleaboveskip=\dimexpr-1.3\ht\strutbox\relax, 
+  frametitlealignment={\hspace*{0.03\linewidth}},%
+}
+
+\mdfdefinestyle{myboxstyle1}{innertopmargin=0pt,linecolor=Col1!75,linewidth=0pt,
+  backgroundcolor=Col1!25, %background color of the box
+  shadow=false,shadowcolor=Col1,shadowsize=5pt,% shadows
+}
+
+\mdfdefinestyle{myboxstyle2}{innertopmargin=0pt,linecolor=Col2!75,linewidth=0pt,
+  backgroundcolor=Col2!25, %background color of the box
+  shadow=false,shadowcolor=Col2,shadowsize=5pt,% shadows
+}
+
+\mdfdefinestyle{myboxstyle3}{innertopmargin=0pt,linecolor=blue!75,linewidth=0pt,
+  backgroundcolor=blue!25, %background color of the box
+  shadow=false,shadowcolor=blue,shadowsize=5pt,% shadows
+}
+% \newcounter{theo}[section]
+% \setcounter{theo}{0}
+% \renewcommand{\thetheo}{\arabic{section}.\arabic{theo}}
+
+
+\newenvironment{mythmbox}[1][]{%
+   \refstepcounter{thm}
+   % Code for box design goes here.
+   \ifstrempty{#1}%
+     % if condition (without title)
+     {\mdfsetup{
+   frametitle={%
+     \tikz[baseline=(current bounding box.east),outer sep=0pt]
+     \node[anchor=east,rectangle,fill=Col2!75,text=white]
+   {\strut Θεώρημα~\thethm};},%
+       }%
+       % else condition (with title)
+       }{\mdfsetup{
+   frametitle={%
+     \tikz[baseline=(current bounding box.east),outer sep=0pt]
+     \node[anchor=east,rectangle,fill=Col2!75,text=white]
+   {\strut Θεώρημα~\thethm~~({#1})};},%
+       }%
+     }%
+     % Both conditions
+     \mdfsetup{
+       style=mythmstyle
+     }
+     \begin{mdframed}\relax}{%
+   \end{mdframed}}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+   \newenvironment{mydfnbox}[1][]{%
+  \refstepcounter{thm}
+  % Code for box design goes here.
+  \ifstrempty{#1}%
+    % if condition (without title)
+    {\mdfsetup{
+  frametitle={%
+    \tikz[baseline=(current bounding box.east),outer sep=0pt]
+    \node[anchor=east,rectangle,fill=Col1!75,text=white,draw=Col1!75]
+  {\strut Ορισμός~\thethm};},%
+      }%
+      % else condition (with title)
+      }{\mdfsetup{
+  frametitle={%
+    \tikz[baseline=(current bounding box.east),outer sep=0pt]
+    \node[anchor=east,rectangle,fill=Col1!75,text=white,draw=Col1!75]
+  {\strut Ορισμός~\thethm~~({#1})};},%
+      }%
+    }%
+    % Both conditions
+    \mdfsetup{
+      style=mydfnstyle
+    }
+    \begin{mdframed}}{%
+  \end{mdframed}}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  \newenvironment{mypropbox}[1][]{%
+  \refstepcounter{thm}
+  % Code for box design goes here.
+  \ifstrempty{#1}%
+    % if condition (without title)
+    {\mdfsetup{
+  frametitle={%
+    \tikz[baseline=(current bounding box.east),outer sep=0pt]
+    \node[anchor=east,rectangle,fill=blue!50,text=white]
+  {\strut Πρόταση~\thethm};},%
+      }%
+      % else condition (with title)
+      }{\mdfsetup{
+  frametitle={%
+    \tikz[baseline=(current bounding box.east),outer sep=0pt]
+    \node[anchor=east,rectangle,fill=blue!50,text=white]
+  {\strut Πρόταση~\thethm~~({#1})};},%
+      }%
+    }%
+    % both conditions
+    \mdfsetup{
+      style=mypropstyle
+    }
+    \begin{mdframed}}{%
+  \end{mdframed}\relax}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newenvironment{mybox1}{%
+  % Code for box design goes here.
+    \mdfsetup{
+      style=myboxstyle1
+    }
+    \begin{mdframed}[]\relax}{%
+\end{mdframed}}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newenvironment{mybox2}{%
+  % Code for box design goes here.
+    \mdfsetup{
+      style=myboxstyle2
+    }
+    \begin{mdframed}[]\relax}{%
+\end{mdframed}}
+
+\newenvironment{mybox3}{%
+  % Code for box design goes here.
+    \mdfsetup{
+      style=myboxstyle3
+    }
+    \begin{mdframed}[]\relax}{%
+\end{mdframed}}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -1,16 +1,11 @@
-\DeclareMathOperator{\im}{im}
-\DeclareMathOperator{\n}{n}
-\DeclareMathOperator{\R}{r}
-\DeclareMathOperator{\Null}{null}
-
 \renewcommand{\vec}{\mathbf}
 % \renewcommand{\qedsymbol}{$\blacksquare$}
-
 
 \newcommand{\comb}[2]{\lambda_{1}\vec{#1}_{1} + \cdots + \lambda_{#2}\vec{#1}_{#2}}
 \newcommand{\combc}[3]{#2_{1}\vec{#1}_{1} + \cdots + #2_{#3}\vec{#1}_{#3}}
 \newcommand{\combb}[2]{\lambda_{1}\vec{#1}_{1} + \lambda_{2}\vec{#1}_{2} + \cdots + 
 \lambda_{#2}\vec{#1}_{#2}}
+
 \newcommand{\me}{\mathrm{e}}
 
 
@@ -20,53 +15,36 @@
 \newlist{myitemize*}{itemize*}{3}
 \setlist[myitemize*]{itemjoin=\hspace{2\baselineskip},label=\textcolor{Col1}{\tiny$\blacksquare$}}
 
-% \setlist[enumerate,1]{label=\textcolor{Col1}{\theenumi.},leftmargin=*,itemindent=0pt}
-% \setlist[enumerate,2]{label=\textcolor{Col1}{\roman*)},align=left,leftmargin=*,itemindent=0pt}
+% \newlist{myenumerate}{enumerate}{2}
+\setlist[enumerate,1]{labelindent=0pt,leftmargin=*,itemindent=0pt}
+\setlist[enumerate,2]{labelindent=0pt,leftmargin=*,itemindent=0pt}
 
-
-
+% \setlist[description,1]{labelindent=0pt,widest=0.,leftmargin=*,itemindent=0pt}
 %%%%%%%%%%%%%%%%%% fancy headings %%%%%%%%%%%%%%%%%%
 \setcounter{secnumdepth}{2}
 
 %chapter format
 \titleformat{\chapter}[display]%
-{\bfseries\Huge\color{Col\thechapter}}% format applied to label+text
+{\bfseries\Huge\color{Col1}}% format applied to label+text
 {\begin{tikzpicture}
-        \node[rectangle,fill=Col\thechapter,text=white]
-        {\itshape\fontsize{40}{50}\selectfont \thechapter} ;
+        \node[rectangle,fill=Col1,text=white]{\itshape\fontsize{40}{50}\selectfont
+        \thechapter} ;
 \end{tikzpicture}}%label
-{\baselineskip}% horizontal separation between label and title body
+{1.5\baselineskip}% horizontal separation between label and title body
 {}% before the title body
 []% after the title body
 
-% % section format
-% \titleformat{\section}%
-% {\normalfont\large\bfseries\itshape\color{col\thechapter!85}}% format applied to label+text
-% {\llap{\colorbox{col\thechapter!85}{\parbox{0.95cm}{\hfill\color{white}\thesection}}}}% label
-% {1em}% horizontal separation between label and title body
-% {}% before the title body
-% [] % after the title body 
-
-
 % section format
 \titleformat{\section}%
-{\normalfont\Large\bfseries\itshape\color{Col\thechapter!85}}% format applied to label+text
-{\llap{\colorbox{Col\thechapter!85}{\parbox{0.95cm}{\hfill\color{white}\thesection}}}}% label
+{\normalfont\Large\bfseries\itshape\color{Col2!85}}% format applied to label+text
+{\colorbox{Col2!85}{\parbox{0.95cm}{\hfill\color{white}\thesection}}}% label
 {1em}% horizontal separation between label and title body
 {}% before the title body
 [] % after the title body 
-
 % subsection format
 \titleformat{\subsection}%
-{\normalfont\large\bfseries\itshape\color{Col\thechapter!65}}% format applied to label+text
-{\llap{\colorbox{Col\thechapter!65}{\parbox{1.1cm}{\hfill\color{white}\thesubsection}}}}% label
-{1em}% horizontal separation between label and title body
-{}% before the title body
-[]% after the title body 
-
-\titleformat{\subsubsection}%
-{\normalfont\bfseries\itshape\color{Col\thechapter!65}}% format applied to label+text
-{}% label
+{\normalfont\large\bfseries\itshape\color{Col2!75}}% format applied to label+text
+{\colorbox{Col2!75}{\parbox{0.95cm}{\hfill\color{white}\thesubsection}}}% label
 {1em}% horizontal separation between label and title body
 {}% before the title body
 []% after the title body 
@@ -99,9 +77,23 @@
     \end{minipage}
 }
 
+\newcommand{\twocolumnsidee}[2]{\begin{minipage}[t]{0.48\linewidth}\raggedright
+        #1
+        \end{minipage}\hfill{\color{Col\thechapter}{\vrule width 1pt}}\hfill\begin{minipage}[t]{0.48\linewidth}\raggedright
+        #2
+    \end{minipage}
+}
+
 \newcommand{\twocolumnsides}[2]{\begin{minipage}[t]{0.45\linewidth}\raggedright
         #1
         \end{minipage}\hfill\begin{minipage}[t]{0.45\linewidth}\raggedright
+        #2
+    \end{minipage}
+}
+
+\newcommand{\twocolumnsidess}[2]{\begin{minipage}[t]{0.48\linewidth}\raggedright
+        #1
+        \end{minipage}\hfill\begin{minipage}[t]{0.48\linewidth}\raggedright
         #2
     \end{minipage}
 }
@@ -121,6 +113,7 @@
 }
 %%%%%%%%%%%%%%%%%%%%%%% my boxes %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\mythm}[1]{
+      \refstepcounter{thm}
     \begin{tikzpicture}
         \node[myboxthm] (box1) 
         {
@@ -134,6 +127,7 @@
 }
 
 \newcommand{\mythmm}[2]{
+      \refstepcounter{thm}
     \begin{tikzpicture}
         \node[myboxthm] (box1) 
         {
@@ -147,6 +141,7 @@
 }
 
 \newcommand{\mydfn}[1]{
+      \refstepcounter{dfn}
     \begin{tikzpicture}
         \node[myboxdfn] (box1) 
         {
@@ -161,6 +156,7 @@
 
 
 \newcommand{\myprop}[1]{
+      \refstepcounter{thm}
     \begin{tikzpicture}
         \node[myboxprop] (box1) 
         {
@@ -174,6 +170,7 @@
 }
 
 \newcommand{\mypropp}[2]{
+      \refstepcounter{thm}
     \begin{tikzpicture}
         \node[myboxprop] (box1) 
         {
@@ -186,23 +183,22 @@
     \end{tikzpicture}
 }
 
-
-
 %%%\mybrace{<first>}{<second>}[<Optional text>]
-\newcommand{\tikzmark}[1]{\tikz[baseline={(#1.base)},overlay,remember picture] \node[outer sep=0pt, inner sep=0pt] (#1) {\phantom{A}};}
+\newcommand{\tikzmark}[1]{\tikz[baseline={(#1.base)},overlay,remember picture] \node[outer
+sep=0pt, inner sep=0pt] (#1) {\phantom{A}};}
 %% syntax
 \NewDocumentCommand\mybrace{mmo}{%
-    \IfValueTF {#3}{%
-        \begin{tikzpicture}[overlay, remember picture,decoration={brace,amplitude=1ex}]
-            \draw[decorate,thick] (#1.north east) -- (#2.south east) node[midway, right=0.1cm] 
-            {$\Rightarrow$} node[midway, right=0.6cm,text=black,text width = 2in,] {{#3}};
-        \end{tikzpicture}%
-    }%
-    {%
-        \begin{tikzpicture}[overlay, remember picture,decoration={brace,amplitude=1ex}]
-            \draw[decorate,thick] (#1.north east) -- (#2.south east);
-        \end{tikzpicture}%
-    }%
+  \IfValueTF {#3}{%
+    \begin{tikzpicture}[overlay, remember picture,decoration={brace,amplitude=1ex}]
+      \draw[decorate,thick] (#1.north east) -- (#2.south east) 
+      node (b) [midway,xshift=14pt,label={[xshift=-1ex]right= of b:{#3}}] {$\Rightarrow$};
+    \end{tikzpicture}%
+  }%
+  {%
+    \begin{tikzpicture}[overlay, remember picture,decoration={brace,amplitude=1ex}]
+      \draw[decorate,thick] (#1.north east) -- (#2.south east);
+    \end{tikzpicture}%
+  }%
 }%
 
 %%%%%%%How to use this %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -215,7 +211,7 @@
 
 
 %%%%% label inline equations and don't allow reference
-\newcommand\inlineeqno{\stepcounter{equation} (\theequation)}
+\newcommand\inlineeqno{\refstepcounter{equation} (\theequation)}
 
 %%%%%defines \inlineequation[<label name>]{<equation>}
 %%%%%%%%format use \inlineequation[<label name>]{<equation>}%%%%%%%
@@ -236,34 +232,50 @@
     % \displaystyle % larger fractions, ...
     #2%
 }%
-\quad ~\@eqnnum
+\quad~\@eqnnum
 \endgroup
 }
 \makeatother
 
 
 %%%%%%%%%%%%%%%%%% fancy enumitem cicled label %%%%%%%%%%%%%%%%%%
-\newcommand*\Circlem[1]{\tikz[baseline=(char.base)]{
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
 \node[shape=circle,draw,inner sep=0.3pt] (char) {#1};}}
-% use it like \begin{enumerate}[label=\protect\Circlem{\Alph{enumi}}]
+% use it like \begin{enumerate}[label=\protect\circled{\Alph{enumi}}]
 %%%\mybrace{<first>}{<second>}[<Optional text>]
 %%% wrap with braces list environments
 
 %%%%%%%%%%%%% puts brace under matrix
 \newcommand\undermat[2]{%
   \makebox[0pt][l]{$\smash{\underbrace{\phantom{%
-    \begin{matrix}#2\end{matrix}}}_{\text{$#1$}}}$}#2}
+\begin{matrix}#2\end{matrix}}}_{\text{$#1$}}}$}#2}
 
 
-    %circle item inside array or matrix
+%circle item inside array or matrix
 \newcommand\Circle[1]{%
-  \tikz[baseline=(char.base)]\node[circle,draw,inner sep=2pt] (char) {#1};}
+\tikz[baseline=(char.base)]\node[circle,draw,inner sep=2pt] (char) {#1};}
 
 
-  %redeftine \eqref so that parenthesis () have the color the link
+%redeftine \eqref so that parenthesis () have the color the link
 \makeatletter
 \renewcommand*{\eqref}[1]{%
-  \hyperref[{#1}]{\textup{\tagform@{\ref*{#1}}}}%
+\hyperref[{#1}]{\textup{\tagform@{\ref*{#1}}}}%
 }
+\makeatother
+
+%removes qedsymbol and additional vertical space at the end 
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+  % \pushQED{\hfill\qedhere}% <--- remove the QED business
+  \normalfont \topsep6\p@\@plus6\p@\relax
+  \trivlist
+  \item[\hskip\labelsep
+        \itshape
+        #1\@addpunct{.}]\ignorespaces
+}{%
+ % \popQED% <--- remove the QED business
+  \endtrivlist\@endpefalse
+}
+\renewcommand\qedhere{$\blacksquare$} % to ensure code portability
 \makeatother
 

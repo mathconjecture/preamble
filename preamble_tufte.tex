@@ -9,8 +9,8 @@
 %%%%%%%%%%%%%%%%%%%
  \usepackage{lmodern}
 
- % \usepackage{fontspec}
- % \usepackage{libertine}
+% \usepackage{fontspec}
+% \usepackage{libertine}
 
 
 \usepackage[shrink=10,stretch=10]{microtype} 
@@ -90,12 +90,12 @@
 \newtheorem{lem}[thm]{Λήμμα}
 \newtheorem{prop}[thm]{Πρόταση}
 \theoremstyle{definition}
-\newtheorem{dfn}{Ορισμός}[]
-\newtheorem{dfns}[dfn]{Ορισμοί}
+\newtheorem{dfn}[thm]{Ορισμός}
+\newtheorem{dfns}[thm]{Ορισμοί}
 \newtheorem{exam}[thm]{Παράδειγμα}
 \newtheorem{exams}[thm]{Παραδείγματα}
 \theoremstyle{remark}
-\newtheorem{rem}{Παρατήρηση}[]
+\newtheorem{rem}{Παρατήρηση}
 \newtheorem{rems}[rem]{Παρατηρήσεις}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -155,9 +155,9 @@
 [] % after the title body 
 
 \newcommand{\mydfn}[1]{
-        \stepcounter{dfn}
-    \begin{tikzpicture}
-        \node[myboxdfn] (box1) 
+        \stepcounter{thm}
+        \begin{tikzpicture}
+      \node[myboxdfn] (box1) 
         {
             \begin{minipage}{.9\textwidth}
               \vspace{1ex}
@@ -169,3 +169,39 @@
     \end{tikzpicture}
 }
 
+\newcommand{\myprop}[1]{
+      \stepcounter{thm}
+    \begin{tikzpicture}
+        \node[myboxprop] (box1) 
+        {
+            \begin{minipage}{0.9\textwidth}
+                #1
+            \end{minipage}
+        } ;
+
+        \node[myboxtitleprop] at (box1.north west) {\strut Πρόταση~\theprop} ;
+    \end{tikzpicture}
+}
+
+\newcommand{\twocolumnside}[2]{\begin{minipage}[t]{0.45\linewidth}\raggedright
+        #1
+        \end{minipage}\hfill{\color{Col\thechapter}{\vrule width 1pt}}\hfill\begin{minipage}[t]{0.45\linewidth}\raggedright
+        #2
+    \end{minipage}
+}
+
+\newcommand{\twocolumnsides}[2]{\begin{minipage}[t]{0.45\linewidth}\raggedright
+        #1
+        \end{minipage}\hfill\begin{minipage}[t]{0.45\linewidth}\raggedright
+        #2
+    \end{minipage}
+}
+
+\newcommand{\threecolumnsides}[3]{\begin{minipage}[t]{0.30\linewidth}\raggedright
+        #1
+        \end{minipage}\hfill\begin{minipage}[t]{0.30\linewidth}\raggedright
+        #2
+    \end{minipage}\hfill\begin{minipage}[t]{0.30\linewidth}\raggedright
+        #3
+    \end{minipage}
+}

@@ -1,0 +1,357 @@
+\documentclass{report}
+
+\usepackage{etex}
+\usepackage{etoolbox}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Babel language package
+%\usepackage[english,greek]{babel}
+%% Inputenc font encoding
+%\usepackage[utf8]{inputenc}
+
+
+% \RequirePackage[scaled=.85]{beramono} % Monospace font
+% \RequirePackage[scr=rsfso,cal=boondoxo]{mathalfa} % Mathcal from STIX, unslanted a bit
+
+%\usepackage{kmath,kerkis} % The order of the packages matters; kmath changes the default text font
+%\usepackage[T1]{fontenc}
+
+%MINION new font
+\usepackage{fontspec}
+\usepackage{libertine}
+% \usepackage{fouriernc}
+% \setmainfont[Path=../,UprightFont=*-Regular,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-Bold-Italic]{Minion-Pro}
+
+
+\usepackage{anyfontsize}
+\newlength{\FONTmain}\setlength{\FONTmain}{12pt}
+\newlength{\FONTmainbl}\setlength{\FONTmainbl}{1.2\FONTmain}
+\renewcommand{\tiny}        {\fontsize{0.6\FONTmain}{0.6\FONTmainbl}\selectfont}
+\renewcommand{\scriptsize}  {\fontsize{0.7\FONTmain}{0.7\FONTmainbl}\selectfont}
+\renewcommand{\footnotesize}{\fontsize{0.8\FONTmain}{0.8\FONTmainbl}\selectfont}
+\renewcommand{\small}       {\fontsize{0.9\FONTmain}{0.9\FONTmainbl}\selectfont}
+\renewcommand{\normalsize}  {\fontsize{1.0\FONTmain}{1.0\FONTmainbl}\selectfont}
+\renewcommand{\large}       {\fontsize{1.2\FONTmain}{1.2\FONTmainbl}\selectfont}
+\renewcommand{\Large}       {\fontsize{1.4\FONTmain}{1.4\FONTmainbl}\selectfont}
+\renewcommand{\LARGE}       {\fontsize{1.6\FONTmain}{1.6\FONTmainbl}\selectfont}
+\renewcommand{\huge}        {\fontsize{1.8\FONTmain}{1.8\FONTmainbl}\selectfont}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[table,RGB]{xcolor}
+
+\usepackage{geometry}
+\geometry{a4paper,top=5mm,bottom=8mm,left=5mm,right=5mm,footskip=4pt}
+
+% \geometry{paperwidth=8.9in,paperheight=11.2in,top=5mm,bottom=5mm,left=5mm,right=5mm}
+\setlength{\parindent}{0pt}
+
+\usepackage[intlimits]{amsmath}
+%\usepackage{extsizes}
+\usepackage{multicol}
+
+%%%%% math packages %%%%%%%%%%%%%%%%%%
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{proof}
+\usepackage{mathtools}
+\usepackage{extarrows}
+
+\usepackage[italicdiff]{physics}
+\usepackage{siunitx}
+\usepackage{xfrac}
+
+
+%%%%%%% symbols packages %%%%%%%%%%%%%%
+\usepackage{bm} %for use \bm instead \boldsymbol in math mode
+\usepackage{dsfont}
+%\usepackage{stmaryrd}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%% graphics %%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+%\usepackage{color}
+%\usepackage{xypic}
+%\usepackage[all]{xy}
+%\usepackage{calc}
+
+%%%%%% tables %%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{minibox}
+\usepackage{systeme}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[shortlabels]{enumitem}
+
+\usepackage{fancyhdr}
+%%%%% header and footer rule %%%%%%%%%
+\setlength{\headheight}{14pt}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\fancypagestyle{plain}{\fancyhf{}
+  \fancyhead{}
+  \lfoot{\small \vspace{3pt}\color{Col1} Βαγγέλης Σαπουνάκης}
+  \rfoot{\small \vspace{3pt}\color{Col2!75} Φοιτητικό Πρόσημο}
+  \cfoot{\small \vspace{3pt}}
+}
+\fancypagestyle{vangelis}{\fancyhf{}
+  \lfoot{\small \vspace{2pt}\color{Col1} Βαγγέλης Σαπουνάκης}
+  \cfoot{\small \vspace{2pt}\color{Col2!75} Φοιτητικό Πρόσημο}
+  \rfoot{\small \vspace{2pt}}
+}
+\fancypagestyle{askhseis}{\fancyhf{}
+  \lfoot{\small \vspace{2pt}\color{Col1} Φοιτητικό Πρόσημο}
+  \cfoot{\small \vspace{2pt}\color{Col2!75} }
+  \rfoot{\small \vspace{2pt} \thepage}
+}
+
+
+%%%%%%%%% My Theorems %%%%%%%%%%%%%%%%%%
+\theoremstyle{definition}
+\newtheorem{thm}{Θεώρημα}
+\newtheorem{cor}[thm]{Πόρισμα}
+\newtheorem{lem}[thm]{Λήμμα}
+\newtheorem{prop}[thm]{Πρόταση}
+\newtheorem{isx}[thm]{Ισχυρισμός}
+\theoremstyle{definition}
+\newtheorem{dfn}{Ορισμός}
+\newtheorem{dfns}[dfn]{Ορισμοί}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \newtheoremstyle{note} %〈name〉
+% {3pt} %〈Space above〉
+% {3pt} %〈Space below〉
+% {} %〈Body font〉
+% {} %〈Indent amount〉
+% {\itshape} %〈Theorem head font〉
+% {:} %〈Punctuation after theorem head〉
+% {.5em} %〈Space after theorem head〉
+% {} %〈Theorem head spec(can be left empty, meaning ‘normal’)〉
+
+\newtheoremstyle{break}
+{\topsep}{\topsep}%
+{\itshape}{}%
+{\bfseries}{}%
+{\newline}{}%
+
+\theoremstyle{break}
+\newtheorem{thmbreak}{Θεώρημα}
+
+\newtheoremstyle{myrem}
+{\topsep}{\topsep}%
+{}{}%
+{\color{Col2}\bfseries}{.}%
+{0.5em}{}%
+
+\theoremstyle{myrem}
+\newtheorem{rem}[thm]{Παρατήρηση}
+\newtheorem{rems}[thm]{Παρατηρήσεις}
+\newtheorem{concl}[thm]{Συμπέρασμα}
+
+\newtheoremstyle{myex}
+{\topsep}{\topsep}%
+{}{}%
+{\color{Col1}\bfseries}{.}%
+{0.5em}{}%
+
+\theoremstyle{myex}
+\newtheorem{example}[thm]{Παράδειγμα}
+\newtheorem{examples}[thm]{Παραδείγματα}
+\newtheorem{exercise}[thm]{Άσκηση}
+\newtheorem{exercises}[thm]{Ασκήσεις}
+\newtheorem{problem}[thm]{Πρόβλημα}
+\newtheorem{problems}[thm]{Προβλήματα}
+
+\newenvironment{solution}[1][\bfseries Λύση]
+{\begin{proof}[#1]}
+{\end{proof}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[space]{grffile}
+
+
+\definecolor{Col0}{rgb}{0.0, 0.55, 0.55}
+\definecolor{Col1}{rgb}{0.74, 0.2, 0.64}
+\definecolor{Col2}{rgb}{0.0, 0.55, 0.55}
+\definecolor{Col3}{rgb}{0.74, 0.2, 0.64}
+\definecolor{Col4}{rgb}{0.0, 0.55, 0.55}
+\definecolor{Col5}{rgb}{0.74, 0.2, 0.64}
+\definecolor{Col6}{rgb}{0.0, 0.55, 0.55}
+\definecolor{Col7}{rgb}{0.74, 0.2, 0.64}
+\definecolor{Col8}{rgb}{0.0, 0.55, 0.55}
+\definecolor{Col9}{rgb}{0.74, 0.2, 0.64}
+
+\everymath{\displaystyle}
+
+\usepackage[most]{tcolorbox}
+
+\usepackage[explicit]{titlesec}
+%%%%%% titlesec settings %%%%%%%%%%%%%
+% \titleformat{ command }[ shape ]{ format }{ label }{ sep }{ before-code }[ after-code 
+% \titlespacing*{ command }{ left }{ before-sep }{ after-sep }[ right-sep ]
+% Chapter
+
+
+% \titleformat{\chapter}[block]{\huge\bfseries}{\begin{tcolorbox}[colback=Col\thechapter,left=3pt,right=3pt,top=18pt,bottom=18pt,sharp
+% corners,boxrule=0pt]\centering\huge\bfseries\textcolor{white}{#1}\end{tcolorbox}}{0pt}{\markboth{#1}}[\clearpage]
+% \titlespacing*{\chapter}{0cm}{6\baselineskip}{0\baselineskip}[0ex]
+
+% Chapter
+\titleformat{\chapter}[hang]
+{\large\bfseries\centering}
+{\begin{tcolorbox}[colback=Col\thechapter,left=1pt,right=1pt,top=1pt,bottom=1pt,sharp
+corners,boxrule=0pt]\centering\strut\textcolor{white}{#1}\end{tcolorbox}}
+{0ex}{}[]
+\titlespacing*{\chapter}{0cm}{0ex}{0ex}[0ex]
+
+% Section
+\titleformat{\section}[hang]
+{\bfseries\centering}
+{\begin{tcolorbox}[colback=Col\thechapter!75,left=1pt,right=1pt,top=1pt,bottom=1pt,sharp
+corners,boxrule=0pt]\centering\strut\textcolor{white}{#1}\end{tcolorbox}}
+{0ex}{}[]
+\titlespacing*{\section}{0cm}{0ex}{0ex}[0ex]
+
+% subsection
+\titleformat{\subsection}[hang]
+{\normalsize\bfseries\centering}
+{\begin{tcolorbox}[colback=Col\thechapter!50!white,left=1pt,right=1pt,top=1pt,bottom=1pt,sharp corners,boxrule=0pt]\centering\strut\textcolor{white}{#1}\end{tcolorbox}}
+{0ex}{}[]
+\titlespacing*{\subsection}{0cm}{0ex}{0ex}[0ex] 
+
+% % Subsubsection
+% \titleformat{\subsubsection}[hang]{\normalsize\bfseries\centering}{}{0ex}{\color{Col\thechapter!55}{#1}}{}
+% \titlespacing*{\subsubsection}{0cm}{\baselineskip}{\baselineskip}[0ex]
+
+%% Subsection
+%% Subsubsection
+%\titleformat{\subsubsection}[hang]{\normalsize\bfseries\centering}{}{0ex}{\color{Col\thechapter}{#1}}{}
+%\titlespacing*{\subsubsection}{0cm}{\baselineskip}{\baselineskip}[0ex]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+% \AtBeginDocument{\pagestyle{vangelis}\normalsize\raggedright}
+
+\newcommand{\twocolumnside}[2]{\begin{minipage}[t]{0.45\linewidth}\raggedright
+#1
+\end{minipage}\hfill{\color{Col\thechapter}{\vrule width 1pt}}\hfill\begin{minipage}[t]{0.45\linewidth}\raggedright
+#2
+\end{minipage}
+}
+
+\newcommand{\twocolumnsides}[2]{\begin{minipage}[t]{0.45\linewidth}\raggedright
+#1
+\end{minipage}\hfill\begin{minipage}[t]{0.45\linewidth}\raggedright
+#2
+\end{minipage}
+}
+
+\newcommand{\twocolumnsidess}[2]{\begin{minipage}[t]{0.47\linewidth}\raggedright
+#1
+\end{minipage}\hfill\begin{minipage}[t]{0.47\linewidth}\raggedright
+#2
+\end{minipage}
+}
+
+\newcommand{\twocolumnsidesc}[2]{\begin{minipage}{0.45\linewidth}\raggedright
+#1
+\end{minipage}\hfill\begin{minipage}[c]{0.45\linewidth}\raggedright
+#2
+\end{minipage}
+}
+
+\newcommand{\twocolumnsidesp}[2]{\begin{minipage}[t]{0.40\linewidth}\raggedright
+#1
+\end{minipage}\hfill\begin{minipage}[t]{0.55\linewidth}\raggedright
+#2
+\end{minipage}
+}
+
+\newcommand{\twocolumnsidesl}[2]{\begin{minipage}[t]{0.50\linewidth}\raggedright
+#1
+\end{minipage}\hfill\begin{minipage}[t]{0.40\linewidth}\raggedright
+#2
+\end{minipage}
+}
+
+\newcommand{\twocolumnsidesr}[2]{\begin{minipage}[t]{0.43\linewidth}\raggedright
+#1
+\end{minipage}\hfill\begin{minipage}[t]{0.53\linewidth}\raggedright
+#2
+\end{minipage}
+}
+
+
+\newcommand{\twocolumnsidesll}[2]{\begin{minipage}[t]{0.65\linewidth}\raggedright
+#1
+\end{minipage}\hfill\begin{minipage}[t]{0.30\linewidth}\raggedright
+#2
+\end{minipage}
+}
+
+\newcommand{\twocolumnsidec}[2]{\begin{minipage}[t]{0.50\linewidth}\centering
+#1
+\end{minipage}\hfill\begin{minipage}[t]{0.40\linewidth}\centering
+#2
+\end{minipage}
+}
+
+\newcommand{\threecolumnside}[3]{\begin{minipage}[t]{0.30\linewidth}\centering
+#1
+\end{minipage}\hfill\begin{minipage}[t]{0.30\linewidth}\centering
+#2
+\end{minipage}\hfill\begin{minipage}[t]{0.30\linewidth}\centering
+#3
+\end{minipage}
+}
+
+
+\usepackage{calc}
+\usepackage{array}
+\definecolor{TabLine}{RGB}{254,254,254}
+\newcommand{\TabRowHead}{\rowcolor{TabHeadRow}}
+\newcommand{\TabRowHeadCor}{\cellcolor{white}}
+\newcommand{\TabRowHCol}{\color{white}\bfseries\boldmath}
+\newcommand{\TabCellHead}{\cellcolor{TabHeadRow}\TabRowHCol}
+\newenvironment{Mytable}%
+    {\begingroup\setlength{\arrayrulewidth}{2pt}\arrayrulecolor{TabLine}
+    \colorlet{TabHeadRow}{Col\thechapter}
+    \colorlet{TabRowOdd}{Col\thechapter!50!white}
+    \colorlet{TabRowEven}{Col\thechapter!25!white}
+    \rowcolors{1}{TabRowOdd}{TabRowEven}
+    }%
+    {\endgroup
+
+}
+
+%%chapter starts on same page for report and book class with etoolbox package
+
+\makeatletter
+\patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
+\makeatother
+
+
+%%%%%%%%%%%%%%%% WATERMARK above pictures with opacity %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \usepackage[printwatermark]{xwatermark}
+ \newsavebox\mybox
+ \savebox\mybox{\tikz[color=Col2,opacity=0.2]\node{ΠΡΟΣΗΜΟ};}
+ \newwatermark*[
+   allpages,
+   fontfamily=lmr,
+   fontseries=m,
+   angle=45,
+   scale=13,
+   xpos=-45,
+   ypos=40
+ ]{\usebox\mybox} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

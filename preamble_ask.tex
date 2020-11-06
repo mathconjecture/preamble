@@ -1,16 +1,20 @@
 \documentclass[a4paper,table]{report}
 \usepackage{etex}
 
-% %% Babel language package
-% \usepackage[english,greek]{babel}
-% %% Inputenc font encoding
-% \usepackage[utf8]{inputenc}
-
-\usepackage{fontspec}
-\usepackage{libertine}
-\usepackage{polyglossia}
-\setdefaultlanguage{greek}
-\setotherlanguage{english}
+\usepackage{ifxetex}
+\ifxetex
+  % IF XELATEX
+  \usepackage{fontspec}
+  \usepackage{libertine}
+  \usepackage{polyglossia}
+  \setdefaultlanguage{greek}
+  \setotherlanguage{english}
+\else
+  % IF PDFLATEX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage[english,greek]{babel}
+\fi
 
 \usepackage[shrink=10,stretch=10]{microtype} 
 %%%%% math packages %%%%%%%%%%%%%%%%%%
@@ -19,20 +23,24 @@
 \usepackage{amsfonts}
 \usepackage{amsthm}
 \usepackage{proof}
-\usepackage{cancel}
 \usepackage{mathtools}
+\usepackage[makeroom]{cancel}
 \usepackage{xspace}
+% \usepackage{xr}
+% \zexternaldocument[1-]{chapter1} %use \ref{1-labelname}
+\usepackage{mathrsfs} % script fonts (for Laplace symbol)
 \usepackage{subfiles}
 
+\usepackage{diffcoeff}
 \usepackage[italicdiff]{physics}
 \usepackage[detect-all]{siunitx}
 \usepackage{xfrac}
 \usepackage[b]{esvect} 
-
+\usepackage{relsize}
 %%%%%%% symbols packages %%%%%%%%%%%%%%
-\usepackage{bbm} %for use \bm instead \boldsymbol in math mode
-% \usepackage{dsfont}
-% \usepackage{stmaryrd}
+\usepackage{bm} %for use \bm instead \boldsymbol in math mode
+% \usepackage{stmaryrd} %defines new operators, relations, arrows, delimiters, etc
+
 \usepackage{anyfontsize}
 
 
@@ -49,54 +57,28 @@
 \renewcommand{\huge}        {\fontsize{1.8\FONTmain}{1.8\FONTmainbl}\selectfont}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
 %%%%%%%%%%%% graphics %%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{graphicx}
-\usepackage{multicol}
+%\usepackage{multicol}
 
-\usepackage[RGB]{xcolor}
+\usepackage[RGB,dvipsnames]{xcolor}
 \definecolor{Col1}{rgb}{0.74, 0.2, 0.64}
 \definecolor{Col2}{rgb}{0.0, 0.55, 0.55}
+\definecolor{Col3}{rgb}{0.74, 0.2, 0.64}
+\definecolor{Col4}{rgb}{0.0, 0.55, 0.55}
+\definecolor{Col5}{rgb}{0.74, 0.2, 0.64}
 
 \usepackage[many]{tcolorbox}
-%%%%%%%%%%%%% TIKZ $$$$$$$$$$$$$$$$$
-\usepackage{tikz}
-\usetikzlibrary{shapes,angles,calc,arrows,arrows.meta,quotes,intersections}
-\usetikzlibrary{decorations.pathmorphing}
-\usetikzlibrary{decorations.pathreplacing} 
-\usetikzlibrary{decorations.markings,patterns}
-\usepackage{pgfplots}
-
-\pgfplotsset{compat=1.10}
-\usepgfplotslibrary{fillbetween}
-
-\tikzset{dot/.style={draw, fill, circle, inner sep=1pt, minimum size=3pt}}
-
-%%%%%%%%%%%%%%%%%%% My Box Styles %%%%%%%%%%%%%%%%%%%%%%%%%
-\tikzset{myboxdfn/.style = {draw=Col1!75,rectangle, ultra thick, fill=Col1!6, inner sep=10pt},
-myboxtitledfn/.style={rectangle, fill=Col1!75, text=white, font={\bfseries},right=2\baselineskip},
-myboxthm/.style = {draw=Col2!75,rectangle, ultra thick, fill=Col2!6, inner sep=10pt},
-myboxtitlethm/.style={rectangle, fill=Col2!75, text=white, font={\bfseries},right=2\baselineskip},
-myboxprop/.style = {draw=Col2!35,rectangle, ultra thick, fill=Col2!2, inner sep=10pt},
-myboxtitleprop/.style={rectangle, fill=Col2!35, text=white, font={\bfseries},right=2\baselineskip}}
-
-
-
-%\usepackage{xypic}
-%\usepackage[all]{xy}
-%\usepackage{calc}
 
 %%%%%% tables %%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{array}
 \usepackage{booktabs}
 \usepackage{multirow}
-\usepackage{makecell}
+% \usepackage{makecell}
 \usepackage{minibox}
 \usepackage{systeme}
 \usepackage{cite} 
-\usepackage{extarrows} 
-
+% \usepackage{extarrows} 
 
 \usepackage[shortlabels,inline]{enumitem}
 
@@ -104,22 +86,27 @@ myboxtitleprop/.style={rectangle, fill=Col2!35, text=white, font={\bfseries},rig
 %%%%% header and footer rule %%%%%%%%%
 \setlength{\headheight}{14pt}
 \renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.5pt}
 \fancypagestyle{plain}{\fancyhf{}
-\fancyhead{}
-\lfoot{\small \hrule \vspace{5pt}\color{Col1} Βαγγέλης Σαπουνάκης}
-\cfoot{\small \hrule \vspace{5pt}\color{Col2!75} Φοιτητικό Πρόσημο}
-\rfoot{\small \hrule \vspace{5pt} \thepage}}
+  \fancyhead{}
+  \lfoot{\small \vspace{3pt}\color{Col1} Ευάγγελος Σαπουνάκης}
+  \cfoot{\small \vspace{3pt}\color{Col2!75} Φοιτητικό Πρόσημο}
+\rfoot{\small \vspace{3pt} \thepage}}
 \fancypagestyle{vangelis}{\fancyhf{}
-\lfoot{\small \hrule \vspace{5pt}\color{Col1} Βαγγέλης Σαπουνάκης}
-\cfoot{\small \hrule \vspace{5pt}\color{Col2!75} Φοιτητικό Πρόσημο}
-\rfoot{\small \hrule \vspace{5pt} \thepage}}
+  \lfoot{\small \vspace{3pt}\color{Col1} Ευάγγελος Σαπουνάκης}
+  \cfoot{\small \vspace{3pt}\color{Col2!75} Φοιτητικό Πρόσημο}
+\rfoot{\small \vspace{3pt} \thepage}}
 \fancypagestyle{askhseis}{\fancyhf{}
-\lfoot{\small \hrule \vspace{5pt}\color{Col1} Φοιτητικό Πρόσημο}
-\cfoot{\small \hrule \vspace{5pt}\color{Col2!75}}
-\rfoot{\small \hrule \vspace{5pt} \thepage}}
+  \lfoot{\small \vspace{3pt}\color{Col1} Φοιτητικό Πρόσημο}
+  \cfoot{\small \vspace{3pt}\color{Col2!75}}
+\rfoot{\small \vspace{3pt} \thepage}}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%$%%%%%%%%%%%%%%%%%%%%%%%
 
+%%%%%%%%%%%%%%% handles hyperlinks between different files %%%%%%%%%%%%%%%%%%%%%
+% use \zexternaldocument{filename of file that contains the label} inside the file with 
+% the ref command
+%use \ref or \zhref for hyperlink
 \usepackage{nameref}
 \usepackage[xr,hyperref,user]{zref}
 
@@ -131,35 +118,36 @@ myboxtitleprop/.style={rectangle, fill=Col2!35, text=white, font={\bfseries},rig
     \noexpand\href{%
       \zref@extractdefault{#1}{url}{}%
       \zref@ifrefcontainsprop{#1}{anchor}{%
-      \hashchar\zref@extract{#1}{anchor}}{}}%
+    \hashchar\zref@extract{#1}{anchor}}{}}%
 {\noexpand\zref{#1}}}\next}
 \makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{hyperref}
 \usepackage{url}
 %%%%%%% hyperref settings %%%%%%%%%%%%
 \hypersetup{pdfpagemode=UseOutlines,hidelinks,
-colorlinks=true,
-% linkcolor=Col1,
-% anchorcolor= ,
-% citecolor= ,
-% urlcolor= ,
-allcolors=Col1,
-bookmarksopen=true,
-pdfdisplaydoctitle=true,
-pdfstartview=Fit,
-unicode=true,
-pdfpagelayout=OneColumn,
+  colorlinks=true,
+  % linkcolor=Col1,
+  % anchorcolor=Col1 ,
+  % citecolor=Col1 ,
+  % urlcolor= ,
+  allcolors=Col1,
+  bookmarksopen=true,
+  pdfdisplaydoctitle=true,
+  pdfstartview=Fit,
+  unicode=true,
+  pdfpagelayout=OneColumn,
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage[space]{grffile}
 
 \usepackage{geometry}
-\geometry{left=15.63mm,right=15.63mm,top=36.25mm,bottom=36.25mm,footskip=24.16mm,headsep=24.16mm}
+\geometry{left=20.63mm,right=20.63mm,top=30.25mm,bottom=30.25mm,footskip=24.16mm,headsep=24.16mm}
+
+% \usepackage{geometry}
+% \geometry{left=15.63mm,right=15.63mm,top=36.25mm,bottom=36.25mm,footskip=24.16mm,headsep=24.16mm}
 
 \usepackage{titlesec}
 %%%%%% titlesec settings %%%%%%%%%%%%%
@@ -182,6 +170,17 @@ pdfpagelayout=OneColumn,
 \newtheorem{dfn}{Ορισμός}[]
 \newtheorem{dfns}[dfn]{Ορισμοί}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% \newtheoremstyle{note} %〈name〉
+% {3pt} %〈Space above〉
+% {3pt} %〈Space below〉
+% {} %〈Body font〉
+% {} %〈Indent amount〉
+% {\itshape} %〈Theorem head font〉
+% {:} %〈Punctuation after theorem head〉
+% {.5em} %〈Space after theorem head〉
+% {} %〈Theorem head spec(can be left empty, meaning ‘normal’)〉
+
 \newtheoremstyle{break}
 {\topsep}{\topsep}%
 {\itshape}{}%
@@ -194,55 +193,45 @@ pdfpagelayout=OneColumn,
 \newtheoremstyle{myrem}
 {\topsep}{\topsep}%
 {}{}%
-{\color{Col2}\bfseries}{}%
-{\newline}{}%
+{\color{Col2}\bfseries}{.}%
+{1ex}{}%
 
 \theoremstyle{myrem}
-\newtheorem{rem}{Παρατήρηση}[]
-\newtheorem{rems}{Παρατηρήσεις}
-\newtheorem{concl}{Συμπέρασμα}
+\newtheorem{rem}[thm]{Παρατήρηση}
+\newtheorem{rems}[thm]{Παρατηρήσεις}
+\newtheorem{concl}[thm]{Συμπέρασμα}
 
 \newtheoremstyle{myex}
 {\topsep}{\topsep}%
 {}{}%
-{\color{Col1}\bfseries}{}%
-{\newline}{}%
+{\color{Col1}\bfseries}{.}%
+{1ex}{}%
 
 \theoremstyle{myex}
-\newtheorem{example}{Παράδειγμα}
-\newtheorem{examples}{Παραδείγματα}
-\newtheorem{exercise}{Άσκηση}
-\newtheorem{exercises}{Ασκήσεις}
+\newtheorem{example}[thm]{Παράδειγμα}
+\newtheorem{examples}[thm]{Παραδείγματα}
+\newtheorem{exercise}[thm]{Άσκηση}
+\newtheorem{exercises}[thm]{Ασκήσεις}
 \newtheorem{problem}[thm]{Πρόβλημα}
 \newtheorem{problems}[thm]{Προβλήματα}
 
 \newenvironment{solution}[1][\bfseries Λύση]
-  {\begin{proof}[#1]}
-  {\end{proof}}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{\begin{proof}[#1]}
+{\end{proof}}
 
 %%%%%%%%%%%%%%% WATERMARK above pictures with opacity %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
- \usepackage[printwatermark]{xwatermark}
- \newsavebox\mybox
- \savebox\mybox{\tikz[color=Col2,opacity=0.2]\node{ΠΡΟΣΗΜΟ};}
- \newwatermark*[
-   allpages,
-   fontfamily=lmr,
-   fontseries=m,
-   angle=45,
-   scale=12,
-   xpos=-40,
-   ypos=40,
- ]{\usebox\mybox} 
+\usepackage[printwatermark]{xwatermark}
+\newsavebox\mybox
+\savebox\mybox{\tikz[color=Col2,opacity=0.2]\node{ΠΡΟΣΗΜΟ};}
+\newwatermark*[
+allpages,
+fontfamily=lmr,
+fontseries=m,
+angle=45,
+scale=12,
+xpos=-40,
+ypos=40,
+]{\usebox\mybox} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%Watermark%%%%%%%%%%%%%%%%%%
-% \usepackage[printwatermark]{xwatermark} 
-% \newwatermark[allpages,color=Col2!20,fontfamily=lmr,fontseries=m,angle=45,scale=4]
-% {ΠΡΟΣΗΜΟ}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \setlength{\parindent}{0pt}
-
-
