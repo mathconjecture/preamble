@@ -1,6 +1,7 @@
 %%%%%%%%%%%%% TIKZ $$$$$$$$$$$$$$$$$
 \usepackage{tikz}
-\usetikzlibrary{shapes,angles,calc,arrows,arrows.meta,quotes,intersections}
+\usepackage{tkz-euclide}
+\usetikzlibrary{shapes,angles,calc,arrows.meta,quotes,intersections}
 \usetikzlibrary{decorations.pathmorphing}
 \usetikzlibrary{decorations.pathreplacing} 
 \usetikzlibrary{decorations.markings,patterns}
@@ -12,12 +13,12 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.17}
 \usepgfplotslibrary{fillbetween}
-\pgfdeclarelayer{ft}
+\pgfdeclarelayer{fg}
 \pgfdeclarelayer{bg}
-\pgfsetlayers{bg,main,ft}
+\pgfsetlayers{bg,main,fg}
 
 
-
+\tikzset{r/.style={radius=#1},rx/.style={x radius=#1},ry/.style={y radius=#1}}
 \tikzset{dot/.style={draw, fill, circle, inner sep=1pt, minimum size=3pt}}
 \tikzset{dashed lines/.style={dashed,ultra thin}}
 

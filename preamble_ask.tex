@@ -89,8 +89,8 @@
 \renewcommand{\footrulewidth}{0.5pt}
 \fancypagestyle{plain}{\fancyhf{}
   \fancyhead{}
-  \lfoot{\small \vspace{3pt}\color{Col1} Ευάγγελος Σαπουνάκης}
-  \cfoot{\small \vspace{3pt}\color{Col2!75} Φοιτητικό Πρόσημο}
+  \lfoot{\small \vspace{3pt}\color{Col1} Μαγδαληνή Φωτοπούλου}
+  \cfoot{\small \vspace{3pt}\color{Col2!75}}
 \rfoot{\small \vspace{3pt} \thepage}}
 \fancypagestyle{vangelis}{\fancyhf{}
   \lfoot{\small \vspace{3pt}\color{Col1} Ευάγγελος Σαπουνάκης}
@@ -98,6 +98,10 @@
 \rfoot{\small \vspace{3pt} \thepage}}
 \fancypagestyle{askhseis}{\fancyhf{}
   \lfoot{\small \vspace{3pt}\color{Col1} Φοιτητικό Πρόσημο}
+  \cfoot{\small \vspace{3pt}\color{Col2!75}}
+\rfoot{\small \vspace{3pt} \thepage}}
+\fancypagestyle{maggie}{\fancyhf{}
+  \lfoot{\small \vspace{3pt}\color{Col1} Μαγδαληνή Φωτοπούλου}
   \cfoot{\small \vspace{3pt}\color{Col2!75}}
 \rfoot{\small \vspace{3pt} \thepage}}
 
@@ -219,19 +223,19 @@
 {\begin{proof}[#1]}
 {\end{proof}}
 
-%%%%%%%%%%%%%%% WATERMARK above pictures with opacity %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[printwatermark]{xwatermark}
-\newsavebox\mybox
-\savebox\mybox{\tikz[color=Col2,opacity=0.2]\node{ΠΡΟΣΗΜΟ};}
-\newwatermark*[
-allpages,
-fontfamily=lmr,
-fontseries=m,
-angle=45,
-scale=12,
-xpos=-40,
-ypos=40,
-]{\usebox\mybox} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% WATERMARK above pictures with opacity %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[printwatermark]{xwatermark}
+%\newsavebox\mybox
+%\savebox\mybox{\tikz[color=Col2,opacity=0.2]\node{ΠΡΟΣΗΜΟ};}
+%\newwatermark*[
+%allpages,
+%fontfamily=lmr,
+%fontseries=m,
+%angle=45,
+%scale=12,
+%xpos=-40,
+%ypos=40,
+%]{\usebox\mybox} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \setlength{\parindent}{0pt}
