@@ -1,4 +1,5 @@
 \documentclass[a4paper,table]{report}
+
 \usepackage{etex}
 
 
@@ -68,7 +69,7 @@
 \usepackage{minibox}
 \usepackage{systeme}
 \usepackage{cite} 
-% \usepackage{extarrows} 
+\usepackage{extarrows} 
 
 \usepackage[shortlabels,inline]{enumitem}
 
@@ -79,8 +80,8 @@
 \renewcommand{\footrulewidth}{0.5pt}
 \fancypagestyle{plain}{\fancyhf{}
   \fancyhead{}
-  \lfoot{\small \vspace{3pt}\color{Col1} Ευάγγελος Σαπουνάκης}
-  \cfoot{\small \vspace{3pt}\color{Col2!75} Φοιτητικό Πρόσημο}
+  \lfoot{\small \vspace{3pt}\color{Col1} Φοιτητικό Πρόσημο}
+  \cfoot{\small \vspace{3pt}\color{Col2!75}}
   \rfoot{\small \vspace{3pt} \thepage}
 }
 \fancypagestyle{vangelis}{\fancyhf{}
@@ -190,6 +191,7 @@
 
 \theoremstyle{myrem}
 \newtheorem{rem}[thm]{Παρατήρηση}
+\newtheorem{rem*}{Παρατήρηση}
 \newtheorem{rems}[thm]{Παρατηρήσεις}
 \newtheorem{concl}[thm]{Συμπέρασμα}
 \newtheorem{sxol}[thm]{Σχόλιο}
@@ -213,7 +215,7 @@
 {\begin{proof}[#1]}
 {\end{proof}}
 
-%%%%%%%%%%%%%%% WATERMARK above pictures with opacity %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% WATERMARK above pictures with opacity %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[printwatermark]{xwatermark}
 \newsavebox\mybox
 \savebox\mybox{\tikz[color=Col2,opacity=0.2]\node{ΠΡΟΣΗΜΟ};}
@@ -226,7 +228,7 @@ scale=12,
 xpos=-40,
 ypos=40,
 ]{\usebox\mybox} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \setlength{\parindent}{0pt}
 

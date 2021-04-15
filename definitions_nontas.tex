@@ -1,5 +1,5 @@
 \renewcommand{\vec}{\mathbf}
-% \renewcommand{\qedsymbol}{$\blacksquare$}
+\renewcommand{\qedsymbol}{$\blacksquare$}
 \DeclareMathOperator{\Span}{span}
 
 \newcommand{\comb}[2]{\lambda_{1}\vec{#1}_{1} + \cdots + \lambda_{#2}\vec{#1}_{#2}}
@@ -92,13 +92,6 @@
     \end{minipage}
 }
 
-\newcommand{\twocolumnsidess}[2]{\begin{minipage}[t]{0.48\linewidth}\raggedright
-        #1
-        \end{minipage}\hfill\begin{minipage}[t]{0.48\linewidth}\raggedright
-        #2
-    \end{minipage}
-}
-
 \newcommand{\twocolumnsidesc}[2]{\begin{minipage}[c]{0.45\linewidth}\raggedright
         #1
         \end{minipage}\hfill\begin{minipage}[c]{0.45\linewidth}\raggedright
@@ -106,23 +99,16 @@
     \end{minipage}
 }
 
+\newcommand{\twocolumnsidess}[2]{\begin{minipage}[t]{0.48\linewidth}\raggedright
+        #1
+        \end{minipage}\hfill\begin{minipage}[t]{0.48\linewidth}\raggedright
+        #2
+    \end{minipage}
+}
+
 \newcommand{\twocolumnsidel}[2]{\begin{minipage}[t]{0.25\linewidth}\raggedright
         #1
         \end{minipage}\hfill{\color{Col\thechapter}{\vrule width 1pt}}\hfill\begin{minipage}[t]{0.70\linewidth}\raggedright
-        #2
-    \end{minipage}
-}
-
-\newcommand{\twocolumnsidelc}[2]{\begin{minipage}[c]{0.25\linewidth}\raggedright
-        #1
-        \end{minipage}\hfill\begin{minipage}[c]{0.70\linewidth}\raggedright
-        #2
-    \end{minipage}
-}
-
-\newcommand{\twocolumnsiderc}[2]{\begin{minipage}[c]{0.70\linewidth}\raggedright
-        #1
-        \end{minipage}\hfill\begin{minipage}[c]{0.25\linewidth}\raggedright
         #2
     \end{minipage}
 }
@@ -285,19 +271,108 @@ sep=0pt, inner sep=0pt] (#1) {\phantom{A}};}
 }
 \makeatother
 
-%removes qedsymbol and additional vertical space at the end 
-\makeatletter
-\renewenvironment{proof}[1][\proofname]{\par
-  % \pushQED{\hfill\qedhere}% <--- remove the QED business
-  \normalfont \topsep6\p@\@plus6\p@\relax
-  \trivlist
-  \item[\hskip\labelsep
-        \itshape
-        #1\@addpunct{.}]\ignorespaces
-}{%
- % \popQED% <--- remove the QED business
-  \endtrivlist\@endpefalse
-}
-\renewcommand\qedhere{$\blacksquare$} % to ensure code portability
-\makeatother
+%%removes qedsymbol and additional vertical space at the end 
+%\makeatletter
+%\renewenvironment{proof}[1][\proofname]{\par
+%  % \pushQED{\hfill\qedhere}% <--- remove the QED business
+%  \normalfont \topsep6\p@\@plus6\p@\relax
+%  \trivlist
+%  \item[\hskip\labelsep
+%        \itshape
+%        #1\@addpunct{.}]\ignorespaces
+%}{%
+% % \popQED% <--- remove the QED business
+%  \endtrivlist\@endpefalse
+%}
+ %\renewcommand\qedhere{$\blacksquare$} % to ensure code portability
+%\makeatother
+
+%%%%%%%%%%%  Nontas  %%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Mod}[1]{\ (\textup{\textlatin{mod}}\ #1)}
+
+
+%%%%%%%%%%\Rightarrow with text above%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\makeatletter
+%\newcommand{\xRightarrow}[2][]{\ext@arrow 0359\Rightarrowfill@{#1}{#2}}
+%\makeatother
+
+%%%%%%%%%%%% \sum alignment %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\clap#1{\hbox to 0pt{\hss#1\hss}}
+\def\mathllap{\mathpalette\mathllapinternal}
+\def\mathrlap{\mathpalette\mathrlapinternal}
+\def\mathclap{\mathpalette\mathclapinternal}
+\def\mathllapinternal#1#2{%
+\llap{$\mathsurround=0pt#1{#2}$}}
+\def\mathrlapinternal#1#2{%
+\rlap{$\mathsurround=0pt#1{#2}$}}
+\def\mathclapinternal#1#2{%
+\clap{$\mathsurround=0pt#1{#2}$}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% New definition
+\newcommand*\productop{\mathbin{\Pi}}
+
+\newcommand{\s}{\Sigma}
+\newcommand{\eng}[1]{\latintext#1\greektext} % Change language
+\newcommand{\iso}{\approx}
+\newcommand{\sk}{$\Sigma/K$}
+\newcommand{\diag}{$D\colon \Sigma \to \C$}
+\newcommand{\psk}{$\mathcal P(\Sigma/K)\,$}
+\newcommand{\fsk}{$[\Sigma/K,\C]$}
+\newcommand{\cl}{\C[\Sigma^{-1}]{}}
+% \newcommand{\si}{s^{-1}}
+\newcommand{\id}{{\rm id}}
+\newcommand{\sa}{\textlatin{a}}
+\newcommand{\upperRomannumeral}[1]{\uppercase\expandafter{\romannumeral#1}}
+
+\DeclareMathOperator{\ob}{Ob}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\Set}{Set}
+\DeclareMathOperator{\SET}{SET}
+\DeclareMathOperator{\Mon}{Mon}
+\DeclareMathOperator{\Sub}{Sub}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Inc}{Inc}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Sort}{Sort}
+\DeclareMathOperator{\Fun}{Fun}
+\DeclareMathOperator{\Rel}{Rel}
+\DeclareMathOperator{\Str}{Str}
+\DeclareMathOperator{\Cart}{\mathfrak{Cart}}
+\DeclareMathOperator{\Max}{Max}
+\DeclareMathOperator{\Min}{Min}
+%\DeclareMathOperator{\im}{Im}
+\DeclareMathOperator{\up}{u_p}
+\DeclareMathOperator{\u2}{u_2}
+\DeclareMathOperator{\ep}{e_p}
+
+
+
+% Upper case script
+\def\fu{\mathfrak U}
+\def\fb{\mathfrak B}
+\def\bi{\mathbb I}
+
+\def\A{\mathcal A}     \def\B{\mathcal B}
+\def\C{\mathcal C}     \def\D{\mathcal D}
+\def\E{\mathcal E}     \def\F{\mathcal F}
+\def\G{\mathcal G}     \def\H{\mathcal H}
+\def\I{\mathcal I}     \def\J{\mathcal J}
+\def\K{\mathcal K}     \def\L{\mathcal L}
+\def\M{\mathcal M}     \def\N{\mathcal N}
+\def\O{\mathcal O}     \def\P{\mathcal P}
+\def\Q{\mathcal Q}     \def\R{\mathcal R}
+\def\S{\mathcal S}     \def\T{\mathcal T}
+\def\U{\mathcal U}     \def\V{\mathcal V}
+\def\W{\mathcal W}     \def\X{\mathcal X}
+\def\Y{\mathcal Y}     \def\Z{\mathcal Z}
+
+\def\TT{\mathbb T}
+\def\CC{\mathbb C}
+
+
+
 

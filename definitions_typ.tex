@@ -235,6 +235,22 @@ sep=0pt, inner sep=0pt] (#1) {\phantom{A}};}
   }%
 }%
 
+%% syntax
+\NewDocumentCommand\mybracee{mmo}{%
+  \IfValueTF {#3}{%
+    \begin{tikzpicture}[overlay, remember picture,decoration={brace,amplitude=1ex}]
+      \draw[decorate,thick] (#1.north east) -- (#2.south east) 
+      node (b) [midway,xshift=14pt,label={[xshift=-2ex,yshift=1pt]right= of b:{#3}}] {};
+    \end{tikzpicture}%
+  }%
+  {%
+    \begin{tikzpicture}[overlay, remember picture,decoration={brace,amplitude=1ex}]
+      \draw[decorate,thick] (#1.north east) -- (#2.south east);
+    \end{tikzpicture}%
+  }%
+}%
+
+
 %%%%%%%How to use this %%%%%%%%%%%%%%%%%%%%%%%%%
 %use \tikzmark{a} and \tikzmark{b} at first and last \item where the brace is
 %wanted

@@ -24,19 +24,6 @@
 % \setmainfont[Path=../,UprightFont=*-Regular,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-Bold-Italic]{Minion-Pro}
 
 
-\usepackage{anyfontsize}
-\newlength{\FONTmain}\setlength{\FONTmain}{12pt}
-\newlength{\FONTmainbl}\setlength{\FONTmainbl}{1.2\FONTmain}
-\renewcommand{\tiny}        {\fontsize{0.6\FONTmain}{0.6\FONTmainbl}\selectfont}
-\renewcommand{\scriptsize}  {\fontsize{0.7\FONTmain}{0.7\FONTmainbl}\selectfont}
-\renewcommand{\footnotesize}{\fontsize{0.8\FONTmain}{0.8\FONTmainbl}\selectfont}
-\renewcommand{\small}       {\fontsize{0.9\FONTmain}{0.9\FONTmainbl}\selectfont}
-\renewcommand{\normalsize}  {\fontsize{1.0\FONTmain}{1.0\FONTmainbl}\selectfont}
-\renewcommand{\large}       {\fontsize{1.2\FONTmain}{1.2\FONTmainbl}\selectfont}
-\renewcommand{\Large}       {\fontsize{1.4\FONTmain}{1.4\FONTmainbl}\selectfont}
-\renewcommand{\LARGE}       {\fontsize{1.6\FONTmain}{1.6\FONTmainbl}\selectfont}
-\renewcommand{\huge}        {\fontsize{1.8\FONTmain}{1.8\FONTmainbl}\selectfont}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[table,RGB]{xcolor}
@@ -97,12 +84,12 @@
 \fancypagestyle{plain}{\fancyhf{}
   \fancyhead{}
   \lfoot{\small \vspace{3pt}\color{Col1} Βαγγέλης Σαπουνάκης}
-  \rfoot{\small \vspace{3pt}\color{Col2!75} Φοιτητικό Πρόσημο}
+  \rfoot{\small \vspace{3pt}\color{Col2!75}}
   \cfoot{\small \vspace{3pt}}
 }
 \fancypagestyle{vangelis}{\fancyhf{}
   \lfoot{\small \vspace{2pt}\color{Col1} Βαγγέλης Σαπουνάκης}
-  \cfoot{\small \vspace{2pt}\color{Col2!75} Φοιτητικό Πρόσημο}
+  \cfoot{\small \vspace{2pt}\color{Col2!75}}
   \rfoot{\small \vspace{2pt}}
 }
 \fancypagestyle{askhseis}{\fancyhf{}
@@ -214,7 +201,7 @@ corners,boxrule=0pt]\centering\strut\textcolor{white}{#1}\end{tcolorbox}}
 % Section
 \titleformat{\section}[hang]
 {\bfseries\centering}
-{\begin{tcolorbox}[colback=Col\thechapter!75,left=1pt,right=1pt,top=1pt,bottom=1pt,sharp
+{\begin{tcolorbox}[colback=Col\thechapter!80,left=1pt,right=1pt,top=1pt,bottom=1pt,sharp
 corners,boxrule=0pt]\centering\strut\textcolor{white}{#1}\end{tcolorbox}}
 {0ex}{}[]
 \titlespacing*{\section}{0cm}{0ex}{0ex}[0ex]
@@ -222,18 +209,21 @@ corners,boxrule=0pt]\centering\strut\textcolor{white}{#1}\end{tcolorbox}}
 % subsection
 \titleformat{\subsection}[hang]
 {\normalsize\bfseries\centering}
-{\begin{tcolorbox}[colback=Col\thechapter!50!white,left=1pt,right=1pt,top=1pt,bottom=1pt,sharp corners,boxrule=0pt]\centering\strut\textcolor{white}{#1}\end{tcolorbox}}
+{\begin{tcolorbox}[colback=Col\thechapter!65!white,left=1pt,right=1pt,top=1pt,bottom=1pt,sharp corners,boxrule=0pt]\centering\strut\textcolor{white}{#1}\end{tcolorbox}}
 {0ex}{}[]
 \titlespacing*{\subsection}{0cm}{0ex}{0ex}[0ex] 
 
-% % Subsubsection
-% \titleformat{\subsubsection}[hang]{\normalsize\bfseries\centering}{}{0ex}{\color{Col\thechapter!55}{#1}}{}
-% \titlespacing*{\subsubsection}{0cm}{\baselineskip}{\baselineskip}[0ex]
+% % subsection
+% \titleformat{\subsubsection}[hang]
+% {\normalsize\bfseries\centering}
+% {\begin{tcolorbox}[colback=Col\thechapter!50!white,left=1pt,right=1pt,top=1pt,bottom=1pt,sharp corners,boxrule=0pt]\centering\strut\textcolor{white}{#1}\end{tcolorbox}}
+% {0ex}{}[]
+% \titlespacing*{\subsubsection}{0cm}{0ex}{0ex}[0ex] 
 
-%% Subsection
-%% Subsubsection
-%\titleformat{\subsubsection}[hang]{\normalsize\bfseries\centering}{}{0ex}{\color{Col\thechapter}{#1}}{}
-%\titlespacing*{\subsubsection}{0cm}{\baselineskip}{\baselineskip}[0ex]
+% % subsubsection
+\titleformat{\subsubsection}[hang]{\normalsize\bfseries}{}{0ex}{\color{Col\thechapter!75}{#1}}{}
+\titlespacing*{\subsubsection}{0cm}{0ex}{0ex}[0ex]
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -261,6 +251,14 @@ corners,boxrule=0pt]\centering\strut\textcolor{white}{#1}\end{tcolorbox}}
 #2
 \end{minipage}
 }
+
+\newcommand{\twocolumnsidessl}[2]{\begin{minipage}[t]{0.47\linewidth}\raggedright
+#1
+\end{minipage}\hfill{\color{Col\thechapter}{\vrule width 1pt}}\begin{minipage}[t]{0.47\linewidth}\raggedright
+#2
+\end{minipage}
+}
+
 
 \newcommand{\twocolumnsidesc}[2]{\begin{minipage}{0.45\linewidth}\raggedright
 #1

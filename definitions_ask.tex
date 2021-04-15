@@ -1,5 +1,6 @@
 \renewcommand{\vec}{\mathbf}
 %%%%%%%%% mdframed theorem boxes, breakable and with ref support %%%%%%%%
+\DeclareMathOperator{\Span}{span}
 
 \usepackage[framemethod=TikZ]{mdframed}
 
@@ -133,14 +134,14 @@
 
 
 \newlist{myitemize}{itemize}{3}
-\setlist[myitemize]{label=\textcolor{Col1}{\tiny$\blacksquare$},leftmargin=*}
+\setlist[myitemize]{label=\textcolor{Col1}{\tiny$\blacksquare$}}
 
 \newlist{myitemize*}{itemize*}{3}
 \setlist[myitemize*]{itemjoin=\hspace{2\baselineskip},label=\textcolor{Col1}{\tiny$\blacksquare$}}
 
 \newlist{myenumerate}{enumerate}{3}
 \setlist[enumerate,1]{label=\textcolor{Col1}{\theenumi.},leftmargin=*}
-\setlist[enumerate,2]{label=\textcolor{Col1}{\roman*)},leftmargin=*}
+\setlist[enumerate,2]{label=\textcolor{Col1}{\roman*)}}
 
 \setlist[description]{labelindent=1em,widest=Ιανουα0000,labelsep*=1em,itemindent=0pt,leftmargin=*}
 
@@ -166,9 +167,17 @@
 {}% before the title body
 [] % after the title body 
 % subsection format
+
 \titleformat{\subsection}%
 {\normalfont\large\bfseries\itshape\color{Col2!75}}% format applied to label+text
 {\colorbox{Col2!75}{\parbox{0.95cm}{\hfill\color{white}\thesubsection}}}% label
+{1em}% horizontal separation between label and title body
+{}% before the title body
+[]% after the title body 
+
+\titleformat{\subsubsection}%
+{\normalfont\large\bfseries\itshape\color{Col2!75}}% format applied to label+text
+{\colorbox{Col2!65}{\parbox{0.95cm}{\hfill\color{white}\thesubsection}}}% label
 {1em}% horizontal separation between label and title body
 {}% before the title body
 []% after the title body 
@@ -208,9 +217,23 @@
     \end{minipage}
 }
 
-\newcommand{\twocolumnsidesc}[2]{\begin{minipage}[c]{0.56\linewidth}\raggedright
+\newcommand{\twocolumnsidel}[2]{\begin{minipage}[t]{0.50\linewidth}\raggedright
         #1
-        \end{minipage}\hfill\begin{minipage}[c]{0.35\linewidth}\raggedright
+        \end{minipage}\hfill\begin{minipage}[t]{0.40\linewidth}\raggedright
+        #2
+    \end{minipage}
+}
+
+\newcommand{\twocolumnsider}[2]{\begin{minipage}[t]{0.40\linewidth}\raggedright
+        #1
+        \end{minipage}\hfill\begin{minipage}[t]{0.50\linewidth}\raggedright
+        #2
+    \end{minipage}
+}
+
+\newcommand{\twocolumnsidesc}[2]{\begin{minipage}[c]{0.60\linewidth}\raggedright
+        #1
+        \end{minipage}\hfill\begin{minipage}[c]{0.30\linewidth}\raggedright
         #2
     \end{minipage}
 }
