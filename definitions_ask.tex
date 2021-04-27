@@ -210,9 +210,23 @@
     \end{minipage}
 }
 
+\newcommand{\twocolumnsidee}[2]{\begin{minipage}[t]{0.48\linewidth}\raggedright
+        #1
+        \end{minipage}\hfill{\color{Col\thechapter}{\vrule width 1pt}}\hfill\begin{minipage}[t]{0.48\linewidth}\raggedright
+        #2
+    \end{minipage}
+}
+
 \newcommand{\twocolumnsides}[2]{\begin{minipage}[t]{0.45\linewidth}\raggedright
         #1
         \end{minipage}\hfill\begin{minipage}[t]{0.45\linewidth}\raggedright
+        #2
+    \end{minipage}
+}
+
+\newcommand{\twocolumnsidess}[2]{\begin{minipage}[t]{0.48\linewidth}\raggedright
+        #1
+        \end{minipage}\hfill\begin{minipage}[t]{0.48\linewidth}\raggedright
         #2
     \end{minipage}
 }

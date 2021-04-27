@@ -1,7 +1,7 @@
 %%%%%%%%%%%%% TIKZ $$$$$$$$$$$$$$$$$
 \usepackage{tikz}
 \usepackage{tkz-euclide}
-\usetikzlibrary{shapes,angles,calc,arrows.meta,quotes,intersections}
+\usetikzlibrary{shapes,angles,arrows.meta,bending,quotes,intersections}
 \usetikzlibrary{decorations.pathmorphing}
 \usetikzlibrary{decorations.pathreplacing} 
 \usetikzlibrary{decorations.markings,patterns}
@@ -16,6 +16,7 @@
 \pgfdeclarelayer{fg}
 \pgfdeclarelayer{bg}
 \pgfsetlayers{bg,main,fg}
+
 
 
 \tikzset{r/.style={radius=#1},rx/.style={x radius=#1},ry/.style={y radius=#1}}
@@ -44,3 +45,12 @@ dashed lines/.style={dashed,ultra thin}}
   color=Col2!15, inner sep=15pt},
 myboxtitleprop/.style= {rectangle, fill=Col2!75, text=white, font={\bfseries},right=2\baselineskip}}
 
+%%%%%%%%%%%%%%%%%%% my math boxes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtcbox{\mathboxg}[1][]{nobeforeafter, math upper,size=small, 
+          enhanced, sharp corners, colback=Col2!20, colframe=Col2!50,
+        %left=1ex, top=1ex, right=1ex, bottom=1ex,
+          }
+\newtcbox{\mathboxr}[1][]{nobeforeafter, math upper,size=small,
+          enhanced, sharp corners, colback=Col1!20, colframe=Col1!50,
+        %left=1ex, top=1ex, right=1ex, bottom=1ex,
+        }
