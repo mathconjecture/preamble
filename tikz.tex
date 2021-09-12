@@ -19,9 +19,17 @@
 
 
 
+%%%%%%% my styles %%%%%%%%%%%%%%%%%%%%
 \tikzset{r/.style={radius=#1},rx/.style={x radius=#1},ry/.style={y radius=#1}}
-\tikzset{dot/.style={draw, fill, circle, inner sep=1pt, minimum size=3pt}}
+\tikzset{point/.style={draw, fill, circle, inner sep=1pt, minimum size=3pt}}
 \tikzset{dashed lines/.style={dashed,ultra thin}}
+\tikzset{graph/.style={ultra thick,Col2}}
+\tikzset{graph label/.style={Col1}}
+%%%%%%% my pics %%%%%%%%%%%%%%%%%%%%
+\tikzset{
+  arrow/.pic={\path[tips,->,>=#1] (0,0) -- +(.1pt,0);},
+   pics/arrow/.default={angle 60}
+}
 
 % \pgfplotsset{myaxis/.style={axis lines=center,axis line style={thick,Col2!75,-stealth},
 %   tick label style={font=\small,Col2!75},tick style={Col2!75}},
