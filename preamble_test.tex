@@ -1,11 +1,26 @@
 \documentclass[a4paper,table]{report}
 \usepackage{etex}
 
+
 \usepackage{ifxetex}
 \ifxetex
   % IF XELATEX
   \usepackage{fontspec}
-  \usepackage{libertine}
+
+% \setmainfont
+% [ Path=./fonts/,   
+% Extension = .otf,
+% UprightFont = *-Regular,
+% BoldFont = *-Bold,
+% ItalicFont = *-Italic,
+% BoldItalicFont = *-BoldItalic,
+% ]
+% {XITS}
+
+
+\setmainfont[Path=$HOME/.fonts/GFS_Didot/GFS_Didot/,UprightFont=*,BoldFont=*Bold,ItalicFont=*italic,BoldItalicFont=*Bolditalic,Extension=.otf]{GFSDidot}
+
+  % \setmathfont(Digits,Latin,Greek)[STIX2Math.otf]
   \usepackage{polyglossia}
   \setdefaultlanguage{greek}
   \setotherlanguage{english}
@@ -16,38 +31,45 @@
   \usepackage[english,greek]{babel}
 \fi
 
+
 \usepackage[shrink=10,stretch=10]{microtype} 
 %%%%% math packages %%%%%%%%%%%%%%%%%%
 \usepackage[]{amsmath}
-\usepackage{amssymb}
+% \usepackage{amssymb}
 \usepackage{amsfonts}
+\usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{proof}
 \usepackage{mathtools}
 \usepackage[makeroom]{cancel}
 \usepackage{xspace}
 \usepackage{setspace}
-% \usepackage{xr}
-% \zexternaldocument[1-]{chapter1} %use \ref{1-labelname}
-\usepackage{mathrsfs} % script fonts (for Laplace symbol)
-\usepackage{subfiles}
 \usepackage{esint}
 
+\usepackage{unicode-math}
+% \setmathfont[Scale=MatchUppercase]{Asana Math}
+\setmathfont[Scale=MatchUppercase]{STIX2Math.otf}
+
+% \usepackage{xr}
+% \zexternaldocument[1-]{chapter1} %use \ref{1-labelname}
+% \usepackage{mathrsfs} % script fonts (for Laplace symbol)
+\usepackage{subfiles}
+
 \usepackage{diffcoeff}
-\usepackage{physics}
+\usepackage[italicdiff]{physics}
 \usepackage[detect-all]{siunitx}
 \usepackage{xfrac}
 \usepackage[b]{esvect} 
 \usepackage{relsize}
 %%%%%%% symbols packages %%%%%%%%%%%%%%
 \usepackage{bm} %for use \bm instead \boldsymbol in math mode
-% \usepackage{stmaryrd} %defines new operators, relations, arrows, delimiters, etc
+\usepackage{stmaryrd} %defines new operators, relations, arrows, delimiters, etc
 
 % \usepackage{anyfontsize} 
 
 %%%%%%%%%%%% graphics %%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{graphicx}
-%\usepackage{multicol}
+% \usepackage{multicol} 
 
 \usepackage[RGB,dvipsnames]{xcolor}
 \definecolor{Col1}{rgb}{0.74, 0.2, 0.64}
@@ -56,7 +78,7 @@
 \definecolor{Col4}{rgb}{0.0, 0.55, 0.55}
 \definecolor{Col5}{rgb}{0.74, 0.2, 0.64}
 
-\usepackage[many,skins,theorems]{tcolorbox}
+\usepackage[many]{tcolorbox}
 \usepackage{empheq}  
 
 %%%%%% tables %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -67,7 +89,7 @@
 \usepackage{minibox}
 \usepackage{systeme}
 \usepackage{cite} 
-% \usepackage{extarrows} 
+\usepackage{extarrows} 
 
 \usepackage[shortlabels,inline]{enumitem}
 
@@ -78,28 +100,26 @@
 \renewcommand{\footrulewidth}{0.5pt}
 \fancypagestyle{plain}{\fancyhf{}
   \fancyhead{}
-  \lfoot{\small \vspace{3pt}\color{Col1} Φοιτητικό Πρόσημο}
-  \cfoot{\small \vspace{3pt}\color{Col2!75}}
-\rfoot{\small \vspace{3pt} \thepage}}
+  \lfoot{\small \vspace{3pt}\color{Col1} Ευάγγελος Σαπουνάκης}
+  \cfoot{\small \vspace{3pt}\color{Col2!75} Φοιτητικό Πρόσημο}
+  \rfoot{\small \vspace{3pt} \thepage}
+}
 \fancypagestyle{vangelis}{\fancyhf{}
   \lfoot{\small \vspace{3pt}\color{Col1} Ευάγγελος Σαπουνάκης}
   \cfoot{\small \vspace{3pt}\color{Col2!75} Φοιτητικό Πρόσημο}
-\rfoot{\small \vspace{3pt} \thepage}}
+  \rfoot{\small \vspace{3pt} \thepage}
+}
 \fancypagestyle{askhseis}{\fancyhf{}
   \lfoot{\small \vspace{3pt}\color{Col1} Φοιτητικό Πρόσημο}
-  \cfoot{\small \vspace{3pt}\color{Col2!75}}
-\rfoot{\small \vspace{3pt} \thepage}}
-\fancypagestyle{vang}{\fancyhf{}
-  \lfoot{\small \vspace{3pt}\color{Col1} Ευάγγελος Σαπουνάκης}
-  \cfoot{\small \vspace{3pt}\color{Col2!75}}
-\rfoot{\small \vspace{3pt} \thepage}}
-
+  \cfoot{\small \vspace{3pt}\color{Col2!75} }
+  \rfoot{\small \vspace{3pt} \thepage}
+}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%$%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%% handles hyperlinks between different files %%%%%%%%%%%%%%%%%%%%%
-% use \zexternaldocument{filename of file that contains the label} inside the file with 
+% use \zexternaldocument*{filename of file that contains the label} inside the file with 
 % the ref command
-%use \ref or \zhref for hyperlink
+%use \ref or \hzref for hyperlink
 \usepackage{nameref}
 \usepackage[xr,hyperref,user]{zref}
 
@@ -134,13 +154,13 @@
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage[space]{grffile}
-
-\usepackage{geometry}
-\geometry{left=20.63mm,right=20.63mm,top=30.25mm,bottom=30.25mm,footskip=24.16mm,headsep=24.16mm}
+\usepackage[space]{grffile} %extends filename support for graphics 
 
 % \usepackage{geometry}
-% \geometry{left=15.63mm,right=15.63mm,top=36.25mm,bottom=36.25mm,footskip=24.16mm,headsep=24.16mm}
+% \geometry{left=25.63mm,right=25.63mm,top=36.25mm,bottom=36.25mm,footskip=24.16mm,headsep=24.16mm}
+
+\usepackage{geometry}
+\geometry{left=18mm,right=18mm,top=30.00mm,bottom=36.00mm,footskip=24.16mm,headsep=24.16mm}
 
 \usepackage{titlesec}
 %%%%%% titlesec settings %%%%%%%%%%%%%
@@ -154,13 +174,13 @@
 
 %%%%%%%%% My Theorems %%%%%%%%%%%%%%%%%%
 \theoremstyle{definition}
-\newtheorem{thm}{Θεώρημα}[]
+\newtheorem{thm}{Θεώρημα}[section]
 \newtheorem{cor}[thm]{Πόρισμα}
 \newtheorem{lem}[thm]{Λήμμα}
 \newtheorem{prop}[thm]{Πρόταση}
 \newtheorem{isx}[thm]{Ισχυρισμός}
 \theoremstyle{definition}
-\newtheorem{dfn}{Ορισμός}[]
+\newtheorem{dfn}{Ορισμός}[section]
 \newtheorem{dfns}[dfn]{Ορισμοί}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -179,16 +199,14 @@
 {\itshape}{}%
 {\bfseries}{}%
 {\newline}{}%
-
 \theoremstyle{break}
 \newtheorem{thmbreak}{Θεώρημα}
-\newtheorem{remsbreak}[thm]{Παρατηρήσεις}
 
 \newtheoremstyle{myrem}
 {\topsep}{\topsep}%
 {}{}%
 {\color{Col2}\bfseries}{.}%
-{1ex}{}%
+{0.5em}{}%
 
 \theoremstyle{myrem}
 \newtheorem{rem}[thm]{Παρατήρηση}
@@ -196,12 +214,14 @@
 \newtheorem{rems}[thm]{Παρατηρήσεις}
 \newtheorem{rems*}{Παρατηρήσεις}
 \newtheorem{concl}[thm]{Συμπέρασμα}
+\newtheorem{sxol}[thm]{Σχόλιο}
+\newtheorem{sxols}[thm]{Σχόλια}
 
 \newtheoremstyle{myex}
 {\topsep}{\topsep}%
 {}{}%
 {\color{Col1}\bfseries}{.}%
-{1ex}{}%
+{0.5em}{}%
 
 \theoremstyle{myex}
 \newtheorem{example}[thm]{Παράδειγμα}
@@ -215,7 +235,7 @@
 {\begin{proof}[#1]}
 {\end{proof}}
 
-%%%%%%%%%%%%%%% WATERMARK above pictures with opacity %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%% WATERMARK above pictures with opacity %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[printwatermark]{xwatermark}
 \newsavebox\mybox
 \savebox\mybox{\tikz[color=Col2,opacity=0.2]\node{ΠΡΟΣΗΜΟ};}

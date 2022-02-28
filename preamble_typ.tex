@@ -45,6 +45,7 @@
 \usepackage{proof}
 \usepackage{mathtools}
 \usepackage{extarrows}
+\usepackage{cancel}
 
 \usepackage[italicdiff]{physics}
 \usepackage{siunitx}
@@ -180,7 +181,7 @@
 
 \everymath{\displaystyle}
 
-\usepackage[most]{tcolorbox}
+\usepackage[many]{tcolorbox}
 \usepackage{empheq}  
 
 \usepackage[explicit]{titlesec}
@@ -233,7 +234,7 @@ corners,boxrule=0pt]\centering\strut\textcolor{white}{#1}\end{tcolorbox}}
 
 
 
-% \AtBeginDocument{\pagestyle{vangelis}\normalsize\raggedright}
+\AtBeginDocument{\pagestyle{vangelis}\normalsize\raggedright}
 
 \newcommand{\twocolumnside}[2]{\begin{minipage}[t]{0.45\linewidth}\raggedright
 #1
@@ -316,6 +317,16 @@ corners,boxrule=0pt]\centering\strut\textcolor{white}{#1}\end{tcolorbox}}
 \end{minipage}
 }
 
+\newcommand{\threecolumnsides}[3]{\begin{minipage}[t]{0.33\linewidth}\centering
+#1
+\end{minipage}\hfill\begin{minipage}[t]{0.33\linewidth}\centering
+#2
+\end{minipage}\hfill\begin{minipage}[t]{0.33\linewidth}\centering
+#3
+\end{minipage}
+}
+
+
 
 \usepackage{calc}
 \usepackage{array}
@@ -332,7 +343,6 @@ corners,boxrule=0pt]\centering\strut\textcolor{white}{#1}\end{tcolorbox}}
     \rowcolors{1}{TabRowOdd}{TabRowEven}
     }%
     {\endgroup
-
 }
 
 %%chapter starts on same page for report and book class with etoolbox package
