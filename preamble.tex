@@ -1,5 +1,8 @@
-\documentclass[a4paper,table]{report}
+% \documentclass[a4paper,table]{report}
 \usepackage{etex}
+
+% \usepackage{silence}
+% \WarningsOff[catoptions]
 
 \usepackage{ifxetex}
 \ifxetex
@@ -41,7 +44,7 @@
 \usepackage{relsize}
 %%%%%%% symbols packages %%%%%%%%%%%%%%
 \usepackage{bm} %for use \bm instead \boldsymbol in math mode
-\usepackage{stmaryrd} %defines new operators, relations, arrows, delimiters, etc
+% \usepackage{stmaryrd} %defines new operators, relations, arrows, delimiters, etc
 
 % \usepackage{anyfontsize} 
 
@@ -92,6 +95,11 @@
   \cfoot{\small \vspace{3pt}\color{Col2!75} }
   \rfoot{\small \vspace{3pt} \thepage}
 }
+\fancypagestyle{bookclub}{\fancyhf{}
+  \lfoot{\small \vspace{3pt}\color{Col1} Patras Book Club}
+  \cfoot{\small \vspace{3pt}\color{Col2!75} }
+  \rfoot{\small \vspace{3pt} \thepage}
+}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%$%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%% handles hyperlinks between different files %%%%%%%%%%%%%%%%%%%%%
@@ -134,11 +142,11 @@
 
 \usepackage[space]{grffile} %extends filename support for graphics 
 
-% \usepackage{geometry}
+\usepackage{geometry}
 % \geometry{left=25.63mm,right=25.63mm,top=36.25mm,bottom=36.25mm,footskip=24.16mm,headsep=24.16mm}
 
 \usepackage{geometry}
-\geometry{left=18mm,right=18mm,top=30.00mm,bottom=36.00mm,footskip=24.16mm,headsep=24.16mm}
+\geometry{left=18mm,right=18mm,top=30.00mm,bottom=32.00mm,footskip=24.16mm,headsep=24.16mm}
 
 \usepackage{titlesec}
 %%%%%% titlesec settings %%%%%%%%%%%%%
@@ -213,19 +221,19 @@
 {\begin{proof}[#1]}
 {\end{proof}}
 
-%%%%%%%%%%%%%%%% WATERMARK above pictures with opacity %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage[printwatermark]{xwatermark}
-\newsavebox\mybox
-\savebox\mybox{\tikz[color=Col2,opacity=0.2]\node{ΠΡΟΣΗΜΟ};}
-\newwatermark*[
-allpages,
-fontfamily=lmr,
-fontseries=m,
-angle=45,
-scale=12,
-xpos=-40,
-ypos=40,
-]{\usebox\mybox} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% WATERMARK above pictures with opacity %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage[printwatermark]{xwatermark}
+%\newsavebox\mybox
+%\savebox\mybox{\tikz[color=Col2,opacity=0.2]\node{ΠΡΟΣΗΜΟ};}
+%\newwatermark*[
+%allpages,
+%fontfamily=lmr,
+%fontseries=m,
+%angle=45,
+%scale=12,
+%xpos=-40,
+%ypos=40,
+%]{\usebox\mybox} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \setlength{\parindent}{0pt}

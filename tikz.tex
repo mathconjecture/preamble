@@ -1,10 +1,17 @@
 %%%%%%%%%%%%% TIKZ $$$$$$$$$$$$$$$$$
+
+% \pgfplotsset{compat=1.10}
+% \usepgfplotslibrary{fillbetween}
+
+\tikzset{dot/.style={draw, fill, circle, inner sep=1pt, minimum size=3pt}}
+
 \usepackage{tikz}
 \usepackage{tkz-euclide}
-\usetikzlibrary{shapes,angles,arrows.meta,bending,quotes,intersections}
+\usetikzlibrary{shapes,patterns,angles,arrows.meta,bending,quotes,intersections}
 \usetikzlibrary{decorations.pathmorphing}
 \usetikzlibrary{decorations.pathreplacing} 
-\usetikzlibrary{decorations.markings,patterns}
+\usetikzlibrary{decorations.shapes,decorations.text} 
+\usetikzlibrary{decorations.markings}
 \usetikzlibrary{positioning} %place nodes relative to other nodes
 \usetikzlibrary{backgrounds,fit,shadows} %for background to the pictures
 \usetikzlibrary{calc}
@@ -13,34 +20,43 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.17}
 \usepgfplotslibrary{fillbetween}
-\pgfdeclarelayer{fg}
-\pgfdeclarelayer{bg}
-\pgfsetlayers{bg,main,fg}
+\usepgfplotslibrary{polar}
+% \pgfdeclarelayer{fg}
+% \pgfdeclarelayer{bg}
+% \pgfsetlayers{bg,main,fg}
 
+\pgfdeclarelayer{foreground}
+\pgfdeclarelayer{background}
+\pgfsetlayers{background,main,foreground}
 
 
 %%%%%%% my styles %%%%%%%%%%%%%%%%%%%%
 \tikzset{r/.style={radius=#1},rx/.style={x radius=#1},ry/.style={y radius=#1}}
-\tikzset{point/.style={draw, fill, circle, inner sep=1pt, minimum size=3pt}}
+\tikzset{point/.style={draw, fill, circle, inner sep=1pt, minimum size=2pt}}
 \tikzset{dashed lines/.style={dashed,ultra thin}}
-\tikzset{axis/.style={ultra thin}}
+\tikzset{axis/.style={ultra thin,blue!75}}
 \tikzset{graph/.style={very thick,Col1}}
 \tikzset{graph label/.style={Col2}}
-%%%%%%% my pics %%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%% my pics %%%%%%%%%%%%%%%%%%%%
 \tikzset{
   arrow/.pic={\path[tips,->,>=#1] (0,0) -- +(.1pt,0);},
    pics/arrow/.default={angle 60}
 }
 
-% \pgfplotsset{myaxis/.style={axis lines=center,axis line style={thick,Col2!75,-stealth},
-%   tick label style={font=\small,Col2!75},tick style={Col2!75}},
-%   myplot/.style={Col1!75,ultra thick,samples=500,no marks,smooth},
-% dashed lines/.style={dashed,Col2!75,ultra thin}}
+%adds a rectangle background box behind every picture
+% \tikzset{every picture/.append style={background rectangle/.style={fill=blue!05,rounded
+%   corners},show background rectangle}}
 
-\pgfplotsset{myaxismau/.style={axis lines=center,axis line style={-stealth},
-  tick label style={font=\small}},
-  myplotmau/.style={blue!50,ultra thick,samples=500,no marks,smooth},
-dashed lines/.style={dashed,ultra thin}}
+\pgfplotsset{myaxis/.style={axis lines=center,axis line style={thick,Col2!75,-stealth},
+  tick label style={font=\small,Col2!75},tick style={Col2!75}},
+  myplot/.style={Col1,very thick,samples=500,no marks,smooth},
+dashed lines/.style={dashed,Col2!75,ultra thin}}
+
+% \pgfplotsset{myaxismau/.style={axis lines=center,axis line style={-stealth},
+%   tick label style={font=\small}},
+%   myplotmau/.style={blue!50,ultra thick,samples=500,no marks,smooth},
+% dashed lines/.style={dashed,ultra thin}}
 
 %%%%%%%%%%%%%%%%%%% My Box Styles %%%%%%%%%%%%%%%%%%%%%%%%%
 \tikzset{%
@@ -54,14 +70,18 @@ dashed lines/.style={dashed,ultra thin}}
   color=Col2!15, inner sep=15pt},
 myboxtitleprop/.style= {rectangle, fill=Col2!75, text=white, font={\bfseries},right=2\baselineskip}}
 
-%%%%%%%%%%%%%%%%%%% my math boxes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newtcbox{\mathboxg}[1][]{nobeforeafter, math upper,tcbox raise base,size=small, 
-          enhanced, sharp corners, colback=Col2!20, colframe=Col2!50,
-        % left=1ex, top=1ex, right=1ex, bottom=1ex,
-          }
-\newtcbox{\mathboxr}[1][]{nobeforeafter, math upper,tcbox raise base,size=small,
-          enhanced, sharp corners, colback=Col1!20, colframe=Col1!50,
-        %left=1ex, top=1ex, right=1ex, bottom=1ex,
-        }
-\tcbset{highlight math style={nobeforeafter, math upper,size=small, 
-enhanced, sharp corners, colback=Col1!20, colframe=Col1!50}}
+
+\tikzset{tangent/.style=
+  {decoration=
+    {markings, mark=at position #1 with
+      {\coordinate (tangent point-\pgfkeysvalueof{/pgf/decoration/mark info/sequence number}) at (0pt,0pt);
+        \coordinate (tangent unit vector-\pgfkeysvalueof{/pgf/decoration/mark info/sequence number}) at (1,0pt);
+        \coordinate (tangent orthogonal unit vector-\pgfkeysvalueof{/pgf/decoration/mark info/sequence number}) at (0pt,1);
+      }
+    },
+  postaction=decorate},
+  use tangent/.style={shift=(tangent point-#1),
+    x=(tangent unit vector-#1),
+  y=(tangent orthogonal unit vector-#1)},
+use tangent/.default=1}
+

@@ -1,4 +1,5 @@
-\documentclass[a4paper,table]{report}
+% \documentclass[a4paper,table]{report}
+
 \usepackage{etex}
 
 \usepackage{ifxetex}
@@ -10,15 +11,18 @@
   \setdefaultlanguage{greek}
   \setotherlanguage{english}
 \else
-  % IF PDFLATEX
+% IF PDFLATEX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage[english,greek]{babel}
+  \usepackage{alphabeta}
+  \usepackage{libertinus}
+  \usepackage{libertinust1math}
 \fi
 
 \usepackage[shrink=10,stretch=10]{microtype} 
 %%%%% math packages %%%%%%%%%%%%%%%%%%
-\usepackage[]{amsmath}
+% \usepackage[]{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{amsthm}
@@ -43,7 +47,8 @@
 \usepackage{bm} %for use \bm instead \boldsymbol in math mode
 % \usepackage{stmaryrd} %defines new operators, relations, arrows, delimiters, etc
 
-% \usepackage{anyfontsize} 
+% \usepackage{libertinus-otf}
+\usepackage{anyfontsize} 
 
 %%%%%%%%%%%% graphics %%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{graphicx}
@@ -67,7 +72,7 @@
 \usepackage{minibox}
 \usepackage{systeme}
 \usepackage{cite} 
-% \usepackage{extarrows} 
+\usepackage{extarrows} 
 
 \usepackage[shortlabels,inline]{enumitem}
 
@@ -78,11 +83,11 @@
 \renewcommand{\footrulewidth}{0.5pt}
 \fancypagestyle{plain}{\fancyhf{}
   \fancyhead{}
-  \lfoot{\small \vspace{3pt}\color{Col1} Φοιτητικό Πρόσημο}
-  \cfoot{\small \vspace{3pt}\color{Col2!75}}
+  \lfoot{\small \vspace{3pt}\color{Col1}  Ευάγγελος Σαπουνάκης}
+  \cfoot{\small \vspace{3pt}\color{Col2!75} Φοιτητικό Πρόσημο}
 \rfoot{\small \vspace{3pt} \thepage}}
 \fancypagestyle{vangelis}{\fancyhf{}
-  \lfoot{\small \vspace{3pt}\color{Col1} Ευάγγελος Σαπουνάκης}
+  \lfoot{\small \vspace{3pt}\color{Col1} Ευάγγελος Σαπουνάκης Msc}
   \cfoot{\small \vspace{3pt}\color{Col2!75} Φοιτητικό Πρόσημο}
 \rfoot{\small \vspace{3pt} \thepage}}
 \fancypagestyle{askhseis}{\fancyhf{}
@@ -90,7 +95,7 @@
   \cfoot{\small \vspace{3pt}\color{Col2!75}}
 \rfoot{\small \vspace{3pt} \thepage}}
 \fancypagestyle{vang}{\fancyhf{}
-  \lfoot{\small \vspace{3pt}\color{Col1} Ευάγγελος Σαπουνάκης}
+  \lfoot{\small \vspace{3pt}\color{Col1} Ευάγγελος Σαπουνάκης Msc}
   \cfoot{\small \vspace{3pt}\color{Col2!75}}
 \rfoot{\small \vspace{3pt} \thepage}}
 
@@ -123,7 +128,7 @@
   colorlinks=true,
   % linkcolor=Col1,
   % anchorcolor=Col1 ,
-  % citecolor=Col1 ,
+  citecolor=Col1 ,
   % urlcolor= ,
   allcolors=Col1,
   bookmarksopen=true,
@@ -210,6 +215,8 @@
 \newtheorem{exercises}[thm]{Ασκήσεις}
 \newtheorem{problem}[thm]{Πρόβλημα}
 \newtheorem{problems}[thm]{Προβλήματα}
+\newtheorem{thema}[thm]{Θέμα}
+\newtheorem{themata}[thm]{Θέματα}
 
 \newenvironment{solution}[1][\bfseries Λύση]
 {\begin{proof}[#1]}
@@ -227,7 +234,7 @@ angle=45,
 scale=12,
 xpos=-40,
 ypos=40,
-]{\usebox\mybox} 
+]{\usebox\mybox}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \setlength{\parindent}{0pt}

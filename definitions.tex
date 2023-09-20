@@ -13,6 +13,7 @@
 
 \newlist{myitemize}{itemize}{3}
 \setlist[myitemize]{label=\textcolor{Col1}{\tiny$\blacksquare$}}
+\setlist[myitemize,2]{label=\textcolor{Col1}{\small$\blacktriangleright$}}
 % \setlist[myitemize]{label=\textcolor{Col1}{$\small\blacktriangleright$}}
 
 \newlist{myitemize*}{itemize*}{3}
@@ -118,6 +119,14 @@
 \newcommand{\twocolumnsidelc}[2]{\begin{minipage}[c]{0.25\linewidth}\raggedright
         #1
         \end{minipage}\hfill\begin{minipage}[c]{0.70\linewidth}\raggedright
+        #2
+    \end{minipage}
+}
+
+\newcommand{\twocolumnsideslc}[2]{\begin{minipage}[c]{0.25\linewidth}\raggedright
+        #1
+        \end{minipage}\hfill{\color{Col\thechapter}{\vrule width
+        1pt}}\hfill\begin{minipage}[c]{0.70\linewidth}\raggedright
         #2
     \end{minipage}
 }

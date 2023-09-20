@@ -1,30 +1,16 @@
 % \documentclass[a4paper,table]{report}
 \usepackage{etex}
 
-\usepackage[]{amsmath}
-\usepackage{amssymb}
-\usepackage{amsfonts}
-\usepackage{amsthm}
-
 \usepackage{ifxetex}
 \ifxetex
   % IF XELATEX
   \usepackage{fontspec}
-  % \usepackage{libertine}
-
-% \setmainfont [ Extension = .otf, UprightFont = *-Regular, BoldFont = *-Bold, ItalicFont = *-Italic, BoldItalicFont = *-BoldItalic, ] {XITS}
-
-% \setmainfont[Path=$HOME/.fonts/GFS_Didot/GFS_Didot/,UprightFont=*,BoldFont=*Bold,ItalicFont=*italic,BoldItalicFont=*Bolditalic,Extension=.otf]{GFSDidot}
-
-% \setmainfont[ Path=$HOME/Desktop/test/fonts/,UprightFont=*-Regular,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-Bold-Italic,Extension=.ttf]{Minion-Pro}
-
-% \setmainfont[UprightFont=*-Regular,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-BoldItalic,Extension=.otf]{LibertinusSerif}
-
+  \usepackage{libertine}
   \usepackage{polyglossia}
   \setdefaultlanguage{greek}
   \setotherlanguage{english}
 \else
-  % IF PDFLATEX
+% IF PDFLATEX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage[english,greek]{babel}
@@ -33,44 +19,39 @@
   \usepackage{libertinust1math}
 \fi
 
-
-\usepackage[stretch=10]{microtype} 
+\usepackage[shrink=10,stretch=10]{microtype} 
 %%%%% math packages %%%%%%%%%%%%%%%%%%
+% \usepackage[]{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
 \usepackage{proof}
 \usepackage{mathtools}
 \usepackage[makeroom]{cancel}
 \usepackage{xspace}
 \usepackage{setspace}
-\usepackage{esint}
-
-% \usepackage[warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
-% \setmathfont[Extension=.otf,BoldFont=XITSMath-Bold,]{XITSMath-Regular}
-% \setmathfont[Scale=MatchUppercase]{Asana Math}
-% \setmathfont[Scale=MatchUppercase]{STIX2Math.otf}
-% \setmathfont[Scale=MatchUppercase]{LibertinusMath-Regular}
-
-% \usepackage{libertinus-otf}
-
 % \usepackage{xr}
 % \zexternaldocument[1-]{chapter1} %use \ref{1-labelname}
-% \usepackage{mathrsfs} % script fonts (for Laplace symbol)
+\usepackage{mathrsfs} % script fonts (for Laplace symbol)
 \usepackage{subfiles}
+\usepackage{esint}
 
 \usepackage{diffcoeff}
-\usepackage[italicdiff]{physics}
+\usepackage{physics}
 \usepackage[detect-all]{siunitx}
 \usepackage{xfrac}
-% \usepackage[b]{esvect} 
+\usepackage[b]{esvect} 
 \usepackage{relsize}
 %%%%%%% symbols packages %%%%%%%%%%%%%%
 \usepackage{bm} %for use \bm instead \boldsymbol in math mode
 % \usepackage{stmaryrd} %defines new operators, relations, arrows, delimiters, etc
 
-% \usepackage{anyfontsize} 
+% \usepackage{libertinus-otf}
+\usepackage{anyfontsize} 
 
 %%%%%%%%%%%% graphics %%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{graphicx}
-% \usepackage{multicol} 
+%\usepackage{multicol}
 
 \usepackage[RGB,dvipsnames]{xcolor}
 \definecolor{Col1}{rgb}{0.74, 0.2, 0.64}
@@ -79,7 +60,7 @@
 \definecolor{Col4}{rgb}{0.0, 0.55, 0.55}
 \definecolor{Col5}{rgb}{0.74, 0.2, 0.64}
 
-\usepackage[many]{tcolorbox}
+\usepackage[many,skins,theorems]{tcolorbox}
 \usepackage{empheq}  
 
 %%%%%% tables %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -90,7 +71,7 @@
 \usepackage{minibox}
 \usepackage{systeme}
 \usepackage{cite} 
-\usepackage{extarrows} 
+% \usepackage{extarrows} 
 
 \usepackage[shortlabels,inline]{enumitem}
 
@@ -101,26 +82,28 @@
 \renewcommand{\footrulewidth}{0.5pt}
 \fancypagestyle{plain}{\fancyhf{}
   \fancyhead{}
-  \lfoot{\small \vspace{3pt}\color{Col1} Ευάγγελος Σαπουνάκης}
+  \lfoot{\small \vspace{3pt}\color{Col1}  Ευάγγελος Σαπουνάκης}
   \cfoot{\small \vspace{3pt}\color{Col2!75} Φοιτητικό Πρόσημο}
-  \rfoot{\small \vspace{3pt} \thepage}
-}
+\rfoot{\small \vspace{3pt} \thepage}}
 \fancypagestyle{vangelis}{\fancyhf{}
   \lfoot{\small \vspace{3pt}\color{Col1} Ευάγγελος Σαπουνάκης}
-  \cfoot{\small \vspace{3pt}\color{Col2!75} Φοιτητικό Πρόσημο}
-  \rfoot{\small \vspace{3pt} \thepage}
-}
+  \cfoot{\small \vspace{3pt}\color{Col2!75} MoreMath}
+\rfoot{\small \vspace{3pt} \thepage}}
 \fancypagestyle{askhseis}{\fancyhf{}
   \lfoot{\small \vspace{3pt}\color{Col1} Φοιτητικό Πρόσημο}
-  \cfoot{\small \vspace{3pt}\color{Col2!75} }
-  \rfoot{\small \vspace{3pt} \thepage}
-}
+  \cfoot{\small \vspace{3pt}\color{Col2!75}}
+\rfoot{\small \vspace{3pt} \thepage}}
+\fancypagestyle{vang}{\fancyhf{}
+  \lfoot{\small \vspace{3pt}\color{Col1} Ευάγγελος Σαπουνάκης Msc}
+  \cfoot{\small \vspace{3pt}\color{Col2!75}}
+\rfoot{\small \vspace{3pt} \thepage}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%$%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%% handles hyperlinks between different files %%%%%%%%%%%%%%%%%%%%%
-% use \zexternaldocument*{filename of file that contains the label} inside the file with 
+% use \zexternaldocument{filename of file that contains the label} inside the file with 
 % the ref command
-%use \ref or \hzref for hyperlink
+%use \ref or \zhref for hyperlink
 \usepackage{nameref}
 \usepackage[xr,hyperref,user]{zref}
 
@@ -144,7 +127,7 @@
   colorlinks=true,
   % linkcolor=Col1,
   % anchorcolor=Col1 ,
-  % citecolor=Col1 ,
+  citecolor=Col1 ,
   % urlcolor= ,
   allcolors=Col1,
   bookmarksopen=true,
@@ -155,13 +138,13 @@
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage[space]{grffile} %extends filename support for graphics 
+\usepackage[space]{grffile}
 
 \usepackage{geometry}
-\geometry{left=25.63mm,right=25.63mm,top=36.25mm,bottom=36.25mm,footskip=24.16mm,headsep=24.16mm}
+\geometry{left=20.63mm,right=20.63mm,top=30.25mm,bottom=30.25mm,footskip=24.16mm,headsep=24.16mm}
 
 % \usepackage{geometry}
-% \geometry{left=20mm,right=20mm,bottom=2cm}
+% \geometry{left=15.63mm,right=15.63mm,top=36.25mm,bottom=36.25mm,footskip=24.16mm,headsep=24.16mm}
 
 \usepackage{titlesec}
 %%%%%% titlesec settings %%%%%%%%%%%%%
@@ -175,13 +158,13 @@
 
 %%%%%%%%% My Theorems %%%%%%%%%%%%%%%%%%
 \theoremstyle{definition}
-\newtheorem{thm}{Θεώρημα}[section]
+\newtheorem{thm}{Θεώρημα}[]
 \newtheorem{cor}[thm]{Πόρισμα}
 \newtheorem{lem}[thm]{Λήμμα}
 \newtheorem{prop}[thm]{Πρόταση}
 \newtheorem{isx}[thm]{Ισχυρισμός}
 \theoremstyle{definition}
-\newtheorem{dfn}{Ορισμός}[section]
+\newtheorem{dfn}{Ορισμός}[]
 \newtheorem{dfns}[dfn]{Ορισμοί}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -200,14 +183,16 @@
 {\itshape}{}%
 {\bfseries}{}%
 {\newline}{}%
+
 \theoremstyle{break}
 \newtheorem{thmbreak}{Θεώρημα}
+\newtheorem{remsbreak}[thm]{Παρατηρήσεις}
 
 \newtheoremstyle{myrem}
 {\topsep}{\topsep}%
 {}{}%
 {\color{Col2}\bfseries}{.}%
-{0.5em}{}%
+{1ex}{}%
 
 \theoremstyle{myrem}
 \newtheorem{rem}[thm]{Παρατήρηση}
@@ -215,14 +200,12 @@
 \newtheorem{rems}[thm]{Παρατηρήσεις}
 \newtheorem{rems*}{Παρατηρήσεις}
 \newtheorem{concl}[thm]{Συμπέρασμα}
-\newtheorem{sxol}[thm]{Σχόλιο}
-\newtheorem{sxols}[thm]{Σχόλια}
 
 \newtheoremstyle{myex}
 {\topsep}{\topsep}%
 {}{}%
 {\color{Col1}\bfseries}{.}%
-{0.5em}{}%
+{1ex}{}%
 
 \theoremstyle{myex}
 \newtheorem{example}[thm]{Παράδειγμα}
@@ -231,15 +214,17 @@
 \newtheorem{exercises}[thm]{Ασκήσεις}
 \newtheorem{problem}[thm]{Πρόβλημα}
 \newtheorem{problems}[thm]{Προβλήματα}
+\newtheorem{thema}[thm]{Θέμα}
+\newtheorem{themata}[thm]{Θέματα}
 
 \newenvironment{solution}[1][\bfseries Λύση]
 {\begin{proof}[#1]}
 {\end{proof}}
 
-%%%%%%%%%%%%%%%% WATERMARK above pictures with opacity %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% WATERMARK above pictures with opacity %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage[printwatermark]{xwatermark}
 \newsavebox\mybox
-\savebox\mybox{\tikz[color=Col2,opacity=0.2]\node{ΠΡΟΣΗΜΟ};}
+\savebox\mybox{\tikz[color=Col2,opacity=0.2]\node{MoreMath};}
 \newwatermark*[
 allpages,
 fontfamily=lmr,
@@ -252,3 +237,4 @@ ypos=40,
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \setlength{\parindent}{0pt}
+

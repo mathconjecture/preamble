@@ -150,3 +150,19 @@
     \begin{mdframed}[]\relax}{%
 \end{mdframed}}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%% my math boxes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ % \newtcbox{\mathboxg}[1][]{nobeforeafter, math upper,tcbox raise base,size=small, 
+ %           enhanced, sharp corners, colback=Col2!20, colframe=Col2!50,
+ %         % left=1ex, top=1ex, right=1ex, bottom=1ex,
+ %           }
+\newtcbox{\mathboxg}[1][]{nobeforeafter, math upper,tcbox raise base,size=small, 
+  sharp corners, colback=Col2!20, colframe=Col2!50,
+  % left=1ex, top=1ex, right=1ex, bottom=1ex,
+}
+\newtcbox{\mathboxr}[1][]{nobeforeafter, math upper,tcbox raise base,size=small,
+  sharp corners, colback=Col1!20, colframe=Col1!50,
+  %left=1ex, top=1ex, right=1ex, bottom=1ex,
+}
+\tcbset{highlight math style={nobeforeafter, math upper,size=small, 
+sharp corners, colback=Col1!20, colframe=Col1!50}}
