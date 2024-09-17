@@ -1,20 +1,27 @@
 % \documentclass[a4paper,table]{report}
 \usepackage{etex}
 
-%%% Babel language package
-%\usepackage[english,greek]{babel}
-%%% Inputenc font encoding
-%\usepackage[utf8]{inputenc}
-
-\usepackage{fontspec}
-\usepackage{libertine}
-\usepackage{polyglossia}
-\setdefaultlanguage{greek}
-\setotherlanguage{english}
+\usepackage{ifxetex}
+\ifxetex
+  % IF XELATEX
+  \usepackage{fontspec}
+  \usepackage{libertine}
+  \usepackage{polyglossia}
+  \setdefaultlanguage{greek}
+  \setotherlanguage{english}
+\else
+% IF PDFLATEX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage[english,greek]{babel}
+  \usepackage{alphabeta}
+  \usepackage{libertinus}
+  \usepackage{libertinust1math}
+\fi
 
 \usepackage[shrink=10,stretch=10]{microtype} 
 %%%%% math packages %%%%%%%%%%%%%%%%%%
-\usepackage[intlimits]{amsmath}
+% \usepackage[intlimits]{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{amsthm}

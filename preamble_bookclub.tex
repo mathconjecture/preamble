@@ -8,7 +8,7 @@
   \usepackage{polyglossia}
   \setdefaultlanguage{greek}
   \setotherlanguage{english}
-  \usepackage{libertine}
+  % \usepackage{libertine}
 \else
   % IF PDFLATEX
   \usepackage[T1]{fontenc}
@@ -110,33 +110,34 @@ myboxtitleprop/.style={rectangle, fill=Col2!35, text=white, font={\bfseries},rig
 
 \usepackage[shortlabels,inline]{enumitem}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{fancyhdr}
-%%%%%% header and footer rule %%%%%%%%%
-%\setlength{\headheight}{14pt}
-%\renewcommand{\headrulewidth}{0pt}
-%\renewcommand{\footrulewidth}{0.5pt}
-% \fancypagestyle{plain}
-%{
-%  \fancyhf{}
-%  \fancyhead{}
-%  \lfoot{\small \vspace{3pt}\color{Col1} Βαγγέλης Σαπουνάκης}
-%  \cfoot{\small \vspace{3pt}\color{Col2!75} Φοιτητικό Πρόσημο}
-%  \rfoot{\small \vspace{3pt} \thepage}
-%}
-\fancypagestyle{vangelis}
-{
-  \fancyhf{}
-  \lfoot{\small \vspace{3pt}\color{Col1} Βαγγέλης Σαπουνάκης}
-  \cfoot{\small \vspace{3pt}\color{Col2!75} Φοιτητικό Πρόσημο}
-  \rfoot{\small \vspace{3pt} \thepage}
+%%%%% header and footer rule %%%%%%%%%
+% \setlength{\headheight}{14pt}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\fancypagestyle{plain}{}
+\fancypagestyle{bookclub}{\fancyhf{}
+    % \fancyfootoffset{10mm}
+     % \rfoot[\textcolor{Col1}{Patra's Book Club}]{\tikz {\node[fill=Col1,text=white]{\bfseries\thepage};}}
+  \rfoot[]{\tikz[baseline=-3pt]{\node[fill=Col1,text=white]{\bfseries\thepage};}}
+  % \rfoot[]{\tikz[baseline=0pt]{\node[fill=Col1,text=white] (page) {\bfseries\thepage};
+  %      \node[xshift=-3mm,anchor=east] (chapt) {\textcolor{Col1}{\leftmark{}}};
+  %  }}
+  % \rfoot[]{\textcolor{Col1}{\thepage}}
+      % \node[Col1,anchor=east,xshift=-5pt] (text) at (page) {\leftmark{}};
+    % \fill[Col1] (text2.east) rectangle++(5mm,5mm);
+  % }
+    % \fill[Col1] ([shift={(0mm,-2mm)}]text.east) rectangle++(5mm,5mm);
+    % \rfoot[\tikz {\node[fill=Col1,text=white]{\bfseries\thepage};
+     % \cfoot[]{\textcolor{Col2}{Η Μεγάλη Χίμαιρα}}
+    \lfoot[]{\textcolor{Col1}{Patra's Book Club}}
+    % \lhead[\textcolor{Col1}{Η Μεγάλη Χίμαιρα}]{}
+    \rhead[]{\tikz[remember picture,overlay]{\node[rotate=90,anchor=east] (text) at
+        ([shift={(-5mm,-8mm)}]current page.north east) {\textcolor{Col2}\leftmark{}};
+    \fill[Col2] ([xshift={-2.5mm}]text.east) rectangle++(5mm,5mm);
+}}
 }
-%\fancypagestyle{askhseis}
-%{
-%  \fancyhf{}
-%  \lfoot{\small \vspace{3pt}\color{Col1} Φοιτητικό Πρόσημο}
-%  \cfoot{\small \vspace{3pt}\color{Col2!75} }
-%  \rfoot{\small \vspace{3pt} \thepage}
-%}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage{hyperref}
@@ -275,7 +276,17 @@ myboxtitleprop/.style={rectangle, fill=Col2!35, text=white, font={\bfseries},rig
 % \setlength{\parindent}{1em}
 
 \setlength{\columnsep}{1.5\baselineskip}
-\setlength{\columnseprule}{0pt}
+% \setlength{\columnseprule}{1pt}
 % \renewcommand{\columnseprulecolor}{\color{Col1}}
+
+%%%%%%%% mycomments - myquotes %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newsavebox{\boxs} %define the name of the new savebox
+\newenvironment{com}[1]{
+%grab the typesetting argument in {begin def}, where you can typeset it, by using 
+% the \savebox command.
+% and then use it (move it, typeset it) with  the \usebox command in the {end def}
+\savebox{\boxs{#1}}\begin{quote}\small\itshape}
+{\newline\hspace*\fill\usebox{\boxs}\end{quote}}
+
 
 
